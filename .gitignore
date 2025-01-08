@@ -1,1 +1,4 @@
 .env
+airflow/data
+airflow/logs
+.venv/

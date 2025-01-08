@@ -1,0 +1,61 @@
+version: '3'
+services:
+    postgres:
+        image: postgres:14
+        environment:
+            - POSTGRES_DB=db
+            - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+            - POSTGRES_USER=airflow
+        volumes:
+            - ./database/:/var/lib/postgresql/data
+        healthcheck:
+            test: ["CMD", "pg_isready -d db -U airflow"]
+            interval: 5s
+            retries: 5
+        restart: always
+
+    scheduler:
+        build: .
+        command: poetry run airflow scheduler
+        restart: on-failure
+        depends_on:
+            - postgres
+        environment:
+            - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+            - AIRFLOW__DEBUG__FAIL_FAST=true
+            - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:$POSTGRES_PASSWORD@postgres:5432/db
+            - AIRFLOW__CORE__LOAD_EXAMPLES=false
+            - PROJECT_ID=$PROJECT_ID
+        volumes:
+            - ./dags:/app/airflow/dags
+            - ./logs:/app/airflow/logs
+        tty: true
+        stdin_open: true
+
+    webserver:
+        build: .
+        command: poetry run scripts/entrypoint.sh
+        restart: on-failure
+        depends_on:
+            - postgres
+            - scheduler
+        environment:
+            - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+            - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:$POSTGRES_PASSWORD@postgres:5432/db
+            - POSTGRES_DB=db
+            - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+            - POSTGRES_USER=airflow
+            - AIRFLOW__CORE__LOAD_EXAMPLES=false
+            - PROJECT_ID=$PROJECT_ID
+        volumes:
+            - ./dags:/app/airflow/dags
+            - ./logs:/app/airflow/logs
+        ports:
+            - "8080:8080"
+        healthcheck:
+            test: ["CMD-SHELL", "[ -f /home/airflow/airflow-webserver.pid ]"]
+            interval: 30s
+            timeout: 30s
+            retries: 3
+        tty: true
+        stdin_open: true
