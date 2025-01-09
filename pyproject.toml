@@ -12,7 +12,6 @@ pendulum = "^3.0.0"
 pytest = "^8.3.4"
 apache-airflow = {version = "^2.3.0", extras = ["postgres", "airbyte"]}
 ipython = "^8.4.0"
-pyarrow = "^8.0.0"
 dbt-core = "^1.1.1"
 dbt-bigquery = "^1.1.0"
 
