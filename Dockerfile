@@ -6,7 +6,6 @@ ENV PYTHONUNBUFFERED=1
 
 ENV AIRFLOW_HOME=/app/airflow
 
-
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
@@ -14,10 +13,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR $AIRFLOW_HOME
 
-COPY . .
+COPY scripts scripts
+COPY pyproject.toml poetry.lock ./
 
-RUN chmod +x airflow/scripts/entrypoint.sh
+RUN chmod +x scripts/entrypoint.sh
+RUN chmod +x scripts/init_connections.sh
 
 RUN pip3 install --upgrade --no-cache-dir pip \
     && pip3 install poetry \
-    && poetry install --only-main
+    && poetry install --only main

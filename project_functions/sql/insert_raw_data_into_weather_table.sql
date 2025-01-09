@@ -16,7 +16,7 @@ expand_data as (
 		longitude,
 		latitude,
 		extracted_date,
-		(data ->> 'datetime')::date as datetime,
+		(data ->> 'datetime')::date as date_time,
 		(data ->> 'datetimeEpoch')::numeric as datetimeEpoch,
 		(data ->> 'tempmax')::numeric as tempmax,
 	    (data ->> 'tempmin')::numeric as tempmin,
@@ -48,12 +48,60 @@ expand_data as (
 	    (data ->> 'sunsetEpoch')::numeric as sunsetEpoch,
 	    (data ->> 'moonphase')::numeric as moonphase,
 	    (data ->> 'conditions')::text as conditions,
-	    (data ->> 'description')::text as description,
+	    (data ->> 'description')::text as descriptions,
 	    (data ->> 'icon')::text as icon,
 	    (data ->> 'source')::varchar as source
 	from weather_data
 )
 
 
-select *
-from expand_data expd;
+--CREATE staging weather table
+CREATE TABLE IF NOT EXISTS staging_weather(
+  record_id numeric,
+  region varchar,
+  department varchar,
+  longitude numeric,
+  latitude numeric,
+  extracted_date timestamp,
+  date_time date,
+  datetimeEpoch numeric,
+  tempmax numeric,
+  tempmin numeric,
+  temp numeric,
+  feelslikemax numeric,
+  feelslikemin numeric,
+  feelslike numeric,
+  dew numeric,
+  humidity numeric,
+  precip numeric,
+  precipprob numeric,
+  precipcover numeric,
+  preciptype varchar,
+  snow numeric,
+  snowdepth numeric,
+  windgust numeric,
+  windspeed numeric,
+  winddir numeric,
+  pressure numeric,
+  cloudcover numeric,
+  visibility numeric,
+  solarradiation numeric,
+  solarenergy numeric,
+  uvindex numeric,
+  severerisk numeric,
+  sunrise varchar,
+  sunriseEpoch numeric,
+  sunset varchar,
+  sunsetEpoch numeric,
+  moonphase numeric,
+  conditions text,
+  descriptions text,
+  icon text,
+  source varchar,
+  PRIMARY KEY (department, date_time)
+);
+
+--Insert data into staging_weather table
+INSERT INTO staging_weather (record_id, region, department, longitude, latitude, extracted_date, date_time, datetimeEpoch, tempmax, tempmin, temp, feelslikemax, feelslikemin, feelslike, dew, humidity, precip, precipprob, precipcover, preciptype, snow, snowdepth, windgust, windspeed, winddir, pressure, cloudcover, visibility, solarradiation, solarenergy, uvindex, severerisk, sunrise, sunriseEpoch, sunset, sunsetEpoch, moonphase, conditions, descriptions, icon, source)
+SELECT record_id, region, department, longitude, latitude, extracted_date, date_time, datetimeEpoch, tempmax, tempmin, temp, feelslikemax, feelslikemin, feelslike, dew, humidity, precip, precipprob, precipcover, preciptype, snow, snowdepth, windgust, windspeed, winddir, pressure, cloudcover, visibility, solarradiation, solarenergy, uvindex, severerisk, sunrise, sunriseEpoch, sunset, sunsetEpoch, moonphase, conditions, descriptions, icon, source
+FROM expand_data;

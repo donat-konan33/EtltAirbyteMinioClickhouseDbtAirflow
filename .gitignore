@@ -2,3 +2,4 @@
 airflow/data
 airflow/logs
 .venv/
+database/
