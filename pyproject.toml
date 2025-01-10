@@ -7,13 +7,14 @@ package-mode = false
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.12"
 pendulum = "^3.0.0"
 pytest = "^8.3.4"
-apache-airflow = {version = "^2.3.0", extras = ["postgres", "airbyte"]}
+apache-airflow = {version = "^2.4.0", extras = ["postgres", "airbyte"]}
 ipython = "^8.4.0"
 dbt-core = "^1.1.1"
 dbt-bigquery = "^1.1.0"
+apache-airflow-providers-google = "^10.4.0"
 
 
 [build-system]

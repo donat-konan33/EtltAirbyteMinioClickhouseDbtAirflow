@@ -1,3 +1,4 @@
+from pathlib import Path
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.operators.branch import BranchPythonOperator
@@ -17,7 +18,7 @@ with DAG(
     tags=["airbyte-postgres"],
     default_args={'owner': 'airbyte-postgres'},
     schedule_interval="@daily",
-    start_date=Pendulum(2021, 1, 1),
+    start_date=Pendulum(2025, 1, 1),
     catchup=False,
 ) as dag:
 
