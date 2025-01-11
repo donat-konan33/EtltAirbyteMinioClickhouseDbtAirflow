@@ -10,11 +10,8 @@ def chunk_france(chunk_size) -> None:
     with open(departments, "r") as file:
         content = json.load(file)
         locations = content["departments"]["locations"]
-
-        # Dividing the list into chunks of 10
         chunks = [locations[i:i + chunk_size] for i in range(0, len(locations), chunk_size)]
 
-        # Displaying each chunk
     chunks_dict = {}
     for idx, chunk in enumerate(chunks):
         chunks_dict[f"Chunk {idx + 1}"] = f"{' | '.join(chunk)}"
