@@ -1,0 +1,279 @@
+version: 6.5.2
+
+type: DeclarativeSource
+
+check:
+  type: CheckStream
+  stream_names:
+    - weather_1
+
+definitions:
+  streams:
+    weather_1:
+      type: DeclarativeStream
+      name: weather_1
+      retriever:
+        type: SimpleRetriever
+        decoder:
+          type: JsonlDecoder
+        requester:
+          $ref: "#/definitions/base_requester"
+          path: /
+          http_method: GET
+          request_parameters:
+            key: "{{ config[\"key\"] }}"
+            locations: "{{ config[\"locations\"] }}"
+            unitGroup: metric
+        record_selector:
+          type: RecordSelector
+          extractor:
+            type: DpathExtractor
+            field_path:
+              - locations
+          schema_normalization: Default
+      primary_key:
+        - resolvedAddress
+      schema_loader:
+        type: InlineSchemaLoader
+        schema:
+          $ref: "#/schemas/weather_1"
+      transformations:
+        - type: RemoveFields
+          field_pointers:
+            - - queryCost
+        - type: RemoveFields
+          field_pointers:
+            - - address
+        - type: RemoveFields
+          field_pointers:
+            - - tzoffset
+        - type: RemoveFields
+          field_pointers:
+            - - stations
+        - type: RemoveFields
+          field_pointers:
+            - - timezone
+  base_requester:
+    type: HttpRequester
+    url_base: >-
+      https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timelinemulti
+    authenticator:
+      type: ApiKeyAuthenticator
+      api_token: "{{ config[\"key\"] }}"
+      inject_into:
+        type: RequestOption
+        field_name: key
+        inject_into: header
+
+streams:
+  - $ref: "#/definitions/streams/weather_1"
+
+spec:
+  type: Spec
+  connection_specification:
+    type: object
+    $schema: http://json-schema.org/draft-07/schema#
+    required:
+      - key
+      - locations
+    properties:
+      key:
+        type: string
+        description: "The required key of the API "
+        order: 0
+        title: API KEY
+        airbyte_secret: true
+      locations:
+        type: string
+        description: >-
+          Enter list of positions : the list must be combined with the ‘|’
+          character. For Instance, London,UK|Paris,France|Tokyo,Japan|Cape Town,
+          South Africa
+        order: 1
+        title: LOCATIONS
+    additionalProperties: true
+
+metadata:
+  assist: {}
+  testedStreams:
+    weather_1:
+      hasRecords: true
+      streamHash: d00158670866eeca615923f711ae4563994d694d
+      hasResponse: true
+      primaryKeysAreUnique: true
+      primaryKeysArePresent: true
+      responsesAreSuccessful: true
+  autoImportSchema:
+    weather_1: true
+
+schemas:
+  weather_1:
+    type: object
+    $schema: http://json-schema.org/schema#
+    required:
+      - resolvedAddress
+    properties:
+      days:
+        type:
+          - array
+          - "null"
+        items:
+          type:
+            - object
+            - "null"
+          properties:
+            description:
+              type:
+                - string
+                - "null"
+            dew:
+              type:
+                - number
+                - "null"
+            icon:
+              type:
+                - string
+                - "null"
+            snow:
+              type:
+                - number
+                - "null"
+            temp:
+              type:
+                - number
+                - "null"
+            precip:
+              type:
+                - number
+                - "null"
+            source:
+              type:
+                - string
+                - "null"
+            sunset:
+              type:
+                - string
+                - "null"
+            sunrise:
+              type:
+                - string
+                - "null"
+            tempmax:
+              type:
+                - number
+                - "null"
+            tempmin:
+              type:
+                - number
+                - "null"
+            uvindex:
+              type:
+                - number
+                - "null"
+            winddir:
+              type:
+                - number
+                - "null"
+            datetime:
+              type:
+                - string
+                - "null"
+            humidity:
+              type:
+                - number
+                - "null"
+            pressure:
+              type:
+                - number
+                - "null"
+            stations:
+              type:
+                - array
+                - "null"
+              items:
+                type:
+                  - string
+                  - "null"
+            windgust:
+              type:
+                - number
+                - "null"
+            feelslike:
+              type:
+                - number
+                - "null"
+            moonphase:
+              type:
+                - number
+                - "null"
+            snowdepth:
+              type:
+                - number
+                - "null"
+            windspeed:
+              type:
+                - number
+                - "null"
+            cloudcover:
+              type:
+                - number
+                - "null"
+            conditions:
+              type:
+                - string
+                - "null"
+            precipprob:
+              type:
+                - number
+                - "null"
+            severerisk:
+              type:
+                - number
+                - "null"
+            visibility:
+              type:
+                - number
+                - "null"
+            precipcover:
+              type:
+                - number
+                - "null"
+            solarenergy:
+              type:
+                - number
+                - "null"
+            sunsetEpoch:
+              type:
+                - number
+                - "null"
+            feelslikemax:
+              type:
+                - number
+                - "null"
+            feelslikemin:
+              type:
+                - number
+                - "null"
+            sunriseEpoch:
+              type:
+                - number
+                - "null"
+            datetimeEpoch:
+              type:
+                - number
+                - "null"
+            solarradiation:
+              type:
+                - number
+                - "null"
+      latitude:
+        type:
+          - number
+          - "null"
+      longitude:
+        type:
+          - number
+          - "null"
+      resolvedAddress:
+        type: string
+    additionalProperties: true
