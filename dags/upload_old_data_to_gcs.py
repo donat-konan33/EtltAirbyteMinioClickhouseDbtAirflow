@@ -8,9 +8,12 @@ from airflow.providers.google.cloud.transfers.local_to_gcs import (
     LocalFilesystemToGCSOperator,
 )
 
-
 from airflow.providers.airbyte.operators.airbyte import AirbyteTriggerSyncOperator
 from airflow.providers.airbyte.sensors.airbyte import AirbyteJobSensor
+
+gcp_conn_id = "google_cloud_gcs" # defined on gcs service account created
+AIRBYTE_CONNECTION_ID = "airbyte_connection"
+connection_id = ''
 
 
 with DAG(
@@ -25,17 +28,21 @@ with DAG(
     # upload old data to GCS
     upload_to_gcs = LocalFilesystemToGCSOperator(
         task_id="upload_to_gcs",
-        src="/path/to/my-data.csv",
-        dst="my-bucket",
-        bucket_name="my-bucket",
+        src="data/old_data_transformed/france_weather_old_data.parquet",
+        dst="raw/france_weather_old_data.parquet",
+        bucket='weather_airbyte_dk_bucket',
+        gcp_conn_id=gcp_conn_id
     )
 
     # Trigger the Airbyte sync
     trigger_airbyte_sync = AirbyteTriggerSyncOperator(
         task_id="trigger_airbyte_sync",
-        connection_id="airbyte_connection",
-        source_id="airbyte_source",
-    )
+        airbyte_conn_id=AIRBYTE_CONNECTION_ID,
+        connection_id=connection_id,
+        asynchronous=True,
+        timeout=3600,
+        wait_seconds=3
+)
 
     # Wait for the Airbyte sync to finish
     wait_for_airbyte_sync = AirbyteJobSensor(
@@ -44,19 +51,17 @@ with DAG(
         source_id="airbyte_source",
         mode="poke",
         poke_interval=60,
-        timeout=60 * 60 * 24,  # 24 hours
+        timeout=60 * 60 * 1,  # 1 hour
     )
 
     # Upload the data to BigQuery
     upload_to_bigquery = GCSToBigQueryOperator(
         task_id="upload_to_bigquery",
-        bucket="my-bucket",
+        bucket="weather_airbyte_dk_bucket",
         source_objects=["my-data.csv"],
         destination_project_dataset_table="my_dataset.my_table",
         schema_fields=[
-            {"name": "id", "type": "INTEGER", "mode": "REQUIRED"},
-            {"name": "name", "type": "STRING", "mode": "REQUIRED"},
-            {"name": "age", "type": "INTEGER", "mode": "REQUIRED"},
+
         ],
         write_disposition="WRITE_TRUNCATE",
         skip_leading_rows=1,

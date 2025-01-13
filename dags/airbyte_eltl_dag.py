@@ -7,10 +7,14 @@ from airflow.providers.postgres.operators import PostgresOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.airbyte.operators.airbyte import AirbyteTriggerSyncOperator
 from airflow.providers.airbyte.sensors.airbyte import AirbyteJobSensor
+import json
+
 
 POSTGRES_CONN_ID = "postgres_connection"
 AIRBYTE_CONNECTION_ID = "airbyte_connection"
-AIRBYTE_SYNC_JOB_ID = "d920c950-12bd-4525-88c6-55ccbfee5ffe"
+with open("airbyte/job_sync_id.json", "r") as file:
+    job_sync_id = json.load(file)
+    AIRBYTE_SYNC_JOBS_ID = job_sync_id.values()
 
 
 with DAG(
@@ -26,23 +30,22 @@ with DAG(
         insert_raw_data_into_weather_table = file.read()
 
     # Task 1: Trigger Airbyte Sync from airbyte API
-    trigger_airbyte_sync = AirbyteTriggerSyncOperator(
-
-        task_id="trigger_airbyte_sync",
-        airbyte_conn_id=AIRBYTE_CONNECTION_ID,
-        connection_id=AIRBYTE_SYNC_JOB_ID,
-        asynchronous=True,
-        timeout=3600,
-        wait_seconds=3
-    )
+    trigger_airbyte_sync = [ AirbyteTriggerSyncOperator(
+                                task_id="trigger_airbyte_extract_sync",
+                                airbyte_conn_id=AIRBYTE_CONNECTION_ID,
+                                connection_id=connection_id,
+                                asynchronous=True,
+                                timeout=3600,
+                                wait_seconds=3
+    ) for connection_id in AIRBYTE_SYNC_JOBS_ID ]
 
 
     # Task 2: Wait for Airbyte Sync to Complete
-    wait_for_airbyte_sync = AirbyteJobSensor(
+    wait_for_airbyte_sync = [ AirbyteJobSensor(
         task_id="wait_for_airbyte_sync",
-        connection_id=AIRBYTE_SYNC_JOB_ID,
+        connection_id=connection_id,
         airbyte_job_id=trigger_airbyte_sync.output,
-    )
+    ) for connection_id in AIRBYTE_SYNC_JOBS_ID ]
 
     # Task 3: Load Data into Postgres
     load_data_into_postgres = PostgresOperator(
