@@ -29,6 +29,10 @@ services:
         volumes:
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
+            - ./data:/app/airflow/data
+            - ./project_functions:/app/airflow/project_functions
+            - ./dbt:/app/airflow/dbt
+            - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
         tty: true
         stdin_open: true
 
@@ -50,6 +54,8 @@ services:
         volumes:
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
+            - ./data:/app/airflow/data
+            - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
         ports:
             - "8080:8080"
         healthcheck:

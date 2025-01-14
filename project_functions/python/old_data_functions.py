@@ -66,7 +66,7 @@ def read_csv_file(csv_path: List[pathlib.Path]) -> List[pd.DataFrame]:
     return dataframes
 
 
-def write_data_from_old_data(input_file_dataframe: List[pd.DataFrame], output_file_path: str) -> None:
+def write_data_from_old_data(input_dataframes: List[pd.DataFrame], output_file_path: str) -> None:
     """
     This funtion writes old data from old data into data/old_data and gathers them into a single file.
     file_path is here the path of file that should contain all data from data/old
@@ -77,14 +77,13 @@ def write_data_from_old_data(input_file_dataframe: List[pd.DataFrame], output_fi
     if not file.exists():
         file.parent.mkdir(parents=True, exist_ok=True)
         file.touch()
-        columns = input_file_dataframe[0].columns
+        columns = input_dataframes[0].columns
         df = pd.DataFrame(data=[], columns=columns)
         df.to_parquet(output_file_path, index=False)
 
     df = pd.read_parquet(output_file_path)
-    df = pd.concat([df, *input_file_dataframe], ignore_index=True)
+    df = pd.concat([df, *input_dataframes], ignore_index=True)
     df.to_parquet(output_file_path, index=False)
-
 
 
 if __name__ == "__main__":
@@ -94,8 +93,11 @@ if __name__ == "__main__":
     Once all files gathered, rename these one and change their format from `.csv` to `.parquet`
     """
     filespaths = get_existing_csv_paths()
-    if filespaths != None:
-        dataframes = read_csv_file(filespaths)
-        final_data_path = pathlib.Path("data/old_data_transformed/france_weather_old_data.parquet")
-        write_data_from_old_data(dataframes)
-        rename_filename(filespaths)
+    if filespaths:
+        try:
+            input_dataframes = read_csv_file(filespaths)
+            output_file_path = "data/old_data_transformed/france_weather_old_data.parquet"
+            write_data_from_old_data(input_dataframes, output_file_path)
+            rename_filename(filespaths)
+        except Exception as e:
+            print(f"Something went wrong: {e}")
