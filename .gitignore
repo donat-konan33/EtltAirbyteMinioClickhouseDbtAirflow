@@ -1,8 +1,8 @@
 .env
-data/old_data/*
-data/old_data_transformed/*
-data/silver/*
-data/staging/*
-logs/*
+old_data/
+old_data_transformed/
+silver/
+staging/
+logs/
 .venv/
 database/*
