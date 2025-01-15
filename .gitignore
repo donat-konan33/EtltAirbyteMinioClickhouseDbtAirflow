@@ -1,5 +1,8 @@
 .env
-airflow/data
-airflow/logs
+data/old_data/
+data/old_data_transformed/
+data/silver/
+data/staging/
+logs/*
 .venv/
 database/
