@@ -7,11 +7,11 @@ from airflow.providers.postgres.operators import PostgresOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.airbyte.operators.airbyte import AirbyteTriggerSyncOperator
 from airflow.providers.airbyte.sensors.airbyte import AirbyteJobSensor
+from airflow.operators.empty import EmptyOperator
 import json
 from airflow.models import Variable
 
 AIRFLOW_HOME = Variable.get("AIRFLOW_HOME")
-
 POSTGRES_CONN_ID = "postgres_connection"
 AIRBYTE_CONNECTION_ID = "airbyte_connection"
 
@@ -35,27 +35,34 @@ with DAG(
 
     # Task 1: Trigger Airbyte Sync from airbyte API
     trigger_airbyte_sync = [ AirbyteTriggerSyncOperator(
-                                task_id="trigger_airbyte_extract_sync",
+                                task_id=f"trigger_airbyte_extract_sync_{_}",
                                 airbyte_conn_id=AIRBYTE_CONNECTION_ID,
                                 connection_id=connection_id,
                                 asynchronous=True,
                                 timeout=3600,
                                 wait_seconds=3
-    ) for connection_id in AIRBYTE_SYNC_JOBS_ID ]
+    ) for _, connection_id in enumerate(AIRBYTE_SYNC_JOBS_ID) ]
 
 
     # Task 2: Wait for Airbyte Sync to Complete , why not as EmptyOperator to gather trigger_airbyte_sync outputs??!
     wait_for_airbyte_sync = [ AirbyteJobSensor(
-        task_id="wait_for_airbyte_sync",
+        task_id="wait_for_airbyte_sync_{_}",
         connection_id=connection_id,
-        airbyte_job_id=trigger_airbyte_sync.output,
-    ) for connection_id in AIRBYTE_SYNC_JOBS_ID ]
+        airbyte_job_id=trigger_airbyte_sync[_].output,
+    ) for _, connection_id in enumerate(AIRBYTE_SYNC_JOBS_ID) ]
+
+    # gather response when all succeed from asynchronous task
+    gather_complete = EmptyOperator(
+        task_id="previous_end_task"
+    )
 
     # Task 3: Load Data into Postgres
     load_data_into_postgres = PostgresOperator(
         task_id="load_data_into_postgres",
         postgres_conn_id=POSTGRES_CONN_ID,
         sql=f"""{insert_raw_data_into_weather_table}""",
+        trigger_rule='all_success'
     )
 
-    trigger_airbyte_sync >> wait_for_airbyte_sync >> load_data_into_postgres
+
+    trigger_airbyte_sync >> wait_for_airbyte_sync >> gather_complete >> load_data_into_postgres

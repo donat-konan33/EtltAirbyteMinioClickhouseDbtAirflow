@@ -42,5 +42,4 @@ def old_data_transformation_dag():
 
     old_data_transformation_task()
 
-
 old_data_transformation_dag()
