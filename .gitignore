@@ -5,4 +5,7 @@ silver/
 staging/
 logs/
 .venv/
-database/*
+database/
+airflow.cfg
+airflow.db
+webserver_config.py
