@@ -3,7 +3,9 @@ name = "airbyte-deployment"
 version = "0.1.0"
 description = ""
 authors = ["donatien konan <donatien.konan.pro@gmail.com>"]
-package-mode = false
+packages = [
+  {include = "project_functions"},
+]
 readme = "README.md"
 
 [tool.poetry.dependencies]

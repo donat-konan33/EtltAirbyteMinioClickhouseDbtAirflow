@@ -3,7 +3,6 @@ import pendulum
 from airflow.operators.python import PythonOperator
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.bash import BashOperator
-from airflow.models import Variable
 from airflow.sensors.external_task import ExternalTaskSensor
 from airflow.providers.google.cloud.operators.bigquery import (
     BigQueryCreateEmptyDatasetOperator,
@@ -11,7 +10,8 @@ from airflow.providers.google.cloud.operators.bigquery import (
     BigQueryInsertJobOperator,
 )
 
-AIRFLOW_HOME = Variable.get("AIRFLOW_HOME")
+import os
+AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 
 with DAG(
     dag_id="dbt_models_old_data_bigquery_dag",

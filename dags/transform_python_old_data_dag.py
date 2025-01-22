@@ -1,14 +1,15 @@
+
+import os
+import sys
+
+AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
+sys.path.append(AIRFLOW_HOME)
+
 from airflow.decorators import dag, task
 import pendulum
 import pathlib
 from project_functions.python.old_data_functions import get_existing_csv_paths, read_csv_file, write_data_from_old_data, rename_filename
-from airflow.models import Variable
-from airflow.operators.python import PythonOperator
-from airflow.operators.empty import EmptyOperator
 from airflow.utils.trigger_rule import TriggerRule
-
-
-AIRFLOW_HOME = Variable.get("AIRFLOW_HOME")
 
 
 @dag(
@@ -38,7 +39,6 @@ def old_data_transformation_dag():
                 rename_filename(filespaths)
             except Exception as e:
                 print(f"Something went wrong: {e}")
-
 
     old_data_transformation_task()
 

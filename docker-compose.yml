@@ -30,6 +30,7 @@ services:
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
             - ./data:/app/airflow/data
+            - ./airbyte:/app/airflow/airbyte
             - ./project_functions:/app/airflow/project_functions
             - ./dbt:/app/airflow/dbt
             - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
@@ -55,6 +56,9 @@ services:
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
             - ./data:/app/airflow/data
+            - ./airbyte:/app/airflow/airbyte
+            - ./project_functions:/app/airflow/project_functions
+            - ./dbt:/app/airflow/dbt
             - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
         ports:
             - "8080:8080"

@@ -1,17 +1,19 @@
 from pathlib import Path
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from airflow.operators.branch import BranchPythonOperator
+from airflow.operators.python import BranchPythonOperator
 import pendulum
-from airflow.providers.postgres.operators import PostgresOperator
+from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 from airflow.providers.airbyte.operators.airbyte import AirbyteTriggerSyncOperator
 from airflow.providers.airbyte.sensors.airbyte import AirbyteJobSensor
 from airflow.operators.empty import EmptyOperator
 import json
-from airflow.models import Variable
+import os
+import sys
 
-AIRFLOW_HOME = Variable.get("AIRFLOW_HOME")
+AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
+sys.path.append(AIRFLOW_HOME)
 POSTGRES_CONN_ID = "postgres_connection"
 AIRBYTE_CONNECTION_ID = "airbyte_connection"
 
@@ -25,7 +27,7 @@ with DAG(
     tags=["airbyte-postgres"],
     default_args={'owner': 'airbyte-postgres'},
     schedule_interval="@daily",
-    start_date=pendulum.datetime(2025, 1, 1),
+    start_date=pendulum.datetime(2025, 1, 1, 0, 59, 59),
     catchup=False,
 ) as dag:
 
@@ -46,10 +48,10 @@ with DAG(
 
     # Task 2: Wait for Airbyte Sync to Complete , why not as EmptyOperator to gather trigger_airbyte_sync outputs??!
     wait_for_airbyte_sync = [ AirbyteJobSensor(
-        task_id="wait_for_airbyte_sync_{_}",
-        connection_id=connection_id,
+        task_id=f"wait_for_airbyte_sync_{_}",
+        airbyte_conn_id=AIRBYTE_CONNECTION_ID,
         airbyte_job_id=trigger_airbyte_sync[_].output,
-    ) for _, connection_id in enumerate(AIRBYTE_SYNC_JOBS_ID) ]
+    ) for _, connection_id in enumerate(AIRBYTE_SYNC_JOBS_ID)]
 
     # gather response when all succeed from asynchronous task
     gather_complete = EmptyOperator(
@@ -65,4 +67,7 @@ with DAG(
     )
 
 
-    trigger_airbyte_sync >> wait_for_airbyte_sync >> gather_complete >> load_data_into_postgres
+for _, task in enumerate(trigger_airbyte_sync):
+    task >> wait_for_airbyte_sync[_] >> gather_complete
+
+gather_complete >> load_data_into_postgres

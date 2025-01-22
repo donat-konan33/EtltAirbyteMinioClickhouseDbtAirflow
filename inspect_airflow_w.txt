@@ -1,0 +1,405 @@
+[
+    {
+        "Id": "7779e48f881fad31ead829f5cbd3f3f99c17582f47b3e99f1d8c83c76a1111f7",
+        "Created": "2025-01-21T16:16:11.69052356Z",
+        "Path": "poetry",
+        "Args": [
+            "run",
+            "scripts/entrypoint.sh"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 242056,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2025-01-21T16:16:11.898673332Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "unhealthy",
+                "FailingStreak": 43,
+                "Log": [
+                    {
+                        "Start": "2025-01-21T16:35:44.523956986Z",
+                        "End": "2025-01-21T16:35:44.58817181Z",
+                        "ExitCode": 1,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2025-01-21T16:36:14.590022323Z",
+                        "End": "2025-01-21T16:36:14.646908297Z",
+                        "ExitCode": 1,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2025-01-21T16:36:44.648545087Z",
+                        "End": "2025-01-21T16:36:44.711747731Z",
+                        "ExitCode": 1,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2025-01-21T16:37:14.713903127Z",
+                        "End": "2025-01-21T16:37:14.767557485Z",
+                        "ExitCode": 1,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2025-01-21T16:37:44.769911687Z",
+                        "End": "2025-01-21T16:37:44.82151517Z",
+                        "ExitCode": 1,
+                        "Output": ""
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:81ba58b0baf8b72c15182a5047b169d7a74bb0c5d69db83e011cd1b1a608fe3b",
+        "ResolvConfPath": "/var/lib/docker/containers/7779e48f881fad31ead829f5cbd3f3f99c17582f47b3e99f1d8c83c76a1111f7/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/7779e48f881fad31ead829f5cbd3f3f99c17582f47b3e99f1d8c83c76a1111f7/hostname",
+        "HostsPath": "/var/lib/docker/containers/7779e48f881fad31ead829f5cbd3f3f99c17582f47b3e99f1d8c83c76a1111f7/hosts",
+        "LogPath": "/var/lib/docker/containers/7779e48f881fad31ead829f5cbd3f3f99c17582f47b3e99f1d8c83c76a1111f7/7779e48f881fad31ead829f5cbd3f3f99c17582f47b3e99f1d8c83c76a1111f7-json.log",
+        "Name": "/airbyte_deployment-webserver-1",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": [
+            "abd7f4e9a85298009db056b6b176ed4da8c5b1d7baaa8c2bdc09bc9ed37f8f1c"
+        ],
+        "HostConfig": {
+            "Binds": [
+                "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/dags:/app/airflow/dags:rw",
+                "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/logs:/app/airflow/logs:rw",
+                "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/data:/app/airflow/data:rw",
+                "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/airbyte:/app/airflow/airbyte:rw",
+                "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/project_functions:/app/airflow/project_functions:rw",
+                "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/dbt:/app/airflow/dbt:rw",
+                "/home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "airbyte_deployment_default",
+            "PortBindings": {
+                "8001/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8001"
+                    }
+                ],
+                "8080/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "on-failure",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/0fd736e7800f85f76200541b8a2b8f46bfacd0f2b605d632753910bc126f8084-init/diff:/var/lib/docker/overlay2/k5hgr0lsbfnfqzqj9o09pc0gn/diff:/var/lib/docker/overlay2/kmfhwnrhtmjpabbpdj1cjtwxq/diff:/var/lib/docker/overlay2/lj5qdc97c4s0hjus35qmjikvx/diff:/var/lib/docker/overlay2/m8obzcvpj0ay0wjy4pubnpv3m/diff:/var/lib/docker/overlay2/r52x4cybnh56pdlmf1qrdew3h/diff:/var/lib/docker/overlay2/zui92cr6bm1m4h4da736mornn/diff:/var/lib/docker/overlay2/b103nl8i88lqv8qxnjwqbm91s/diff:/var/lib/docker/overlay2/fe9d47d7786d04f29eb41185e3a4142c9da71ee67d26c6cbefb03a18b45b3576/diff:/var/lib/docker/overlay2/b3a019148ca787fd3912129c8103ba732dc58df37b0102f34bae20e3c254be02/diff:/var/lib/docker/overlay2/e7df1a1e9aef77cd0da0258d5774be499297d523d85b2653df142cd5e1639405/diff:/var/lib/docker/overlay2/1015c588224f65018bd787d08637b49e83bd47bea3c4b82115f9ab2361387e66/diff:/var/lib/docker/overlay2/7a4923970a0b1f4784cc306c20e66c0d8846479682e24fa5858ea01c13284fef/diff",
+                "MergedDir": "/var/lib/docker/overlay2/0fd736e7800f85f76200541b8a2b8f46bfacd0f2b605d632753910bc126f8084/merged",
+                "UpperDir": "/var/lib/docker/overlay2/0fd736e7800f85f76200541b8a2b8f46bfacd0f2b605d632753910bc126f8084/diff",
+                "WorkDir": "/var/lib/docker/overlay2/0fd736e7800f85f76200541b8a2b8f46bfacd0f2b605d632753910bc126f8084/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/airbyte",
+                "Destination": "/app/airflow/airbyte",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/project_functions",
+                "Destination": "/app/airflow/project_functions",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/dbt",
+                "Destination": "/app/airflow/dbt",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/donatien.konan.pro/.gcp_keys",
+                "Destination": "/app/airflow/.gcp_keys",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/dags",
+                "Destination": "/app/airflow/dags",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/logs",
+                "Destination": "/app/airflow/logs",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/data",
+                "Destination": "/app/airflow/data",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "7779e48f881f",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8001/tcp": {},
+                "8080/tcp": {}
+            },
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "POSTGRES_DB=db",
+                "POSTGRES_PASSWORD=jtm",
+                "POSTGRES_USER=airflow",
+                "AIRFLOW__CORE__LOAD_EXAMPLES=false",
+                "PROJECT_ID=wagon-bootcamp-437909",
+                "AIRFLOW__CORE__EXECUTOR=LocalExecutor",
+                "AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:jtm@postgres:5432/db",
+                "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+                "PYTHON_VERSION=3.8.14",
+                "PYTHON_PIP_VERSION=22.0.4",
+                "PYTHON_SETUPTOOLS_VERSION=57.5.0",
+                "PYTHON_GET_PIP_URL=https://github.com/pypa/get-pip/raw/5eaac1050023df1f5c98b173b248c260023f2278/public/get-pip.py",
+                "PYTHON_GET_PIP_SHA256=5aefe6ade911d997af080b315ebcb7f882212d070465df544e1175ac2be519b4",
+                "PYTHONUNBUFFERED=1",
+                "AIRFLOW_HOME=/app/airflow"
+            ],
+            "Cmd": [
+                "poetry",
+                "run",
+                "scripts/entrypoint.sh"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "[ -f /home/airflow/airflow-webserver.pid ]"
+                ],
+                "Interval": 30000000000,
+                "Timeout": 30000000000,
+                "Retries": 3
+            },
+            "Image": "airbyte_deployment-webserver",
+            "Volumes": null,
+            "WorkingDir": "/app/airflow",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {
+                "com.docker.compose.config-hash": "68ef779b8edfd212b06a8911c4dd36b7426b6ea06408ed3ae3f1a515e571a57a",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "scheduler:service_started:false,postgres:service_started:false",
+                "com.docker.compose.image": "sha256:81ba58b0baf8b72c15182a5047b169d7a74bb0c5d69db83e011cd1b1a608fe3b",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "airbyte_deployment",
+                "com.docker.compose.project.config_files": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment/docker-compose.yml",
+                "com.docker.compose.project.working_dir": "/home/donatien.konan.pro/code/donat-konan33/airbyte_deployment",
+                "com.docker.compose.replace": "a76d6e3cc078eeeb0ef1f0e98b9f8407acb7da4171dcebd88dfa95ed0c4ebe2e",
+                "com.docker.compose.service": "webserver",
+                "com.docker.compose.version": "2.29.7"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "292fc64b2f1109329d9f246153e9f0ab7d456bfaeda06542e15ca457fc3ac221",
+            "SandboxKey": "/var/run/docker/netns/292fc64b2f11",
+            "Ports": {
+                "8001/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8001"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8001"
+                    }
+                ],
+                "8080/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8080"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "8080"
+                    }
+                ]
+            },
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "airbyte_deployment_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "airbyte_deployment-webserver-1",
+                        "webserver"
+                    ],
+                    "MacAddress": "02:42:ac:14:00:04",
+                    "DriverOpts": null,
+                    "NetworkID": "dc453a1f2f77648e7185d2416697b26ca598ff47edbe60dea6ff230ccfbab204",
+                    "EndpointID": "f09a33d5e38aef099899cb644e75ffbaa9cee6985afa3a130a408f7deae470c0",
+                    "Gateway": "172.20.0.1",
+                    "IPAddress": "172.20.0.4",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "airbyte_deployment-webserver-1",
+                        "webserver",
+                        "7779e48f881f"
+                    ]
+                },
+                "kind": {
+                    "IPAMConfig": {},
+                    "Links": null,
+                    "Aliases": [],
+                    "MacAddress": "02:42:ac:13:00:03",
+                    "DriverOpts": {},
+                    "NetworkID": "9fd894a91164aa432c5d5829e0c4794d45ff61613c6ec851e9b1b8e19db276fe",
+                    "EndpointID": "0bd2ee7eb3120bb9902d3835a2b3a8e761009b5e6f85d76ad0e6589e55d95174",
+                    "Gateway": "172.19.0.1",
+                    "IPAddress": "172.19.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "fc00:f853:ccd:e793::1",
+                    "GlobalIPv6Address": "fc00:f853:ccd:e793::3",
+                    "GlobalIPv6PrefixLen": 64,
+                    "DNSNames": [
+                        "airbyte_deployment-webserver-1",
+                        "7779e48f881f"
+                    ]
+                }
+            }
+        }
+    }
+]

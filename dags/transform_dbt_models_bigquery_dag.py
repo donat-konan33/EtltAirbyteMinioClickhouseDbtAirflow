@@ -12,7 +12,8 @@ from airflow.providers.google.cloud.operators.bigquery import (
     BigQueryInsertJobOperator,
 )
 
-AIRFLOW_HOME = Variable.get("AIRFLOW_HOME")
+import os
+AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 
 with DAG(
     dag_id="dbt_models_bigquery_dag",
