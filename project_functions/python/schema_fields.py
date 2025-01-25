@@ -38,6 +38,21 @@ old_data_schema_field = [
     {"name": "stations", "type": "STRING", "mode": "NULLABLE"}
 ]
 
+regdep_france_raw_schema_field = [
+    {"name": "geo_point_2d", "type": "GEOGRAPHY", "mode": "NULLABLE"},
+    {"name": "geo_shape", "type": "GEOGRAPHY", "mode": "NULLABLE"},
+    {"name": "reg_code", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "reg_name", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "dep_current_code", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "dep_name_upper", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "dep_status", "type": "STRING", "mode": "NULLABLE"}
+]
+
+mun_dep_france_raw_schema_field = [
+    {"name": "municipality", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "dep_name_upper", "type": "STRING", "mode": "NULLABLE"},
+    {"name": "dep_code", "type": "STRING", "mode": "NULLABLE"}
+]
 
 new_data_schema_field = [
     {"name": "record_id", "type": "NUMERIC", "mode": "NULLABLE"},

@@ -1,5 +1,6 @@
 import sys
 import os
+import pendulum
 AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 sys.path.append(f"{AIRFLOW_HOME}")
 
@@ -7,16 +8,18 @@ sys.path.append(f"{AIRFLOW_HOME}")
 from airflow.providers.google.cloud.operators.bigquery import ( BigQueryCreateEmptyDatasetOperator,
                                                         BigQueryCreateEmptyTableOperator
 )
+from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 from airflow.providers.airbyte.operators.airbyte import AirbyteTriggerSyncOperator
 from airflow.providers.airbyte.sensors.airbyte import AirbyteJobSensor
 from airflow.sensors.external_task import ExternalTaskSensor
 from project_functions.python.schema_fields import new_data_schema_field
 from airflow import DAG
-import pendulum
+
 
 
 AIRBYTE_CONNECTION_ID = "airbyte_connection"
-gcp_conn_id = "google_cloud_bq"
+gcp_conn_id = "google_cloud_default"
+PROJECT_ID = os.environ.get("PROJECT_ID")
 connection_id = 'c9e28298-c03e-4341-ad9c-e197f40b825f'
 
 with DAG(
@@ -30,7 +33,7 @@ with DAG(
 
     create_data_dataset = BigQueryCreateEmptyDatasetOperator(
         task_id="create_weather_dataset",
-        project_id='wagon-bootcamp-437909',
+        project_id=PROJECT_ID,
         gcp_conn_id=gcp_conn_id,
         dataset_id="raw_data_weatherteam",
         location='europe-west1'   # it's strongly recommended to set EU as multiregion to ensure the extreme availability of our data
@@ -39,7 +42,7 @@ with DAG(
     #### under conditions for exemple if not exist
     create_weather_table = BigQueryCreateEmptyTableOperator(
         task_id="create_weather_table",
-        project_id='wagon-bootcamp-437909',
+        project_id=PROJECT_ID,
         gcp_conn_id=gcp_conn_id,
         dataset_id='raw_data_weatherteam',
         table_id='weather',
