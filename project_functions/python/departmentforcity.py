@@ -1,5 +1,8 @@
 import pandas as pd
+<<<<<<< HEAD
 import os
+=======
+>>>>>>> ac4a4001944c0d10a976239074cc66dbf6873b5a
 
 # Data for communes and their corresponding departments (mock data for this example)
 data = {
@@ -61,6 +64,7 @@ data = {
     ]
 }
 
+<<<<<<< HEAD
 def create_or_update_data_util() -> None:
     """
     create data useful for ou study as giving departments and their dep_code munipality used as startpoint
@@ -79,3 +83,11 @@ def create_or_update_data_util() -> None:
 
 if __name__ == "__main__":
     create_or_update_data_util()
+=======
+# Creating a DataFrame
+df = pd.DataFrame(data)
+
+# Saving to a parquet file
+output_path = "data/municipality_and_departments.parquet"
+df.to_parquet(output_path, index=False)
+>>>>>>> ac4a4001944c0d10a976239074cc66dbf6873b5a

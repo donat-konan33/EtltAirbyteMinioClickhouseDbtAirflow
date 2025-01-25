@@ -18,7 +18,6 @@ with open(f"{AIRFLOW_HOME}/airbyte/job_sync_id.json", "r") as file:
     job_sync_id = json.load(file)
     AIRBYTE_SYNC_JOBS_ID = job_sync_id.values()
 
-
 with DAG(
     dag_id="airbyte_eltl_dag",
     tags=["airbyte-postgres"],
