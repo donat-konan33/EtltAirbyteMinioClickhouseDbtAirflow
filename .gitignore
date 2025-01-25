@@ -1,7 +1,7 @@
 .env
 old_data/
 old_data_transformed/
-opendatasoft/
+opendatasoft_2024/
 silver/
 staging/
 logs/
