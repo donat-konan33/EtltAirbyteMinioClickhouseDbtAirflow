@@ -11,3 +11,4 @@ abctl-v0.24.0-linux-amd64/
 airflow.cfg
 airflow.db
 webserver_config.py
+*.pyc
