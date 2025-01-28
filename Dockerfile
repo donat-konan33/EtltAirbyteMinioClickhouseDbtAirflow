@@ -1,4 +1,4 @@
-FROM python:3.8.14-slim
+FROM python:3.9.20-slim
 
 ARG DEBIAN_FRONTEND=noninteractive
 

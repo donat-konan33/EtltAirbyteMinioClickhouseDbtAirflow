@@ -24,7 +24,7 @@ from google.cloud import storage
 
 AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 PROJECT_ID = os.environ.get("PROJECT_ID")
-gcp_conn_id = "google_cloud_default" # defined for gcs service account created
+gcp_conn_id = "google_cloud_default"
 
 
 with DAG(

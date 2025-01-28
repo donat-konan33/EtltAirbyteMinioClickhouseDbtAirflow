@@ -58,7 +58,7 @@ services:
             - ./data:/app/airflow/data
             - ./airbyte:/app/airflow/airbyte
             - ./project_functions:/app/airflow/project_functions
-            - ./dbt:/app/airflow/dbt
+            - ./dbt_project:/app/airflow/dbt_project
             - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
         ports:
             - "8080:8080"
