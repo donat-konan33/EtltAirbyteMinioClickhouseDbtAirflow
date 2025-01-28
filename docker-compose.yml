@@ -8,6 +8,9 @@ services:
             - POSTGRES_USER=airflow
         volumes:
             - ./database/:/var/lib/postgresql/data
+        ports:
+          - "5433:5432"
+
         healthcheck:
             test: ["CMD", "pg_isready -d db -U airflow"]
             interval: 5s

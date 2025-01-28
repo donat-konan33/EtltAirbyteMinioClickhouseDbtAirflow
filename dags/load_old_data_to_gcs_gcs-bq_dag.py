@@ -19,8 +19,8 @@ from airflow.providers.google.cloud.operators.bigquery import ( BigQueryCreateEm
 )
 from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
-from google.cloud import storage
-
+from airflow.providers.google.cloud.operators.gcs import GCSCreateBucketOperator
+from airflow.models import Variable
 
 AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 PROJECT_ID = os.environ.get("PROJECT_ID")
@@ -37,7 +37,7 @@ with DAG(
 ) as dag:
 
     file = f"{AIRFLOW_HOME}/data/old_data_transformed/france_weather_old_data.parquet"
-    bucket = os.environ.get("LAKE_BUCKET")
+    bucket = Variable.get("LAKE_BUCKET")
     bigquery_schema_field = dict(
         weather = old_data_schema_field,
         depcode = regdep_france_raw_schema_field,
@@ -57,12 +57,6 @@ with DAG(
 
     launch_table_creation = [ create_dataset_table(table_name, schema_field) for table_name, schema_field in bigquery_schema_field.items() ]
 
-    # create bucket
-    def create_bucket(bucket_name: str) -> None:
-        """create a bucket"""
-        storage_client = storage.Client()
-        bucket = storage_client.bucket(bucket_name)
-        storage_client.create_bucket(bucket, location="europe-west1")
 
     wait_for_local_transformation = ExternalTaskSensor(
         task_id='old_data_transformation_sensor',
@@ -98,10 +92,12 @@ with DAG(
         location='europe-west1'
     )
 
-    createbucket = PythonOperator(
+    createbucket = GCSCreateBucketOperator(
         task_id="create_bucket",
-        python_callable=create_bucket,
-        op_kwargs={"bucket_name": bucket},
+        bucket_name=bucket,
+        location='EU',
+        project_id=PROJECT_ID,
+        gcp_conn_id=gcp_conn_id
     )
 
 
@@ -138,14 +134,13 @@ with DAG(
 
     table_creation_end = EmptyOperator(
         task_id="end",
-        trigger_rule='all_done'
+        trigger_rule='all_success'
     )
 
     upload_end = EmptyOperator(
         task_id="upload_end",
-        trigger_rule='all_done'
+        trigger_rule='all_success'
     )
-
 
 
 # Set the chain of tasks

@@ -70,7 +70,7 @@ def create_or_update_data_util() -> None:
     df.to_parquet(output_path, index=False)
 
     df = pd.read_parquet("data/opendatasoft_2024/regdep_france.parquet")
-    df = df[["reg_name", "reg_code", "dep_name_upper", "dep_current_code", "dep_status"]]
+    df = df[["geo_point_2d", "geo_shape", "reg_name", "reg_code", "dep_name_upper", "dep_current_code", "dep_status"]]
     output_path = "data/opendatasoft_2024/france_region_department96.parquet"
     df.to_parquet(output_path, index=False)
     del df, output_path
