@@ -35,7 +35,7 @@ services:
             - ./data:/app/airflow/data
             - ./airbyte:/app/airflow/airbyte
             - ./project_functions:/app/airflow/project_functions
-            - ./dbt:/app/airflow/dbt
+            - ./dbt_project:/app/airflow/dbt_project
             - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
         tty: true
         stdin_open: true
@@ -55,6 +55,14 @@ services:
             - POSTGRES_USER=airflow
             - AIRFLOW__CORE__LOAD_EXAMPLES=false
             - PROJECT_ID=$PROJECT_ID
+            - LAKE_BUCKET=$LAKE_BUCKET
+            - AIRFLOW_ADMIN_EMAIL=$AIRFLOW_ADMIN_EMAIL
+            - AIRLFLOW_ADMIN_USERNAME=$AIRLFLOW_ADMIN_USERNAME
+            - AIRFLOW_ADMIN_PASSWORD=$AIRFLOW_ADMIN_PASSWORD
+            - AIRFLOW_ADMIN_FIRST_NAME=$AIRFLOW_ADMIN_FIRST_NAME
+            - AIRFLOW_ADMIN_LAST_NAME=$AIRFLOW_ADMIN_LAST_NAME
+            - GCP_SERVICE_ACCOUNT_KEY=$GCP_SERVICE_ACCOUNT_KEY
+
         volumes:
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
