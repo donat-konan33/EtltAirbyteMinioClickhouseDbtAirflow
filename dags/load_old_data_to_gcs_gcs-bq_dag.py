@@ -105,7 +105,7 @@ with DAG(
         task_id="transfer_old_to_bq",
         bucket=bucket,
         source_format='parquet',
-        source_objects=[f"raw/{file.split('/')[-1]}", ],
+        source_objects=[f"olddata/raw/{file.split('/')[-1]}", ],
         destination_project_dataset_table=f"{PROJECT_ID}.raw_olddata_weatherteam.weather",
         write_disposition='WRITE_TRUNCATE',
         gcp_conn_id=gcp_conn_id
@@ -130,7 +130,6 @@ with DAG(
         write_disposition='WRITE_TRUNCATE',
         gcp_conn_id=gcp_conn_id
     )
-
 
     table_creation_end = EmptyOperator(
         task_id="end",

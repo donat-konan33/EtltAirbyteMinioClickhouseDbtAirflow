@@ -29,14 +29,16 @@ services:
             - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:$POSTGRES_PASSWORD@postgres:5432/db
             - AIRFLOW__CORE__LOAD_EXAMPLES=false
             - PROJECT_ID=$PROJECT_ID
+            - PATH_TO_SERVICE_ACCOUNT_DIRECTORY=$PATH_TO_SERVICE_ACCOUNT_DIRECTORY
         volumes:
+
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
             - ./data:/app/airflow/data
             - ./airbyte:/app/airflow/airbyte
             - ./project_functions:/app/airflow/project_functions
             - ./dbt_project:/app/airflow/dbt_project
-            - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
+            - $PATH_TO_SERVICE_ACCOUNT_DIRECTORY:/app/airflow/.gcp_keys
         tty: true
         stdin_open: true
 

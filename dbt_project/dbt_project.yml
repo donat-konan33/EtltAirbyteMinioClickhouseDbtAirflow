@@ -34,3 +34,21 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+
+    staging:
+      +schema: staging
+      +materialized: view
+      +docs:
+        node_color: "#AF8131"
+
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+      +docs:
+        node_color: "#BF6A90"
+
+    mart:
+      +schema: mart
+      +materialized: table
+      +docs:
+        node_color: "#1639A7"
