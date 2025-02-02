@@ -22,7 +22,7 @@ sources:
             description: department name set to upper
           - name: dep_current_code
             description: code of department
-            data_tests:
+            tests:
               - unique
               - not_null
           - name: dep_status
@@ -35,7 +35,7 @@ sources:
         columns:
           - name: municipality
             description: must be unique
-            data_tests:
+            tests:
               - unique
               - not_null
 
@@ -44,7 +44,7 @@ sources:
 
           - name: dep_code
             description: In this case one dep_code per municipality
-            data_tests:
+            tests:
               - unique
               - not_null
 
