@@ -7,6 +7,7 @@
 
 select
     municipality,
+    LOWER(TRIM((REGEXP_REPLACE(municipality, r'[^A-Za-z0-9]', '')))) AS municipality_lower,
     regions,
     dates,
     {{convert_f_to_c('tempmax')}}       AS tempmax_c,

@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Data for communes and their corresponding departments (mock data for this example)
+# Data for `communes` and their corresponding departments (mock data for this example)
 data = {
     "municipality": [
         'Anthenaise', 'Auvers-sur-Oise', 'Bardelle', 'Belfonds', 'Bertangles',

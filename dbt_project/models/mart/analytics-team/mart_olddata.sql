@@ -58,6 +58,6 @@ select
     iw.conditions as conditions,
     iw.descriptions as descriptions
 
-from int_municipality im
-Left Join int_weather iw using (municipality)
+from int_weather iw
+Left Join int_municipality im using (municipality_lower)
 Left Join int_depcode id using (dep_code)
