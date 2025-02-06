@@ -16,8 +16,8 @@ from airflow.utils.trigger_rule import TriggerRule
     dag_id="old_data_transformation_dag",
     tags=["old_data"],
     default_args={'owner': 'local'},
-    start_date=pendulum.datetime(2025, 1, 1, 0, 59, 59),
-    schedule_interval="@daily",
+    start_date=pendulum.datetime(2025, 1, 1, 1, 0, 0, tz="UTC"),
+    schedule_interval="@once",
     catchup=False
 )
 def old_data_transformation_dag():

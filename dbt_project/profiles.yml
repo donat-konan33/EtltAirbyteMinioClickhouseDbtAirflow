@@ -1,0 +1,14 @@
+dbt_project:
+  outputs:
+    dev:
+      dataset: raw_olddata_weatherteam
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: "{{ env_var('GCP_SERVICE_ACCOUNT_KEY_PATH') }}"
+      location: europe-west1
+      method: service-account
+      priority: interactive
+      project: "{{ env_var('PROJECT_ID') }}"
+      threads: 2
+      type: bigquery
+  target: dev

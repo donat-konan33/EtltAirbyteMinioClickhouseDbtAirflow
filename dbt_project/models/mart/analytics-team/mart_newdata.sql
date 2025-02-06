@@ -62,4 +62,4 @@ select
   iw.sunsetEpoch,
 
 from int_most_recent_weather iw
-left join int_depcode id using (department_lower)
+inner join int_depcode id using (department_lower)

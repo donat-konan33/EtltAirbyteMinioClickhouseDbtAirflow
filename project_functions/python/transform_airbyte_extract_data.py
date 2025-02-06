@@ -5,6 +5,8 @@ import numpy as np
 import pyarrow.parquet as pq
 from typing import List, Tuple
 from google.cloud import storage
+import re
+from google.cloud.exceptions import GoogleCloudError
 
 
 def get_name_of_blob(gs_path: List[str]) -> List[str]:
@@ -20,12 +22,13 @@ def retrieve_diff_date(files_name: List[str]):
     get different files according to the date of extraction
     """
 
-    date_list = [file_name[:10] for file_name in files_name]
+    pattern = r'^\d{4}_\d{2}_\d{2}$' # give only this pattern `YYYY_MM_DD`
+    date_list = [file_name[:10] for file_name in files_name if re.search(pattern, file_name[:10]) != None]
     different_date = set(date_list)
     return different_date
 
 
-def concat_data_by_date(dates: str, client:storage.Client, bucket_name:str, prefix:str) -> pd.DataFrame:
+def concat_data_by_date(dates: List[str], client:storage.Client, bucket_name:str, prefix:str) -> pd.DataFrame:
     """
     date format like `YYYY_MM_DD`
     prefix like ``staging/weather_1/``
@@ -135,3 +138,20 @@ def merge_gcs_files_by_date(diff_date: Tuple[str], client: storage.Client, bucke
         # merge files
         destination_blob.compose(gather_date_blobs, if_generation_match=destination_generation_match_precondition)
         print(f"✅ merging up ! new file recorded : gs://{bucket_name}/{destination_blob_name}")
+
+def delete_chunked_data(client: storage.Client, bucket_name: str, prefix:str):
+    """
+    """
+    try:
+        key_word = "airbyte"
+        bucket = client.bucket(bucket_name)
+        blobs_to_delete = [blob for blob in bucket.list_blobs(prefix=prefix) if key_word not in blob.name]
+
+        if blobs_to_delete:
+            bucket.delete_blobs(blobs_to_delete)
+            for blob in blobs_to_delete:
+                print(f"✅ Blob gs://{bucket_name}/{blob.name} deleted")
+        else:
+            print("✅ No blob matching criteria specified above.")
+    except GoogleCloudError as e:
+        print(f"❌ A erreor occured when deleting blobs : {e}")

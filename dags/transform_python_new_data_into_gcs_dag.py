@@ -5,15 +5,20 @@ AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 sys.path.append(AIRFLOW_HOME)
 
 from airflow import DAG
-from airflow.utils.trigger_rule import TriggerRule
 import pendulum
 
-from project_functions.python.transform_airbyte_extract_data import create_table_from_airbyte_data, retrieve_diff_date, concat_data_by_date
+from project_functions.python.transform_airbyte_extract_data import (create_table_from_airbyte_data,
+                                                                     retrieve_diff_date,
+                                                                     concat_data_by_date,
+                                                                     delete_chunked_data,
+                                                                     )
 from airflow.providers.google.cloud.operators.gcs import GCSListObjectsOperator
 from airflow.operators.python import PythonOperator
 from airflow.models import Variable
 from google.cloud import storage
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
+from airflow.utils.trigger_rule import TriggerRule
+from airflow.operators.empty import EmptyOperator
 
 
 gcp_conn_id = "google_cloud_default"
@@ -28,8 +33,8 @@ with DAG(
     tags=["new_data"],
     default_args={'owner': 'local'},
     description="this one allow us to transform raw data extracted by airbyte before loading to BigQuery",
-    start_date=pendulum.datetime(2025, 1, 1, 0, 59, 59),
-    schedule_interval="@daily",
+    start_date=pendulum.datetime(2025, 2, 7, tz="UTC"),
+    schedule='0 2 * * *',
     catchup=False
 ) as dag:
 
@@ -69,6 +74,7 @@ with DAG(
         concat_data_by_date(dates=dates, client=gcs_client, bucket_name=bucket, prefix=SOURCE_PREFIX)
 
 
+
     get_path_task = PythonOperator(
         task_id='get_path_list',
         python_callable=get_files_path,
@@ -96,4 +102,24 @@ with DAG(
         }
     )
 
-get_raw_files_names >> get_path_task >> get_diff_date_task >> merge_airbyte_file_task >> create_staging_data_task
+    delete_file_after_merging = PythonOperator(
+        task_id="delete_file",
+        python_callable=delete_chunked_data,
+        op_kwargs={
+            "client": gcs_client,
+            "bucket_name": bucket,
+            "prefix": SOURCE_PREFIX
+        },
+
+    )
+
+    stop_task = EmptyOperator(
+        task_id="end",
+        trigger_rule='all_success'
+    )
+get_raw_files_names >> get_path_task >> get_diff_date_task >> merge_airbyte_file_task
+merge_airbyte_file_task >> [create_staging_data_task, delete_file_after_merging, ]
+create_staging_data_task >> stop_task
+delete_file_after_merging >> stop_task
+
+delete_file_after_merging

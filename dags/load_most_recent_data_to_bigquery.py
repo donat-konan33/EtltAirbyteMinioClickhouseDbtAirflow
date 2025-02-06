@@ -8,6 +8,7 @@ sys.path.append(AIRFLOW_HOME)
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
 from project_functions.python.schema_fields import new_data_schema_field
 from airflow.operators.python import PythonOperator
+from airflow.sensors.external_task import ExternalTaskSensor
 from airflow.models import Variable
 from airflow import DAG
 from google.cloud import storage
@@ -24,9 +25,9 @@ gcp_conn_id = "google_cloud_default"
 
 with DAG(
     dag_id="load_most_data_from_gcs_to_bigquery",
+    start_date=pendulum.datetime(2025, 2, 7, tz="UTC"),
+    schedule_interval="10 2 * * *",
     catchup=False,
-    start_date=pendulum.datetime(2025, 1, 1, 0, 59, 59),
-    schedule_interval="@daily",
 ) as dag:
 
     def get_most_recent_file_name(**kwargs):
@@ -42,6 +43,16 @@ with DAG(
             print(f"last_date is {execution_date}")
             return last_blob_name[0]
         return blob_name[0]
+
+    wait_for_transform_gcs_data = ExternalTaskSensor(
+        task_id="wait_gcs_data_transformation",
+        external_dag_id="airbyte_data_transform",
+        external_task_id="data_to_staging",
+        mode = 'poke',
+        poke_interval=10,
+        timeout=600,
+        allowed_states=["success"]
+    )
 
     get_most_recent_file = PythonOperator(
         task_id="recent_file_name",
@@ -60,5 +71,4 @@ with DAG(
         gcp_conn_id=gcp_conn_id
     )
 
-
-get_most_recent_file >> load_data
+wait_for_transform_gcs_data >> get_most_recent_file >> load_data

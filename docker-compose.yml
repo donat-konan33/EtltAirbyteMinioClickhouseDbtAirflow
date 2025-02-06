@@ -30,8 +30,9 @@ services:
             - AIRFLOW__CORE__LOAD_EXAMPLES=false
             - PROJECT_ID=$PROJECT_ID
             - PATH_TO_SERVICE_ACCOUNT_DIRECTORY=$PATH_TO_SERVICE_ACCOUNT_DIRECTORY
-        volumes:
+            - GCP_SERVICE_ACCOUNT_KEY_PATH=$GCP_SERVICE_ACCOUNT_KEY_PATH
 
+        volumes:
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
             - ./data:/app/airflow/data
@@ -65,7 +66,7 @@ services:
             - AIRFLOW_ADMIN_FIRST_NAME=$AIRFLOW_ADMIN_FIRST_NAME
             - AIRFLOW_ADMIN_LAST_NAME=$AIRFLOW_ADMIN_LAST_NAME
             - GCP_SERVICE_ACCOUNT_KEY=$GCP_SERVICE_ACCOUNT_KEY
-
+            - GCP_SERVICE_ACCOUNT_KEY_PATH=$GCP_SERVICE_ACCOUNT_KEY_PATH
 
         volumes:
             - ./dags:/app/airflow/dags
@@ -74,7 +75,7 @@ services:
             - ./airbyte:/app/airflow/airbyte
             - ./project_functions:/app/airflow/project_functions
             - ./dbt_project:/app/airflow/dbt_project
-            - /home/donatien.konan.pro/.gcp_keys:/app/airflow/.gcp_keys
+            - $PATH_TO_SERVICE_ACCOUNT_DIRECTORY:/app/airflow/.gcp_keys
         ports:
             - "8080:8080"
         healthcheck:

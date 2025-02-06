@@ -31,8 +31,8 @@ with DAG(
     dag_id="upload_old_data_dag",
     tags=["hostVM_airflow -> GCS"],
     default_args={'owner': 'hostvm_airflow'},
-    start_date=pendulum.datetime(2025, 1, 1, 0, 59, 59),
-    schedule_interval="@daily",
+    start_date=pendulum.datetime(2025, 2, 6, 3, 0, 0),
+    schedule_interval="@once",
     catchup=False,  # Do not backfill, don't run any historical data
 ) as dag:
 
