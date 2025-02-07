@@ -31,7 +31,7 @@ STAGING_PREFIX = "staging/weather_1/"
 with DAG(
     dag_id="airbyte_data_transform",
     tags=["new_data"],
-    default_args={'owner': 'local'},
+    default_args={'owner': 'python'},
     description="this one allow us to transform raw data extracted by airbyte before loading to BigQuery",
     start_date=pendulum.datetime(2025, 2, 7, tz="UTC"),
     schedule='0 2 * * *',
@@ -117,9 +117,8 @@ with DAG(
         task_id="end",
         trigger_rule='all_success'
     )
+
 get_raw_files_names >> get_path_task >> get_diff_date_task >> merge_airbyte_file_task
-merge_airbyte_file_task >> [create_staging_data_task, delete_file_after_merging, ]
+merge_airbyte_file_task >> [create_staging_data_task, delete_file_after_merging]
 create_staging_data_task >> stop_task
 delete_file_after_merging >> stop_task
-
-delete_file_after_merging

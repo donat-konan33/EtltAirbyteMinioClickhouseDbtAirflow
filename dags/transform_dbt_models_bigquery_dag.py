@@ -11,9 +11,9 @@ DBT_DIR = os.environ.get("DBT_DIR")
 with DAG(
     dag_id="dbt_models_bigquery_dag",
     tags=["dbt on bigquery"],
-    default_args={'owner': 'dbt', "depends_on_past": True},
+    default_args={'owner': 'dbt'},
     start_date=pendulum.datetime(2025, 2, 7, tz="UTC"),
-    timetable=CronTriggerTimetable("20 2 * * *", timezone="UTC"),
+    schedule_interval="0 2 * * *", #CronTriggerTimetable("0 2 * * *", timezone="UTC"),
     catchup=False,  # Do not backfill, don't run any historical data
 ) as dag:
 
@@ -23,7 +23,7 @@ with DAG(
         external_task_id="load_data_to_most_recent_weather_table",
         mode = 'poke',
         poke_interval=10,
-        timeout=600,
+        timeout=1200,
         allowed_states=["success"]
     )
 
@@ -32,4 +32,4 @@ with DAG(
         bash_command=f"dbt build -m +mart_newdata --project-dir {DBT_DIR}"
     )
 
-wait_for_airbyte_sensor_pg_to_bq >> dbt_transformation
+    wait_for_airbyte_sensor_pg_to_bq >> dbt_transformation

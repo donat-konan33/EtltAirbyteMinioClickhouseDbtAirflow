@@ -25,8 +25,10 @@ gcp_conn_id = "google_cloud_default"
 
 with DAG(
     dag_id="load_most_data_from_gcs_to_bigquery",
+    tags=["gcs to bigquery"],
+    default_args={'owner': 'gcs & bigquery', "depends_on_past": True},
     start_date=pendulum.datetime(2025, 2, 7, tz="UTC"),
-    schedule_interval="10 2 * * *",
+    schedule_interval="0 2 * * *",
     catchup=False,
 ) as dag:
 
@@ -47,7 +49,7 @@ with DAG(
     wait_for_transform_gcs_data = ExternalTaskSensor(
         task_id="wait_gcs_data_transformation",
         external_dag_id="airbyte_data_transform",
-        external_task_id="data_to_staging",
+        external_task_id="end",
         mode = 'poke',
         poke_interval=10,
         timeout=600,
@@ -71,4 +73,4 @@ with DAG(
         gcp_conn_id=gcp_conn_id
     )
 
-wait_for_transform_gcs_data >> get_most_recent_file >> load_data
+    wait_for_transform_gcs_data >> get_most_recent_file >> load_data
