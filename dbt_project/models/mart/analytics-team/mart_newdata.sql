@@ -60,6 +60,7 @@ select
   iw.source,
   iw.sunriseEpoch,
   iw.sunsetEpoch,
+  EDIT_DISTANCE(iw.department_lower, id.department_lower) AS dep_distance
 
 from int_most_recent_weather iw
-inner join int_depcode id using (department_lower)
+inner join int_depcode id on EDIT_DISTANCE(iw.department_lower, id.department_lower) <= 1
