@@ -33,6 +33,7 @@ select
   dew,
   humidity,
   winddir,
+  windspeed,
   windgust,
   pressure,
   severerisk,
