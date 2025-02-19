@@ -5,7 +5,7 @@ opendatasoft_2024/
 silver/
 bronze/
 logs/
-temp/
+temp/*
 
 .venv/
 database/
