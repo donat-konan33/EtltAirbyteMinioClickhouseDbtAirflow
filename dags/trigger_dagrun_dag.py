@@ -1,6 +1,7 @@
 from airflow import DAG
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from datetime import datetime
+from airflow.operators.empty import EmptyOperator
 
 with DAG(
     dag_id="trigger_dags",
@@ -8,6 +9,9 @@ with DAG(
     catchup=False,
     schedule_interval=None,
 ) as dag:
+
+    start_task = EmptyOperator(task_id="start")
+
     trigger_A = TriggerDagRunOperator(
         task_id="trigger_airbyte_data_transform",
         trigger_dag_id="airbyte_data_transform",
@@ -26,4 +30,4 @@ with DAG(
         logical_date="{{ ts }}",
     )
 
-    trigger_A >> trigger_B >> trigger_C
+    start_task >> [trigger_A, trigger_B, trigger_C]

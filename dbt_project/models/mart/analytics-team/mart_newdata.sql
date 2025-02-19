@@ -62,7 +62,13 @@ select
   iw.source,
   iw.sunriseEpoch,
   iw.sunsetEpoch,
-  EDIT_DISTANCE(iw.department_lower, id.department_lower) AS dep_distance
+  EDIT_DISTANCE(iw.department_lower, id.department_lower) AS dep_distance,
+  ROUND(AVG(solarenergy_kwhpm2) OVER(
+    PARTITION BY id.reg_name
+  ), 3) AS avg_solarenergy_kwhpm2,
+  ROUND(AVG(solarradiation) OVER(
+    PARTITION BY id.reg_name
+  ), 3) AS avg_solarradiation
 
 from int_most_recent_weather iw
 inner join int_depcode id on EDIT_DISTANCE(iw.department_lower, id.department_lower) <= 1

@@ -3,8 +3,10 @@ old_data/
 old_data_transformed/
 opendatasoft_2024/
 silver/
-staging/
+bronze/
 logs/
+temp/
+
 .venv/
 database/
 abctl-v0.24.0-linux-amd64/

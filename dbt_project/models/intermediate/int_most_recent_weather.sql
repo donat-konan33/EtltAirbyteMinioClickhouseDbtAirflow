@@ -4,14 +4,21 @@
   )
 }}
 
-
 select
   record_id,
   dates,
   FORMAT_DATE('%A', dates) AS weekday_name,
   datetimeEpoch,
   department,
-  LOWER(TRIM((REGEXP_REPLACE(department, r'[^A-Za-z0-9]', '')))) AS department_lower,
+  LOWER(TRIM(
+        REGEXP_REPLACE(
+                REGEXP_REPLACE(
+                          NORMALIZE(department, NFD), r'\pM', ''),
+                   r'[^A-Za-z0-9]', '')
+                   )
+  )
+
+  AS department_lower,
   locations,
   latitude,
   longitude,

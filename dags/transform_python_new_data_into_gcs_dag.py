@@ -74,7 +74,6 @@ with DAG(
         concat_data_by_date(dates=dates, client=gcs_client, bucket_name=bucket, prefix=SOURCE_PREFIX)
 
 
-
     get_path_task = PythonOperator(
         task_id='get_path_list',
         python_callable=get_files_path,
