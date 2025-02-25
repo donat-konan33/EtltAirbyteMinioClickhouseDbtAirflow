@@ -2,4 +2,4 @@ This project set up Dokcer container to perform data extraction with Airbyte. Th
 
 Below we can see the flowchart of into the architecture of ELT/ETLT created:
 
-![flowchart](assets/weather_elt_etlt_diagram.png)
+![flowchart](assets/weather_etlt_diagram.svg)
