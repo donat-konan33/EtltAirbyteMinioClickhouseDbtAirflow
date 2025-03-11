@@ -14,3 +14,7 @@ airflow.cfg
 airflow.db
 webserver_config.py
 *.pyc
+staging_weather_1_france_weather_2025-02-09.parquet
+test_connection.py
+dags/airbyte_test_dags.py
+compose.yaml
