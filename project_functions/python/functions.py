@@ -19,7 +19,6 @@ class GetExistingPaths:
         self.folder_path = folder_path
         self.file_format = file_format
 
-
     @classmethod
     def call_get_existing_subgroup(cls, folder_path: str, file_format: str) -> List[pathlib.Path]:
         """
@@ -34,9 +33,9 @@ class GetExistingPaths:
         files_path = list(pathlib.Path(self.folder_path).glob(self.file_format))
         return files_path
 
-
     def __repr__(self):
         """
+        display existing file in folder
         """
         return f"GetExistingPaths(folder_path='{self.folder_path}', file_format='{self.file_format}')"
 

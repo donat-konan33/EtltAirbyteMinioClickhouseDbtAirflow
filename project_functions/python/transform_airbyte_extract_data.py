@@ -5,6 +5,8 @@ import numpy as np
 import pyarrow.parquet as pq
 from typing import List, Tuple
 from google.cloud import storage
+import asyncio
+import time
 import re
 from google.cloud.exceptions import GoogleCloudError
 
@@ -155,3 +157,55 @@ def delete_chunked_data(client: storage.Client, bucket_name: str, prefix:str):
             print("✅ No blob matching criteria specified above.")
     except GoogleCloudError as e:
         print(f"❌ A erreor occured when deleting blobs : {e}")
+
+
+### asynchroneous function
+async def read_parquet_from_gcs(client: storage.Client, bucket_name, file_name):
+    """read Parquet file from GCS in asynchroneous mode via asyncio.to_thread()."""
+    print(f"Reading file {file_name}...")
+    start_time = time.perf_counter()
+
+    bucket = client.bucket(bucket_name)
+    blob = bucket.blob(file_name)
+
+    # load data asynchroneously in memory as gcs storage doesn't allow this type of operation
+    file_data = await asyncio.to_thread(blob.download_as_bytes)
+
+    # read parquet to dataframe format
+    table = pq.read_table(io.BytesIO(file_data))
+    df = table.to_pandas()
+
+    print(f"Read {file_name} with {df.shape[0]} rows in {time.perf_counter() - start_time:.2f} seconds.")
+    return df
+
+async def process_parquet_files(client:storage.Client, bucket_name:str, file_names:List[str]) -> pd.DataFrame:
+    """read and concatenate bucket files asynchroneously."""
+    total_start_time = time.perf_counter()
+
+    # Créer les tâches pour lire les fichiers
+    tasks = [read_parquet_from_gcs(client, bucket_name, file_name) for file_name in file_names]
+
+    # Exécuter les tâches en parallèle
+    results = await asyncio.gather(*tasks)
+
+    # Concaténer les DataFrames
+    final_df = pd.concat(results, ignore_index=True)
+
+    print(f"Processed all files in {time.perf_counter() - total_start_time:.2f} seconds.")
+    return final_df
+
+
+def get_file_names(client: storage.Client , bucket_name:str, prefix:str) -> List[str]:
+    """
+    get file names from a bucket
+    """
+    bucket = client.bucket(bucket_name)
+    list_of_blobs = list(bucket.list_blobs(prefix=prefix))
+    return [blob.name for blob in list_of_blobs]
+
+def run_async(client:storage.Client, bucket_name:str, file_names:List[str]):
+    """
+    file names are list of files in the bucket to read and concatenate into staging/weather_1/ folder in the bucket specified
+    """
+    final_df = asyncio.run(process_parquet_files(client, bucket_name, file_names))
+    return final_df
