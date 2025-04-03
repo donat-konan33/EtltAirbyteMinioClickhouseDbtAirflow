@@ -249,3 +249,93 @@ sources:
             description: "Speed of wind (kph)"
           - name: department
             description: "The name of target department"
+
+  - name: raw_entire_data
+    schema: raw_entiredata_weatherteam
+    tables:
+      - name: latest_entire_weather
+        identifier: most_recent_entire_weather
+        description: table gathering all the most weather metrics recorded over several days
+        columns:
+          - name: _airbyte_ab_id
+            description: "airbyte record id"
+          - name: latitude
+            description: "For location"
+          - name: longitude
+            description: "For location"
+          - name: resolvedAddress
+            description: "the department name comes with region mentioned"
+          - name: cloudcover
+            description: "Percentage of cloud cover (%)."
+          - name: conditions
+            description: "General weather conditions (e.g., sunny, cloudy, rainy)."
+          - name: datetime
+            description: "Date and time of the measurement in string format currently."
+          - name: datetimeEpoch
+            description: "Number of seconds from 1970-01-01 to the target date"
+          - name: description
+            description: "Detailed description of weather conditions."
+          - name: dew
+            description: "Dew point in °C (temperature at which air becomes saturated with humidity)."
+          - name: feelslike
+            description: "Average perceived temperature for the day (in °C)."
+          - name: feelslikemax
+            description: "Maximum perceived temperature for the day (in °C)."
+          - name: feelslikemin
+            description: "Minimum perceived temperature for the day (in °C)."
+          - name: humidity
+            description: "Relative humidity of the air in percentage (%)."
+          - name: icon
+            description: "Icon representing weather conditions."
+          - name: moonphase
+            description: "Moon phase (%)."
+          - name: precip
+            description: "Total amount of precipitation recorded (in mm)."
+          - name: precipcover
+            description: "Percentage of the time period covered by precipitation (%)."
+          - name: precipprob
+            description: "Probability of precipitation in percentage (%)."
+          - name: preciptype
+            description: "Type of recorded precipitation (e.g., rain, snow, hail)."
+          - name: pressure
+            description: The atmospheric pressure at a location that removes reduction in pressure due to the altitude of the location. This is expressed in millibars (mb).
+          - name: severerisk
+            description: "Severe risk is value between 0 and 100 representing the risk of convective storms (e.g. thunderstorms, hail and tornadoes). "
+          - name: snow
+            description: "Thickness of the snow in cm"
+          - name: snowdepth
+            description: "Snow depth is the average amount of snow currently on the ground for the time period (cm)"
+          - name: solarenergy
+            description: "Indicates the total energy from the sun that builds up over an hour or day"
+          - name: solarradiation
+            description: "Measures the power (in W/m2) at the instantaneous moment of the observation"
+          - name: source
+            description: "source"
+          - name: stations
+            description: "stations where measurements were recorded"
+          - name: sunrise
+            description: "Sunrise time"
+          - name: sunriseEpoch
+            description: "Unix date"
+          - name: sunset
+            description: "Sunset time"
+          - name: sunsetEpoch
+            description: "Unix date"
+          - name: temp
+            description: "Mean temperature in °C"
+          - name: tempmax
+            description: "Maximal temperature  in °C"
+          - name: tempmin
+            description: "Minimal temperature  in °C"
+          - name: uvindex
+            description: "A value between 0 and 10 indicating the level of ultra violet (UV) exposure for that hour or day"
+          - name: visibility
+            description:  "Visibility is the distance that can be seen in daylight (in km)"
+          - name: winddir
+            description: " indicates the direction from where the wind is blowing from. The units of the wind direction is degrees from north. The value ranges from 0 degrees (from the North), to 90 degrees (from the east), 180 degrees (from the south), 270 (from the west) back to 360 degrees"
+          - name: windgust
+            description: "Wind gust is the maximum wind speed (kph) measures over a short amount of time (typically less than 20 seconds)"
+          - name: windspeed
+            description: "Speed of wind (kph)"
+          - name: department
+            description: "The name of target department"

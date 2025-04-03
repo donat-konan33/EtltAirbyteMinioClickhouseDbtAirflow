@@ -25,7 +25,7 @@ path_to_json_key = Variable.get('GCP_SERVICE_ACCOUNT_KEY_PATH')
 gcs_client = storage.Client.from_service_account_json(json_credentials_path=path_to_json_key)
 gcp_conn_id = "google_cloud_default"
 DATASET_NAME = "raw_entiredata_weatherteam"
-TABLE_NAME = "weather"
+TABLE_NAME = "most_recent_entire_weather"
 
 
 def concat_all_data_and_store_to_bq(gcs_client:storage.Client, bucket_name:str, STAGING_PREFIX:str):
@@ -73,7 +73,8 @@ with DAG(
         task_id="create_all_weather_data_dataset",
         dataset_id=DATASET_NAME,
         project_id=PROJECT_ID,
-        gcp_conn_id=gcp_conn_id
+        gcp_conn_id=gcp_conn_id,
+        location="europe-west1",
         )
 
     create_table = BigQueryCreateEmptyTableOperator(
