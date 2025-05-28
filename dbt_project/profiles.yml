@@ -36,5 +36,5 @@ dbt_project:
       #compress_block_size: [1048576] # Compression block size if compression is enabled
 
 
-# database : le moteur (l'instance logique principale).
-# schema : l'espace logique à l’intérieur d’un database (comme un dossier dans une base).
+# database : engine (main logical instance).
+# schema: the logical space within a database (like a folder in a database).
