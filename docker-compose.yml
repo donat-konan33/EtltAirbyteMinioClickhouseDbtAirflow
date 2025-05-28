@@ -8,14 +8,16 @@ services:
             - POSTGRES_USER=airflow
         volumes:
             - ./database/:/var/lib/postgresql/data
+            - airflow-metadata:/var/lib/postgresql/data
         ports:
           - "5433:5432"
-
         healthcheck:
             test: ["CMD", "pg_isready -d db -U airflow"]
             interval: 5s
             retries: 5
         restart: always
+        networks:
+            - minio-clickhouse-airflow
 
     scheduler:
         build: .
@@ -28,9 +30,9 @@ services:
             - AIRFLOW__DEBUG__FAIL_FAST=true
             - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:$POSTGRES_PASSWORD@postgres:5432/db
             - AIRFLOW__CORE__LOAD_EXAMPLES=false
-            - PROJECT_ID=$PROJECT_ID
-            - PATH_TO_SERVICE_ACCOUNT_DIRECTORY=$PATH_TO_SERVICE_ACCOUNT_DIRECTORY
-            - GCP_SERVICE_ACCOUNT_KEY_PATH=$GCP_SERVICE_ACCOUNT_KEY_PATH
+            - CLICKHOUSE_DB=$CLICKHOUSE_DB
+            - CLICKHOUSE_USER=$CLICKHOUSE_USER
+            - CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD
 
         volumes:
             - ./dags:/app/airflow/dags
@@ -39,9 +41,11 @@ services:
             - ./airbyte:/app/airflow/airbyte
             - ./project_functions:/app/airflow/project_functions
             - ./dbt_project:/app/airflow/dbt_project
-            - $PATH_TO_SERVICE_ACCOUNT_DIRECTORY:/app/airflow/.gcp_keys
+
         tty: true
         stdin_open: true
+        networks:
+            - minio-clickhouse-airflow
 
     webserver:
         build: .
@@ -57,17 +61,13 @@ services:
             - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
             - POSTGRES_USER=airflow
             - AIRFLOW__CORE__LOAD_EXAMPLES=false
-            - PROJECT_ID=$PROJECT_ID
             - LAKE_BUCKET=$LAKE_BUCKET
             - LAKE_BUCKET_2=$LAKE_BUCKET_2
             - AIRFLOW_ADMIN_EMAIL=$AIRFLOW_ADMIN_EMAIL
-            - AIRLFLOW_ADMIN_USERNAME=$AIRLFLOW_ADMIN_USERNAME
+            - AIRFLOW_ADMIN_USERNAME=$AIRFLOW_ADMIN_USERNAME
             - AIRFLOW_ADMIN_PASSWORD=$AIRFLOW_ADMIN_PASSWORD
             - AIRFLOW_ADMIN_FIRST_NAME=$AIRFLOW_ADMIN_FIRST_NAME
             - AIRFLOW_ADMIN_LAST_NAME=$AIRFLOW_ADMIN_LAST_NAME
-            - GCP_SERVICE_ACCOUNT_KEY=$GCP_SERVICE_ACCOUNT_KEY
-            - GCP_SERVICE_ACCOUNT_KEY_PATH=$GCP_SERVICE_ACCOUNT_KEY_PATH
-
         volumes:
             - ./dags:/app/airflow/dags
             - ./logs:/app/airflow/logs
@@ -75,7 +75,6 @@ services:
             - ./airbyte:/app/airflow/airbyte
             - ./project_functions:/app/airflow/project_functions
             - ./dbt_project:/app/airflow/dbt_project
-            - $PATH_TO_SERVICE_ACCOUNT_DIRECTORY:/app/airflow/.gcp_keys
         ports:
             - "8080:8080"
         healthcheck:
@@ -85,3 +84,14 @@ services:
             retries: 3
         tty: true
         stdin_open: true
+        networks:
+            - minio-clickhouse-airflow
+
+networks:
+  minio-clickhouse-airflow:
+    driver: bridge
+    external: true
+
+volumes:
+  airflow-metadata:
+    external: true

@@ -1,14 +1,40 @@
+# This profile example is from this link: https://github.com/ClickHouse/dbt-clickhouse | https://docs.getdbt.com/docs/core/connect-data-platform/clickhouse-setup
 dbt_project:
+  target: dev
   outputs:
     dev:
-      dataset: raw_olddata_weatherteam
-      job_execution_timeout_seconds: 300
-      job_retries: 1
-      keyfile: "{{ env_var('GCP_SERVICE_ACCOUNT_KEY_PATH') }}"
-      location: europe-west1
-      method: service-account
-      priority: interactive
-      project: "{{ env_var('PROJECT_ID') }}"
-      threads: 2
-      type: bigquery
-  target: dev
+      type: clickhouse
+      schema: "{{ env_var('CLICKHOUSE_DB') }}" # ClickHouse database for dbt models
+
+      # optional
+      driver: native                                   # default http or native.  If not set this will be autodetermined based on port setting
+      host: 172.19.0.2                               # Hostname (`clickhousedb` within docker network ) or IP address of the ClickHouse server
+      port: 9000                                       # If not set, defaults to 8123, 8443, 9000, 9440 depending on the secure and driver settings
+      user: "{{ env_var('CLICKHOUSE_USER') }}"         # User for all database operations
+      password: "{{ env_var('CLICKHOUSE_PASSWORD') }}" # Password for the user
+      retries: 1                                       # Number of times to retry a "retriable" database exception (such as a 503 'Service Unavailable' error)
+      connect_timeout: 60                              # Timeout in seconds to establish a connection to ClickHouse
+
+      #compression: [<empty string>] # Use gzip compression if truthy (http), or compression type for a native connection
+      #cluster: [<empty string>] # If set, certain DDL/table operations will be executed with the `ON CLUSTER` clause using this cluster. Distributed materializations require this setting to work. See the following ClickHouse Cluster section for more details.
+      #verify: [True] # Validate TLS certificate if using TLS/SSL
+      #secure: [False] # Use TLS (native protocol) or HTTPS (http protocol)
+      #client_cert: [null] # Path to a TLS client certificate in .pem format
+      #client_cert_key: [null] # Path to the private key for the TLS client certificate
+      #send_receive_timeout: [300] # Timeout in seconds to receive data from the ClickHouse server
+      #cluster_mode: [False] # Use specific settings designed to improve operation on Replicated databases (recommended for ClickHouse Cloud)
+      #use_lw_deletes: [False] # Use the strategy `delete+insert` as the default incremental strategy.
+      #check_exchange: [True] # Validate that clickhouse support the atomic EXCHANGE TABLES command.  (Not needed for most ClickHouse versions)
+      #local_suffix: [_local] # Table suffix of local tables on shards for distributed materializations.
+      #local_db_prefix: [<empty string>] # Database prefix of local tables on shards for distributed materializations. If empty, it uses the same database as the distributed table.
+      #allow_automatic_deduplication: [False] # Enable ClickHouse automatic deduplication for Replicated tables
+      #tcp_keepalive: [False] # Native client only, specify TCP keepalive configuration. Specify custom keepalive settings as [idle_time_sec, interval_sec, probes].
+      #custom_settings: [{}] # A dictionary/mapping of custom ClickHouse settings for the connection - default is empty.
+
+      ## Native (clickhouse-driver) connection settings
+      #sync_request_timeout: [5] # Timeout for server ping
+      #compress_block_size: [1048576] # Compression block size if compression is enabled
+
+
+# database : le moteur (l'instance logique principale).
+# schema : l'espace logique à l’intérieur d’un database (comme un dossier dans une base).

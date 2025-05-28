@@ -11,16 +11,15 @@ python = ">=3.8,<3.13"
 pendulum = "*"
 pytest = "*"
 apache-airflow = {version = "^2.4.0", extras = ["postgres", "airbyte"]}
-ipython = "*"
 dbt-core = "*"
-dbt-bigquery = "*"
 pyarrow = "*"
-sqlalchemy-bigquery = "^1.2.1"
-apache-airflow-providers-google = "*"
 pandas = "1.5.3"
-google-cloud-bigquery = "3.27.0"
 missingno = "^0.5.2"
 pytest-mock = "^3.14.0"
+dbt-clickhouse = "1.8.4"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "8.8.0"
 
 [build-system]
 requires = ["poetry-core"]
