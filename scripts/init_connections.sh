@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 set -x
 
-echo "Add connection"
+echo "Add connections"
 airflow connections add 'postgres_connection' \
-                    --conn-type postgres \
-                    --conn-host "$HOST" \
-                    --conn-schema "$POSTGRES_DB" \
-                    --conn-login "$POSTGRES_USER" \
-                    --conn-password "$POSTGRES_PASSWORD" \
-                    --conn-port "5432"
+    --conn-type postgres \
+    --conn-host "$POSTGRES_HOST" \
+    --conn-schema "$POSTGRES_DB" \
+    --conn-login "$POSTGRES_USER" \
+    --conn-password "$POSTGRES_PASSWORD" \
+    --conn-port "5432"
 
-airflow connections add 'google_cloud_default' \
-    --conn-type 'google_cloud_platform' \
-    --conn-extra "{
-        \"extra__google_cloud_platform__key_path\": \"${GCP_SERVICE_ACCOUNT_KEY_PATH}\",
-        \"extra__google_cloud_platform__project\": \"${PROJECT_ID}\"
-    }"
+airflow connections add 'clickhouse_default' \
+    --conn-type 'http' \
+    --conn-host "$CLICKHOUSE_HOST" \
+    --conn-port "8123" \
+    --conn-schema "$CLICKHOUSE_DB" \
+    --conn-login "$CLICKHOUSE_USER" \
+    --conn-password "$CLICKHOUSE_PASSWORD"

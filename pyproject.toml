@@ -7,19 +7,21 @@ readme = "README.md"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.13"
+python = ">=3.9,<3.13"
 pendulum = "*"
 pytest = "*"
 apache-airflow = {version = "^2.4.0", extras = ["postgres", "airbyte"]}
 dbt-core = "*"
 pyarrow = "*"
 pandas = "1.5.3"
-missingno = "^0.5.2"
 pytest-mock = "^3.14.0"
 dbt-clickhouse = "1.8.4"
+apache-airflow-providers-amazon = "8.23.0"
+minio = "^7.2.15" # MinIO Python SDK
 
 [tool.poetry.group.dev.dependencies]
 ipython = "8.8.0"
+missingno = "0.5.2"
 
 [build-system]
 requires = ["poetry-core"]
