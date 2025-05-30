@@ -1,5 +1,10 @@
-This project set up Dokcer container to perform data extraction with Airbyte. That allows us to try new airbyte data extraction usecases.
+This project set up Docker container to perform data extraction with Airbyte.
 
-Below we can see the flowchart of into the architecture of ELT/ETLT created:
+Here we'll set an analytic fundation architecture with:
 
-![flowchart](assets/weather_etlt_diagram.svg)
+- airbyte : our data integration tool
+- airflow : to orchestrate jobs
+- clickhouse : data warehouse for analytics
+- dbt : let us to transform modularly data into the data warehouse (handy)
+
+Project in progress ...
