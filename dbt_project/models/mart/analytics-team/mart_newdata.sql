@@ -6,11 +6,11 @@
 
 with int_most_recent_weather as (
   select *
-  from {{ref('int_most_recent_weather')}}
+  from {{ ref('int_most_recent_weather') }}
 ),
   int_depcode as (
     select *
-    from {{ref('int_depcode')}}
+    from {{ ref('int_depcode') }}
 )
 
 select

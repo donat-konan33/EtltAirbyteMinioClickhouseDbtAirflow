@@ -17,7 +17,7 @@ with int_table AS (
          END AS dep_name_modif,
          dep_code,
          dep_status
-  from {{ref('stg_depcode')}}
+  from {{ ref('stg_depcode') }}
  )
 
 select

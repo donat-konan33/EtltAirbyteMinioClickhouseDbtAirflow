@@ -1,13 +1,15 @@
 # dbt_project/models/source/sources.yml
+# how to define clickhouse as source in dbt
 
 version: 2
 
 sources:
-  - name: raw_old_data
-    schema: raw_olddata_weatherteam
+  - name: clickhouse
+    schema: datawarehouse
+    description: "Raw data from the location and weather tables"
     tables:
-      - name: depcode
-        identifier: depcode
+      - name: raw_depcode
+        identifier: raw_depcode
         description: department with their, an unique code per department
         columns:
           - name: geo_point_2d
@@ -26,145 +28,10 @@ sources:
               - unique
               - not_null
           - name: dep_status
-            description: the status rural or urban
-
-
-      - name: municipality
-        identifier: municipality
-        description: the same names of city defined into weather table with name `communes` it should be unique
-        columns:
-          - name: municipality
-            description: must be unique
-            tests:
-              - unique
-              - not_null
-
-          - name: dep_name_upper
-            description: department name
-
-          - name: dep_code
-            description: In this case one dep_code per municipality
-            tests:
-              - unique
-              - not_null
-
-      - name: weather
-        identifier: weather
-        description: table gathering all weather metrics recorded
-        columns:
-          - name: name
-            description: name of municipality entered for weather api requests
-
-          - name: communes
-            description: "Name of the municipality where the weather data was recorded."
-
-          - name: regions
-            description: "Name of the region where the municipality is located."
-
-          - name: pays
-            description: "Name of the country where the municipality is located."
-
-          - name: datetime
-            description: "Date and time of the measurement in string format currently."
-
-          - name: tempmax
-            description: "Maximum recorded temperature for the day (in °F)."
-
-          - name: tempmin
-            description: "Minimum recorded temperature for the day (in °F)."
-
-          - name: temp
-            description: "Average recorded temperature for the day (in °F)."
-
-          - name: feelslikemax
-            description: "Maximum perceived temperature for the day (in °F)."
-
-          - name: feelslikemin
-            description: "Minimum perceived temperature for the day (in °F)."
-
-          - name: feelslike
-            description: "Average perceived temperature for the day (in °F)."
-
-          - name: dew
-            description: "Dew point in °F (temperature at which air becomes saturated with humidity)."
-
-          - name: humidity
-            description: "Relative humidity of the air in percentage (%)."
-
-          - name: precip
-            description: "Total amount of precipitation recorded (in inch)."
-
-          - name: precipprob
-            description: "Probability of precipitation in percentage (%)."
-
-          - name: precipcover
-            description: "Percentage of the time period covered by precipitation (%)."
-
-          - name: preciptype
-            description: "Type of recorded precipitation (e.g., rain, snow, hail)."
-
-          - name: snow
-            description: "Amount of snowfall (in inch)."
-
-          - name: snowdepth
-            description: "Depth of snow on the ground (in inch)."
-
-          - name: windgust
-            description: "Maximum recorded wind gust speed (in mph)."
-
-          - name: windspeed
-            description: "Average recorded wind speed (in mph)."
-
-          - name: winddir
-            description: "Average wind direction in degrees (0° = North, 90° = East, 180° = South, 270° = West)."
-
-          - name: sealevelpressure
-            description: "Sea level atmospheric pressure (in mb)."
-
-          - name: cloudcover
-            description: "Percentage of cloud cover (%)."
-
-          - name: visibility
-            description: "Visibility distance in miles."
-
-          - name: solarradiation
-            description: "Average solar radiation in W/m²."
-
-          - name: solarenergy
-            description: "Solar energy received in MJ/m²."
-
-          - name: uvindex
-            description: "Maximum UV index recorded for the day."
-
-          - name: severerisk
-            description: "Index of risk for severe weather conditions (e.g., level=10)."
-
-          - name: sunrise
-            description: "Local sunrise time in format string currently. (e.g.2024-09-25 07:50:18)."
-
-          - name: sunset
-            description: "Local sunset time in format string currently."
-
-          - name: timeofday
-            description: "time between sunset and sunrise (in hour)."
-
-          - name: moonphase
-            description: "Moon phase (%)."
-
-          - name: conditions
-            description: "General weather conditions (e.g., sunny, cloudy, rainy)."
-
-          - name: description
-            description: "Detailed description of weather conditions."
-
-          - name: icon
-            description: "Icon representing weather conditions."
-
-          - name: stations
-            description: "IDs of weather stations that contributed to the measurements."
+            description: the status rural or urbain of the department
 
       - name: latest_weather
-        identifier: most_recent_weather
+        identifier: raw_weather
         description: table gathering all the most weather metrics recorded
         columns:
           - name: _airbyte_ab_id
@@ -250,8 +117,9 @@ sources:
           - name: department
             description: "The name of target department"
 
-  - name: raw_entire_data
-    schema: raw_entiredata_weatherteam
+  - name: raw_entire_weather
+    schema: raw_entire_weather
+    description: "Raw data from the location and weather tables. Useful for Machine Learning and other advanced analytics."
     tables:
       - name: latest_entire_weather
         identifier: most_recent_entire_weather

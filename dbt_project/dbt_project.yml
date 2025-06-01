@@ -32,23 +32,25 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_project:
     # Config indicated by + and applies to all files under models/example/
+    +database: datawarehouse # +database defines the database where models will be built
     example:
       +materialized: view
 
     staging:
-      +schema: staging
+      # +schema: staging # +schema defines prefix for all models in this directory | helpful for organizing models and keeping logical separation
+
       +materialized: view
       +docs:
         node_color: "#AF8131"
 
     intermediate:
-      +schema: intermediate
+      # +schema: intermediate
       +materialized: view
       +docs:
         node_color: "#BF6A90"
 
     mart:
-      +schema: mart
+      #+schema: mart
       +materialized: table
       +docs:
         node_color: "#1639A7"

@@ -65,4 +65,4 @@ select
   sunriseEpoch,
   sunsetEpoch,
 
-from {{ref('stg_most_recent_weather')}}
+from {{ ref('stg_most_recent_weather') }}
