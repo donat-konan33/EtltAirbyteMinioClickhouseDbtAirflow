@@ -5,7 +5,7 @@ from airflow.operators.empty import EmptyOperator
 
 with DAG(
     dag_id="trigger_dags",
-    start_date=datetime(2025, 2, 7),
+    start_date=datetime(2025, 7, 10),
     catchup=False,
     schedule_interval=None,
 ) as dag:
@@ -19,14 +19,14 @@ with DAG(
     )
 
     trigger_B = TriggerDagRunOperator(
-        task_id="trigger_load_most_data_from_gcs_to_bigquery",
-        trigger_dag_id="load_most_data_from_gcs_to_bigquery",
+        task_id="trigger_load_data_from_datalake_to_clickhouse",
+        trigger_dag_id="load_data_from_datalake_to_clickhouse",
         logical_date="{{ ts }}",
     )
 
     trigger_C = TriggerDagRunOperator(
-        task_id='trigger_dbt_models_bigquery_dag',
-        trigger_dag_id="dbt_models_bigquery_dag",
+        task_id='trigger_dbt_models_clickhouse_dag',
+        trigger_dag_id="dbt_models_clickHouse_dag",
         logical_date="{{ ts }}",
     )
 

@@ -16,5 +16,5 @@ select geometryFromWKB(geo_point_2d) as geo_point_2d,
        reg_code,
        dep_name_upper as dep_name,
        dep_current_code as dep_code,
-       IFNULL(dep_status, 'undefined') as dep_status
+       IF(dep_status='', 'undefined', dep_status) as dep_status
 from depcode

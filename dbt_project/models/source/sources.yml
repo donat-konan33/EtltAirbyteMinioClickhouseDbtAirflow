@@ -118,7 +118,7 @@ sources:
             description: "The name of target department"
 
   - name: raw_entire_weather
-    schema: raw_entire_weather
+    schema: datawarehouse_entire
     description: "Raw data from the location and weather tables. Useful for Machine Learning and other advanced analytics."
     tables:
       - name: latest_entire_weather

@@ -4,7 +4,7 @@ from airflow.hooks.base import BaseHook #BaseHook centralizes the connection man
 # and provides a common interface for all hooks in Airflow.
 # This allows you to create custom hooks that can interact with external systems.
 
-import clickhouse_connect # for http connection to ClickHouse
+import clickhouse_connect # for http connection via airflow UI to ClickHouse
 
 class ClickHouseHook(BaseHook):
     def __init__(self, conn_id='clickhouse_default'):

@@ -1,3 +1,5 @@
+# here are some functions used transform data into local storage, we can adjust them for a datalake utilization
+
 import pathlib
 from typing import List, Optional
 import pandas as pd

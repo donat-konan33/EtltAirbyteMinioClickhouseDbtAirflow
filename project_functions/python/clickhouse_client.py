@@ -2,8 +2,10 @@
 
 import os
 import clickhouse_connect # for http connection to ClickHouse
+from typing import Dict
 conn_params = {
-    'host': os.environ.get("CLICKHOUSE_HOST", "localhost"),
+    'hostip': os.environ.get("CLICKHOUSE_HOST_IP", "localhost"),
+    'hostname': os.environ.get("CLICKHOUSE_HOST", "localhost"),
     'port': 8123,  # Default ClickHouse HTTP port), for http connection
     'username': os.environ.get("CLICKHOUSE_USER"),
     'password': os.environ.get("CLICKHOUSE_PASSWORD"),
@@ -14,9 +16,19 @@ class ClickHouseClient:
     def __init__(self):
         self.params = conn_params
 
+    @classmethod
+    def create_client(cls, conn:Dict[str, str | int]=conn_params):
+        return clickhouse_connect.get_client(
+            host= conn['hostip'] or conn['hostname'],
+            port=conn['port'],
+            username=conn['username'],
+            password=conn['password'],
+            database=conn['database']
+        )
+
     def get_conn(self): # it gives us clickhouse client
         return clickhouse_connect.get_client(
-            host=self.params['host'],
+            host= self.params['hostip'] or self.params['hostname'],
             port=self.params['port'],
             username=self.params['username'],
             password=self.params['password'],
@@ -25,18 +37,4 @@ class ClickHouseClient:
 
     def run_query(self, sql):
         client = self.get_conn()
-        result = client.query(sql)
-        return result.result_rows
-
-def create_clickhouse_table(sql_file_path: str, table_name: str):
-    """
-    Create a ClickHouse table with the specified schema.
-    Args ``table_name`` should mandatorily be those defined in the SQL file.
-    """
-    with open(sql_file_path, 'r') as file:
-        sql = file.read()
-    try:
-        ClickHouseClient().run_query(sql)
-        print(f"Table {table_name} created successfully.")
-    except Exception as e:
-        print(f"Error creating table in ClickHouse: {e}")
+        return client.query_df(sql)

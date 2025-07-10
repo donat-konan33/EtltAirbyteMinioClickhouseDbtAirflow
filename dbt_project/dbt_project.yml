@@ -32,7 +32,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_project:
     # Config indicated by + and applies to all files under models/example/
-    +database: datawarehouse # +database defines the database where models will be built
+    +database: datawarehouse # or "{{ env_var('CLICKHOUSE_DB') }}" # +database defines the database where models will be built
     example:
       +materialized: view
 
