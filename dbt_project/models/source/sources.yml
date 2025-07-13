@@ -117,12 +117,12 @@ sources:
           - name: department
             description: "The name of target department"
 
-  - name: raw_entire_weather
-    schema: datawarehouse_entire
+  - name: raw_entire_weather # maybe add only mart
+    schema: datawarehouse
     description: "Raw data from the location and weather tables. Useful for Machine Learning and other advanced analytics."
     tables:
-      - name: latest_entire_weather
-        identifier: most_recent_entire_weather
+      - name: raw_latest_entire_weather
+        identifier: raw_latest_entire_weather
         description: table gathering all the most weather metrics recorded over several days
         columns:
           - name: _airbyte_ab_id

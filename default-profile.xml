@@ -1,0 +1,7 @@
+<clickhouse>
+  <profiles>
+    <default>
+      <allow_experimental_join_condition>1</allow_experimental_join_condition>
+    </default>
+  </profiles>
+</clickhouse>

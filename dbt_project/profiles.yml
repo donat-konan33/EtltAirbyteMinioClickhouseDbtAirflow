@@ -8,7 +8,7 @@ dbt_project:
 
       # optional
       driver: native                                   # default http or native.  If not set this will be autodetermined based on port setting
-      host: "{{ env_var('CLICKHOUSE_HOST') }}"                             # Hostname (`clickhousedb` within docker network ) or IP address of the ClickHouse server
+      host: "{{ env_var('CLICKHOUSE_HOST_IP', env_var('CLICKHOUSE_HOST')) }}"        # Hostname (`clickhousedb` within docker network ) or IP address of the ClickHouse server
       port: 9000                                       # If not set, defaults to 8123, 8443, 9000, 9440 depending on the secure and driver settings
       user: "{{ env_var('CLICKHOUSE_USER') }}"         # User for all database operations
       password: "{{ env_var('CLICKHOUSE_PASSWORD') }}" # Password for the user

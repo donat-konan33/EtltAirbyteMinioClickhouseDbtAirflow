@@ -4,6 +4,7 @@
   )
 }}
 
+
 with int_most_recent_weather as (
   select *
   from {{ ref('int_most_recent_weather') }}
@@ -25,8 +26,7 @@ select
   id.reg_name,
   id.reg_code,
   id.geo_point_2d,
-  id.geo_shape,
-  ST_AsGeoJSON(id.geo_shape) AS geojson,
+  id.geo_shape AS geojson,
   iw.locations,
   iw.latitude,
   iw.longitude,
@@ -57,18 +57,21 @@ select
   iw.moonphase,
   iw.moonphase_label,
   iw.descriptions,
-  iw.sunrise_time,
-  iw.sunset_time,
+  iw.sunrise,
+  iw.sunset,
   iw.source,
   iw.sunriseEpoch,
   iw.sunsetEpoch,
-  EDIT_DISTANCE(iw.department_lower, id.department_lower) AS dep_distance,
-  ROUND(AVG(solarenergy_kwhpm2) OVER(
-    PARTITION BY id.reg_name
+  editDistance(iw.department_lower, id.department_lower) AS dep_distance,
+  ROUND(AVG(solarenergy_kwhpm2)
+          OVER(
+            PARTITION BY id.reg_name
   ), 3) AS avg_solarenergy_kwhpm2,
-  ROUND(AVG(solarradiation) OVER(
-    PARTITION BY id.reg_name
+  ROUND(AVG(solarradiation)
+          OVER(
+            PARTITION BY id.reg_name
   ), 3) AS avg_solarradiation
 
 from int_most_recent_weather iw
-inner join int_depcode id on EDIT_DISTANCE(iw.department_lower, id.department_lower) <= 1
+cross join int_depcode id
+where editDistance(iw.department_lower, id.department_lower) <= 1

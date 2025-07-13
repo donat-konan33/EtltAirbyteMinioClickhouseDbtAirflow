@@ -6,7 +6,7 @@ import pandas as pd
 import logging
 import json
 import shapely.wkb
-import shapely.wkt
+from shapely import wkt
 
 
 def wkb_to_wkt(x):
@@ -75,6 +75,8 @@ class ClickHouseQueries:
                     # Need to convert data types for ClickHouse compatibility # transform type according to the target table in clickhousedb before loading it to.
                     data["geo_point_2d"] = data["geo_point_2d"].apply(wkb_to_wkt)
                     data["geo_shape"] = data["geo_shape"].apply(wkb_to_wkt)
+                    data["geo_shape"] = data["geo_shape"].apply(lambda w: wkt.loads(w).__geo_interface__)
+                    data["geo_shape"] = data["geo_shape"].apply(lambda x: json.dumps(x) if isinstance(x, dict) else x)
                     for col in ["reg_name", "reg_code", "dep_name_upper", "dep_current_code", "dep_status"]:
                         data[col] = data[col].apply(lambda x: str(x) if not pd.isna(x) else x)
                         data[col] = data[col].astype("string")

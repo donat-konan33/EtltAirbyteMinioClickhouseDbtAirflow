@@ -26,7 +26,7 @@ select
   reg_name,
   reg_code,
   dep_name,
-  LOWER(TRIM((REGEXP_REPLACE(dep_name_modif, r'[^A-Za-z0-9]', '')))) AS department_lower,
+  LOWER(TRIM((REGEXP_REPLACE(dep_name_modif, '[^A-Za-z0-9]', '')))) AS department_lower,
   dep_code,
   dep_status
 from int_table

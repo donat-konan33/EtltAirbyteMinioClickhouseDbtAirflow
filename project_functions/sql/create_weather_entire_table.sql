@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS raw_weather (
+CREATE TABLE IF NOT EXISTS raw_latest_entire_weather (
     _airbyte_ab_id Nullable(String),
     latitude Nullable(Float64),
     longitude Nullable(Float64),

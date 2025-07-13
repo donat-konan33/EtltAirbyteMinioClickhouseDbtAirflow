@@ -7,22 +7,19 @@
 select
   record_id,
   dates,
-  FORMAT_DATE('%A', dates) AS weekday_name,
+  formatDateTime(dates, '%W') AS weekday_name,
   datetimeEpoch,
   department,
   LOWER(TRIM(
         REGEXP_REPLACE(
                 REGEXP_REPLACE(
-                          NORMALIZE(department, NFD), r'\pM', ''),
-                   r'[^A-Za-z0-9]', '')
+                          normalizeUTF8NFD(department), '\pM', ''),
+                   '[^A-Za-z0-9]', '')
                    )
-  )
-
-  AS department_lower,
+  ) AS department_lower,
   locations,
   latitude,
   longitude,
-  ST_GEOGPOINT(longitude, latitude) AS geo_point_2d,
   {{ convert_mj_per_m2_to_kwh_per_m2('solarenergy') }} AS solarenergy_kwhpm2,
   solarradiation,
   uvindex,
@@ -59,8 +56,8 @@ select
       ELSE 'waning crescent'
   END AS moonphase_label,
   descriptions,
-  sunrise_time,
-  sunset_time,
+  sunrise,
+  sunset,
   source,
   sunriseEpoch,
   sunsetEpoch,

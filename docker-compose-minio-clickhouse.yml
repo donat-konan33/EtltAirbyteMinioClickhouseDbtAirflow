@@ -16,7 +16,7 @@ services:
       - minio-clickhouse-airflow
 
   clickhouse-server:
-    image: clickhouse/clickhouse-server:23.7.4.5-alpine
+    image: altinity/clickhouse-server:24.8.14.10501.altinitystable-alpine #clickhouse/clickhouse-server:23.7.4.5-alpine #altinity/clickhouse-server:24.8.14.10501.altinitystable-alpine ## for Prod-ready or clickhouse/clickhouse-server:23.7.4.5-alpine most slightweight; altinity is more stable and i can use many useful features and analytics tools | pull from https://hub.docker.com/r/altinity/clickhouse-server/tags
     container_name: clickhousedb
     ports:
       - "8123:8123"  # Default HTTP port for ClickHouse (UI), airflow connection
@@ -28,9 +28,10 @@ services:
       - CLICKHOUSE_PASSWORD=$CLICKHOUSE_PASSWORD
       - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1  # Enable access management for users
     volumes:
-      - clickhouse-data:/var/lib/clickhouse
+      - clickhouse-altinity-data:/var/lib/clickhouse
     networks:
       - minio-clickhouse-airflow
+
 
 networks:
   minio-clickhouse-airflow:
@@ -41,4 +42,6 @@ volumes:
   minio-data:
     external: true
   clickhouse-data:
+    external: true
+  clickhouse-altinity-data:
     external: true

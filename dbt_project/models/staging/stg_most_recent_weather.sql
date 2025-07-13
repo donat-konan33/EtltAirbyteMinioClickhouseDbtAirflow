@@ -5,13 +5,13 @@
 }}
 
 with average_snowdepth as (
-  select AVG(snowdepth) AS avg_snowdepth
+  select ROUND(AVG(snowdepth), 1) AS avg_snowdepth
   from {{ source("clickhouse", "latest_weather") }}
 )
 
 select
   _airbyte_ab_id as record_id,
-  DATE(datetime) as dates,
+  toDate(datetime) as dates, -- Use toDate to extract date from datetime
   datetimeEpoch,
   department,
   resolvedAddress as locations,
@@ -43,8 +43,8 @@ select
   conditions,
   moonphase,
   description as descriptions,
-  PARSE_TIME('%H:%M:%S', sunrise) AS sunrise_time,
-  PARSE_TIME('%H:%M:%S', sunset) AS sunset_time,
+  sunrise,
+  sunset,
   source,
   sunriseEpoch,
   sunsetEpoch,
