@@ -1,13 +1,19 @@
 # **Deploy ETLT Infrastructure with Airbyte, Minio, Clickhouse, Dbt and Airflow**
+[![Airbyte](https://img.shields.io/badge/-Airbyte-4F8DFD?style=flat&logo=airbyte&logoColor=white)](https://airbyte.com/)
+[![MinIO](https://img.shields.io/badge/-MinIO-EF2D5E?style=flat&logo=minio&logoColor=white)](https://min.io/)
+[![ClickHouse](https://img.shields.io/badge/-ClickHouse-FFDD00?style=flat&logo=clickhouse&logoColor=black)](https://clickhouse.com/)
+[![dbt](https://img.shields.io/badge/-dbt-FF694B?style=flat&logo=dbt&logoColor=white)](https://www.getdbt.com/)
+[![Airflow](https://img.shields.io/badge/-Airflow-017CEE?style=flat&logo=apache-airflow&logoColor=white)](https://airflow.apache.org/)
+[![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org/)
+[![SQL](https://img.shields.io/badge/-SQL-4479A1?style=flat&logo=postgresql&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
+[![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
+
 
 This project sets up an analytics architecture using Docker containers for data extraction, storage, orchestration, and transformation.
 
 - Airbyte (Extract) retrieves data from sources and deposits it into MinIO (Data Lake).
-
 - In MinIO, an initial transformation (Python) is performed to clean or enrich the files.
-
 - The data is then loaded (Load) from MinIO into ClickHouse, which is why "Load" appears under ClickHouse.
-
 - Finally, dbt (Transform) runs SQL models that transform the data directly in ClickHouse to make it ready for analysis.
 
 
@@ -129,3 +135,4 @@ Here are variables you need for this project by refering to [`.env.example`](.en
 | **AIRFLOW_ADMIN_PASSWORD** | Password for Airflow admin user                           |
 | **AIRFLOW_ADMIN_FIRST_NAME**| First name of Airflow admin user                         |
 | **AIRFLOW_ADMIN_LAST_NAME** | Last name of Airflow admin user                          |
+---
