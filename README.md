@@ -34,7 +34,7 @@ This project sets up an analytics architecture using Docker containers for data 
 
 ## Local Installation
 
-1. **Airbyte Installation**
+### 1. **Airbyte Installation**
 
 Airbyte is installed locally via Docker in this setup. For production or Kubernetes environments, refer to the [Airbyte OSS installation guide](https://docs.airbyte.com/platform/deploying-airbyte). Example Helm installation:
 
@@ -68,25 +68,25 @@ If you encounter issues, consult the [Airbyte S3 destination documentation](http
 
 
 
-1. **Clone the repository**:
+### 2. **Clone the repository**:
   ```bash
   git clone https://github.com/donat-konan33/EtltAirbyteMinioClickhouseDbtAirflow.git
   cd EtltAirbyteMinioClickhouseDbtAirflow
   ```
 
-2. **Start the infrastructure**:
+### 3. **Start the infrastructure**:
   ```bash
   docker compose up -d
   docker compose -f docker-compose-minio-clickhouse up -d
   ```
 
-3. **Access web interfaces**:
+### 4. **Access web interfaces**:
   - Airbyte: [http://localhost:8000](http://localhost:8000)
   - Minio: [http://localhost:9002](http://localhost:9002)
   - Airflow: [http://localhost:8080](http://localhost:8080)
   - Clickhouse: [http://localhost:8123](http://localhost:8123)
 
-4. Connect to **Clickhouse** using **DBeaver** and view and checkout the DBT transformations achieved.
+### 5. **Connect to** **Clickhouse** using **DBeaver** and view and checkout the DBT transformations achieved.
 
 ---
 
@@ -97,3 +97,35 @@ Refer to each service's documentation for more details.
 It is important to create a local `.env` file with the same contents as `.env.example`.
 
 If you have questions or need clarification about any part of this setup, feel free to reach out for assistance.
+
+## Environment Variables
+
+Here are variables you need for this project by refering to [`.env.example`](.env.example):
+
+| Variable                   | Description                                               |
+|----------------------------|-----------------------------------------------------------|
+| **MINIO_USER_NAME**        | Username for MinIO user                                   |
+| **MINIO_USER_PASSWORD**    | Password for MinIO user                                   |
+| **AWS_ACCESS_KEY_ID**      | AWS access key, set from MinIO username                   |
+| **AWS_SECRET_ACCESS_KEY**  | AWS secret key, set from MinIO password                   |
+| **MINIO_HOST**             | Host address for MinIO server                             |
+| **MINIO_API_PORT**         | Internal port for MinIO API                               |
+| **CLICKHOUSE_DB**          | Name of ClickHouse database                               |
+| **CLICKHOUSE_USER**        | Username for ClickHouse                                   |
+| **CLICKHOUSE_PASSWORD**    | Password for ClickHouse user                              |
+| **CLICKHOUSE_HOST**        | Host address for ClickHouse server                        |
+| **CLICKHOUSE_HOSTNAME**    | Hostname for ClickHouse server                            |
+| **POSTGRES_PASSWORD**      | Password for PostgreSQL user                              |
+| **POSTGRES_USER**          | Username for PostgreSQL                                   |
+| **POSTGRES_DB**            | Name of PostgreSQL database                               |
+| **POSTGRES_HOST**          | Host address for PostgreSQL server                        |
+| **HOST**                   | Host address for Airbyte server                           |
+| **AIRBYTE_URL**            | URL for Airbyte instance                                  |
+| **AIRBYTE_USER**           | Username for Airbyte                                      |
+| **AIRBYTE_PASSWORD**       | Password for Airbyte user                                 |
+| **LAKE_BUCKET**            | Name of first lake bucket for Airflow if Airflow Variable |
+| **AIRFLOW_ADMIN_EMAIL**    | Email address for Airflow admin user                      |
+| **AIRFLOW_ADMIN_USERNAME** | Username for Airflow admin user                           |
+| **AIRFLOW_ADMIN_PASSWORD** | Password for Airflow admin user                           |
+| **AIRFLOW_ADMIN_FIRST_NAME**| First name of Airflow admin user                         |
+| **AIRFLOW_ADMIN_LAST_NAME** | Last name of Airflow admin user                          |
