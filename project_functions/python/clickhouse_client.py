@@ -2,7 +2,7 @@
 
 import os
 import clickhouse_connect # for http connection to ClickHouse
-from typing import Dict
+from typing import Dict, Union
 conn_params = {
     'hostip': os.environ.get("CLICKHOUSE_HOST_IP", "localhost"),
     'hostname': os.environ.get("CLICKHOUSE_HOST", "localhost"),
@@ -17,7 +17,7 @@ class ClickHouseClient:
         self.params = conn_params
 
     @classmethod
-    def create_client(cls, conn:Dict[str, str | int]=conn_params):
+    def create_client(cls, conn:Dict[str, Union[str, int]]=conn_params):
         return clickhouse_connect.get_client(
             host= conn['hostip'] or conn['hostname'],
             port=conn['port'],

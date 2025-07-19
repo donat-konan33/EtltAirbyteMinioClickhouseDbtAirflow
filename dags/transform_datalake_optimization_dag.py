@@ -15,7 +15,7 @@ from project_functions.python.transform_airbyte_extract_data import (create_tabl
 
 from airflow.operators.python import PythonOperator
 from airflow.models import Variable
-from airflow.utils.trigger_rule import TriggerRule
+from airflow.triggers import TriggerRule
 from airflow.operators.empty import EmptyOperator
 
 

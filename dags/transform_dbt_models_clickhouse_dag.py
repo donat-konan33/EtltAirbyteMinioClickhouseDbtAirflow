@@ -3,13 +3,14 @@ import pendulum
 from airflow.operators.bash import BashOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 from airflow.timetables.trigger import CronTriggerTimetable
-
+from airflow.operators.python import PythonOperator
+from project_functions.python.clickhouse_crud import ClickHouseQueries
 import os
 AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 DBT_DIR = os.environ.get("DBT_DIR")
 
 with DAG(
-    dag_id="dbt_models_clickHouse_dag",
+    dag_id="dbt_models_clickhouse",
     tags=["dbt on ClickHouse"],
     default_args={'owner': 'dbt'},
     start_date=pendulum.datetime(2025, 7, 10, tz="UTC"),
@@ -17,10 +18,10 @@ with DAG(
     catchup=False,  # Do not backfill, don't run any historical data
 ) as dag:
 
-    wait_for_airbyte_sensor_pg_to_bq = ExternalTaskSensor(
-        task_id="loading_recent_data_to_bq_sensor",
-        external_dag_id="", # to fill
-        external_task_id="", # to fill
+    wait_for_loading_recent_data_to_warehouse_sensor = ExternalTaskSensor(
+        task_id="load_data_from_datalake_to_clickhouse_sensor",
+        external_dag_id="load_data_from_datalake_to_clickhouse",
+        external_task_id="end",
         mode = 'poke',
         poke_interval=10,
         timeout=1200,
@@ -32,4 +33,13 @@ with DAG(
         bash_command=f"dbt build -m +mart_newdata --project-dir {DBT_DIR}"
     )
 
-    wait_for_airbyte_sensor_pg_to_bq >> dbt_transformation
+    append_martnewdata_to_all_weather = PythonOperator(
+        task_id="append_martnewdata_to_all_weather",
+        python_callable=ClickHouseQueries().merge_daily_data,
+        op_kwargs={
+            "table_name": "mart_newdata",
+            "target_table_name": "archived_data"  # Assuming 'archived_data' is the target table
+        }
+    )
+
+    wait_for_loading_recent_data_to_warehouse_sensor >> dbt_transformation >> append_martnewdata_to_all_weather

@@ -1,7 +1,7 @@
 version: '3'
 services:
   minio:
-    image: quay.io/minio/minio:latest
+    image: quay.io/minio/minio:latest # we have to change to a specific version for production
     container_name: minio
     ports:
       - "9001:9000"  # API

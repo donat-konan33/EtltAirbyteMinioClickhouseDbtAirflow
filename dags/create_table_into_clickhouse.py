@@ -11,10 +11,13 @@ from airflow.triggers import TriggerRule
 from airflow.decorators import dag, task
 from airflow.operators.empty import EmptyOperator
 
+
 minio_client = get_minio_client()
 clickhouse_hook = ClickHouseHook()
 
-with dag("create_table_into_clickhouse", schedule_interval=None, catchup=False) as dag:
+with dag(dag_id="create_table_into_clickhouse",
+         schedule_interval=None,
+         catchup=False) as dag:
     @task
     def create_table(sql_file_name: str, table_name: str):
         sql_file_path = os.path.join(AIRFLOW_HOME, "project_functions/python/sql", sql_file_name)

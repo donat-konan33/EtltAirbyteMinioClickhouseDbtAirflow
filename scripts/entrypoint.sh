@@ -8,5 +8,4 @@ scripts/init_connections.sh
 
 airflow variables set LAKE_BUCKET $LAKE_BUCKET
 airflow variables set LAKE_BUCKET_2 $LAKE_BUCKET_2
-
 airflow webserver

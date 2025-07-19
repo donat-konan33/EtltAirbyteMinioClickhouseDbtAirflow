@@ -90,3 +90,28 @@ class ClickHouseQueries:
                 print(f"Data loaded into ClickHouse table {table_name} successfully.")
         except Exception as e:
             print(f"Error loading data to ClickHouse: {e}")
+
+    def merge_daily_data(self, table_name: str, target_table_name: str) -> None:
+        """
+        Append daily data to the ArchivedData table in ClickHouse.
+        args:
+            table_name: str - Name of the ClickHouse table to append data from.
+            target_table_name: str - Name of the ClickHouse table to append data to.
+            data: pd.DataFrame - DataFrame containing the data to be appended.
+        """
+        try:
+            client = self.clickhouse_client
+            if not client:
+                raise ValueError("ClickHouse client is not initialized.")
+            if client.get_conn().command(query=f"SELECT * FROM {table_name}").empty:
+                raise ValueError("Data to be appended is empty.")
+
+            print(f"Appending data from ClickHouse table {table_name} to table {target_table_name}...")
+            client.get_conn().command(query=f"""
+                                      SELECT * FROM {target_table_name}
+                                      UNION ALL
+                                      SELECT * FROM {table_name}
+                                      """)
+            print(f"Data appended to ClickHouse table {target_table_name} successfully.")
+        except Exception as e:
+            print(f"Error appending data to ClickHouse: {e}")

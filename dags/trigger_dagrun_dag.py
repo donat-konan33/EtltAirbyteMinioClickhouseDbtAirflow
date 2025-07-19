@@ -25,8 +25,8 @@ with DAG(
     )
 
     trigger_C = TriggerDagRunOperator(
-        task_id='trigger_dbt_models_clickhouse_dag',
-        trigger_dag_id="dbt_models_clickHouse_dag",
+        task_id='trigger_dbt_models_clickhouse',
+        trigger_dag_id="dbt_models_clickhouse",
         logical_date="{{ ts }}",
     )
 
