@@ -20,17 +20,17 @@ def test_task_dependencies(dag_bag):
 
     start = dag.get_task("start")
     trigger_task_1 = dag.get_task("trigger_airbyte_data_transform")
-    trigger_task_2 = dag.get_task("trigger_load_most_data_from_gcs_to_bigquery")
-    trigger_task_3 = dag.get_task("trigger_dbt_models_bigquery_dag")
+    trigger_task_2 = dag.get_task("trigger_load_data_from_datalake_to_clickhouse")
+    trigger_task_3 = dag.get_task("trigger_dbt_models_clickhouse")
 
     assert start is not None, "Can't access task, May be `start` does not exist"
     assert trigger_task_1 is not None, "Can't access task, May be `trigger_airbyte_data_transform` does not exist"
-    assert trigger_task_2 is not None, "Can't access task, May be `trigger_load_most_data_from_gcs_to_bigquery` does not exist"
-    assert trigger_task_3 is not None, "Can't access task, May be `trigger_dbt_models_bigquery_dag` does not exist"
+    assert trigger_task_2 is not None, "Can't access task, May be `trigger_load_data_from_datalake_to_clickhouse` does not exist"
+    assert trigger_task_3 is not None, "Can't access task, May be `trigger_dbt_models_clickhouse` does not exist"
 
     # checkout all tasks begin at the same time after start task
     assert start.downstream_task_ids == {
             "trigger_airbyte_data_transform",
-            "trigger_load_most_data_from_gcs_to_bigquery",
-            "trigger_dbt_models_bigquery_dag"
+            "trigger_load_data_from_datalake_to_clickhouse",
+            "trigger_dbt_models_clickhouse"
     }, "tasks do not depend correctly on start task"

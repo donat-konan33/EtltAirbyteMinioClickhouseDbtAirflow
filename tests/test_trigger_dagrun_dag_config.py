@@ -15,8 +15,8 @@ def dag_bag():
 
 @pytest.mark.parametrize("task_id",
                          ["trigger_airbyte_data_transform",
-                          "trigger_load_most_data_from_gcs_to_bigquery",
-                          "trigger_dbt_models_bigquery_dag"]
+                          "trigger_load_data_from_datalake_to_clickhouse",
+                          "trigger_dbt_models_clickhouse"]
                          ) # testing code without ducplicate it
 def test_trigger_tasks(mocker, dag_bag, task_id):
     dag = dag_bag.get_dag("trigger_dags")
