@@ -1,24 +1,24 @@
-version: 6.5.2
+version: 6.48.15
 
 type: DeclarativeSource
 
 check:
   type: CheckStream
   stream_names:
-    - weather_1
+    - stream_timelinemulti
 
 definitions:
   streams:
-    weather_1:
+    stream_timelinemulti:
       type: DeclarativeStream
-      name: weather_1
+      name: stream_timelinemulti
+      primary_key:
+        - resolvedAddress
       retriever:
         type: SimpleRetriever
-        decoder:
-          type: JsonlDecoder
         requester:
           $ref: "#/definitions/base_requester"
-          path: /
+          path: /timelinemulti
           http_method: GET
           request_parameters:
             key: "{{ config[\"key\"] }}"
@@ -31,12 +31,8 @@ definitions:
             field_path:
               - locations
           schema_normalization: Default
-      primary_key:
-        - resolvedAddress
-      schema_loader:
-        type: InlineSchemaLoader
-        schema:
-          $ref: "#/schemas/weather_1"
+        decoder:
+          type: JsonlDecoder
       transformations:
         - type: RemoveFields
           field_pointers:
@@ -53,10 +49,13 @@ definitions:
         - type: RemoveFields
           field_pointers:
             - - timezone
+      schema_loader:
+        type: InlineSchemaLoader
+        schema:
+          $ref: "#/schemas/stream_timelinemulti"
   base_requester:
     type: HttpRequester
-    url_base: >-
-      https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timelinemulti
+    url_base: https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services
     authenticator:
       type: ApiKeyAuthenticator
       api_token: "{{ config[\"key\"] }}"
@@ -66,7 +65,7 @@ definitions:
         inject_into: header
 
 streams:
-  - $ref: "#/definitions/streams/weather_1"
+  - $ref: "#/definitions/streams/stream_timelinemulti"
 
 spec:
   type: Spec
@@ -94,24 +93,23 @@ spec:
     additionalProperties: true
 
 metadata:
-  assist: {}
-  testedStreams:
-    weather_1:
-      hasRecords: true
-      streamHash: d00158670866eeca615923f711ae4563994d694d
-      hasResponse: true
-      primaryKeysAreUnique: true
-      primaryKeysArePresent: true
-      responsesAreSuccessful: true
   autoImportSchema:
-    weather_1: true
+    stream_timelinemulti: true
+  testedStreams:
+    stream_timelinemulti:
+      streamHash: efd510a4e225dec8b4dbcc417fa58deba93d0519
+      hasResponse: true
+      responsesAreSuccessful: true
+      hasRecords: true
+      primaryKeysArePresent: true
+      primaryKeysAreUnique: true
+  assist: {}
 
 schemas:
-  weather_1:
+  stream_timelinemulti:
     type: object
     $schema: http://json-schema.org/schema#
-    required:
-      - resolvedAddress
+    additionalProperties: true
     properties:
       days:
         type:
@@ -126,7 +124,39 @@ schemas:
               type:
                 - string
                 - "null"
+            cloudcover:
+              type:
+                - number
+                - "null"
+            conditions:
+              type:
+                - string
+                - "null"
+            datetime:
+              type:
+                - string
+                - "null"
+            datetimeEpoch:
+              type:
+                - number
+                - "null"
             dew:
+              type:
+                - number
+                - "null"
+            feelslike:
+              type:
+                - number
+                - "null"
+            feelslikemax:
+              type:
+                - number
+                - "null"
+            feelslikemin:
+              type:
+                - number
+                - "null"
+            humidity:
               type:
                 - number
                 - "null"
@@ -134,11 +164,7 @@ schemas:
               type:
                 - string
                 - "null"
-            snow:
-              type:
-                - number
-                - "null"
-            temp:
+            moonphase:
               type:
                 - number
                 - "null"
@@ -146,17 +172,77 @@ schemas:
               type:
                 - number
                 - "null"
+            precipcover:
+              type:
+                - number
+                - "null"
+            precipprob:
+              type:
+                - number
+                - "null"
+            preciptype:
+              type:
+                - array
+                - "null"
+              items:
+                type:
+                  - string
+                  - "null"
+            pressure:
+              type:
+                - number
+                - "null"
+            severerisk:
+              type:
+                - number
+                - "null"
+            snow:
+              type:
+                - number
+                - "null"
+            snowdepth:
+              type:
+                - number
+                - "null"
+            solarenergy:
+              type:
+                - number
+                - "null"
+            solarradiation:
+              type:
+                - number
+                - "null"
             source:
               type:
                 - string
+                - "null"
+            stations:
+              type:
+                - array
+                - "null"
+              items:
+                type:
+                  - string
+                  - "null"
+            sunrise:
+              type:
+                - string
+                - "null"
+            sunriseEpoch:
+              type:
+                - number
                 - "null"
             sunset:
               type:
                 - string
                 - "null"
-            sunrise:
+            sunsetEpoch:
               type:
-                - string
+                - number
+                - "null"
+            temp:
+              type:
+                - number
                 - "null"
             tempmax:
               type:
@@ -170,99 +256,19 @@ schemas:
               type:
                 - number
                 - "null"
-            winddir:
-              type:
-                - number
-                - "null"
-            datetime:
-              type:
-                - string
-                - "null"
-            humidity:
-              type:
-                - number
-                - "null"
-            pressure:
-              type:
-                - number
-                - "null"
-            stations:
-              type:
-                - array
-                - "null"
-              items:
-                type:
-                  - string
-                  - "null"
-            windgust:
-              type:
-                - number
-                - "null"
-            feelslike:
-              type:
-                - number
-                - "null"
-            moonphase:
-              type:
-                - number
-                - "null"
-            snowdepth:
-              type:
-                - number
-                - "null"
-            windspeed:
-              type:
-                - number
-                - "null"
-            cloudcover:
-              type:
-                - number
-                - "null"
-            conditions:
-              type:
-                - string
-                - "null"
-            precipprob:
-              type:
-                - number
-                - "null"
-            severerisk:
-              type:
-                - number
-                - "null"
             visibility:
               type:
                 - number
                 - "null"
-            precipcover:
+            winddir:
               type:
                 - number
                 - "null"
-            solarenergy:
+            windgust:
               type:
                 - number
                 - "null"
-            sunsetEpoch:
-              type:
-                - number
-                - "null"
-            feelslikemax:
-              type:
-                - number
-                - "null"
-            feelslikemin:
-              type:
-                - number
-                - "null"
-            sunriseEpoch:
-              type:
-                - number
-                - "null"
-            datetimeEpoch:
-              type:
-                - number
-                - "null"
-            solarradiation:
+            windspeed:
               type:
                 - number
                 - "null"
@@ -276,4 +282,5 @@ schemas:
           - "null"
       resolvedAddress:
         type: string
-    additionalProperties: true
+    required:
+      - resolvedAddress
