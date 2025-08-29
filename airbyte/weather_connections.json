@@ -1,0 +1,142 @@
+[
+  {
+    "connectionId": "885adcda-8138-4e4b-b99d-92c97841f4ca",
+    "name": "visual_chunk_9 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "b7c452c8-72cf-49c4-9a63-14c1e42ac090",
+    "name": "visual_chunk_3 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "783c8915-81c2-4e98-8b68-6e2145655423",
+    "name": "visual_chunk_012 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "389452b4-98e7-4738-b25f-2d01556f2810",
+    "name": "visual_chunk_5 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "813c3ee1-5800-4062-8ba6-7ed38384a13c",
+    "name": "visual_chunk_4 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "2e574428-2987-43b6-ae04-30e7a33d9057",
+    "name": "visual_chunk_017 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "a8a51a0a-0288-44ca-9954-c1fc02345a26",
+    "name": "visual_chunk_018 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "b7a1bcd4-926d-4782-89e4-c7f9e579d69a",
+    "name": "visual_chunk_014 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "f199cd3e-1592-4e97-b902-17e62e3ca151",
+    "name": "visual_chunk_8 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "fe71dd76-04e0-42b9-b42d-8856cdcfe25d",
+    "name": "visual_chunk_6 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "a3bf30f6-4032-4f49-8b8e-553a3720f617",
+    "name": "visual_chunk_020 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "05042e93-f1d4-40a4-be8f-6b2aa1984af0",
+    "name": "visual_chunk_2 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "6f44f584-259c-4ed9-85ea-6d0ea2f0e8f3",
+    "name": "visual_chunk_011 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "5a514a2a-0a9b-4ca1-b706-7997682ead38",
+    "name": "visual_chunk_010 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "f3d74cca-a031-4024-9c82-7f9a8e8f28a5",
+    "name": "visual_chunk_019 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "c00bd1d9-926f-4a97-b5f6-c278e42ccf96",
+    "name": "visual_chunk_7 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "4d9dec3f-a1c4-4309-93b9-8e941a9e21f1",
+    "name": "visual_chunk_013 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "43e8e605-aa61-4e88-94c8-1a3f8ad2e1cf",
+    "name": "visual_chunk_016 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "e3a5cbca-f8c1-40bb-80ce-4bcf6ef46b8c",
+    "name": "visual_chunk_015 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  },
+  {
+    "connectionId": "0356754c-4efb-457e-b557-0d5cabfae82f",
+    "name": "visual_chunk_1 → S3-Minio",
+    "tags": [
+      "weather-team"
+    ]
+  }
+]

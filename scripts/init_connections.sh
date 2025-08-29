@@ -11,9 +11,10 @@ airflow connections add 'postgres_connection' \
     --conn-port "5432"
 
 airflow connections add 'clickhouse_default' \
-    --conn-type 'http' \
+    --conn-type 'clickhouse' \
     --conn-host "$CLICKHOUSE_HOST" \
     --conn-port "8123" \
     --conn-schema "$CLICKHOUSE_DB" \
     --conn-login "$CLICKHOUSE_USER" \
-    --conn-password "$CLICKHOUSE_PASSWORD"
+    --conn-password "$CLICKHOUSE_PASSWORD" \
+#    --conn-extra '{"protocol": "https", "verify": false}'

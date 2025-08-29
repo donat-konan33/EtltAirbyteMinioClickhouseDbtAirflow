@@ -1,13 +1,19 @@
+
+
 from airflow import DAG
 import pendulum
 from airflow.operators.bash import BashOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 from airflow.timetables.trigger import CronTriggerTimetable
 from airflow.operators.python import PythonOperator
-from project_functions.python.clickhouse_crud import ClickHouseQueries
 import os
 AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME")
 DBT_DIR = os.environ.get("DBT_DIR")
+
+import sys
+sys.path.append(AIRFLOW_HOME)
+
+from project_functions.python.clickhouse_crud import ClickHouseQueries
 
 with DAG(
     dag_id="dbt_models_clickhouse",
@@ -19,9 +25,9 @@ with DAG(
 ) as dag:
 
     wait_for_loading_recent_data_to_warehouse_sensor = ExternalTaskSensor(
-        task_id="load_data_from_datalake_to_clickhouse_sensor",
+        task_id="wait_for_load_data_from_datalake_to_clickhouse_sensor",
         external_dag_id="load_data_from_datalake_to_clickhouse",
-        external_task_id="end",
+        external_task_id="end_of_load_to_clickhouse",
         mode = 'poke',
         poke_interval=10,
         timeout=1200,

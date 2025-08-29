@@ -17,10 +17,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR $AIRFLOW_HOME
 
 COPY scripts scripts
+
+# COPY airflow_auth_config airflow_auth_config # define since airflow 3.0.0
+
+COPY airbyte airbyte
+
 COPY pyproject.toml poetry.lock ./
 
-RUN chmod +x scripts/entrypoint.sh
-RUN chmod +x scripts/init_connections.sh
+RUN chmod +x scripts/entrypoint.sh scripts/init_connections.sh
 
 RUN pip3 install --upgrade --no-cache-dir pip \
     && pip3 install poetry \

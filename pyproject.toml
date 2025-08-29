@@ -10,15 +10,16 @@ package-mode = false
 python = ">=3.9,<3.13"
 pendulum = "*"
 pytest = "*"
-apache-airflow = {version = "^2.4.0", extras = ["postgres", "airbyte"]}
+apache-airflow = {version = "2.10.3", extras = ["postgres", "airbyte"]}
 dbt-core = "*"
 pyarrow = "*"
 pandas = "1.5.3"
 pytest-mock = "^3.14.0"
-dbt-clickhouse = "1.8.4"
-apache-airflow-providers-amazon = "8.23.0"
+dbt-clickhouse = "1.9.2"
+apache-airflow-providers-amazon = "9.9.0"
 minio = "^7.2.15" # MinIO Python SDK
 shapely = "2.0.6"
+#airflow-clickhouse-plugin = "1.4.0" need fab ==> auth.manager for airflow
 
 [tool.poetry.group.dev.dependencies]
 ipython = "8.8.0"

@@ -139,6 +139,45 @@ general settings have to be : ``Host:localhost`` and ``port : 8123``
 
 ---
 
+# Airflow Connection and parameters
+
+To connect to airbyte with airflow it is necessarly to note these informations as explained on airflow reference:
+
+1. With ``Airbyte`` connection type:
+![airflow connection to airbyte](assets/airflow_conn_to_airbyte_config.png)
+
+There is stuff showing how to [get, post or simply interact](https://reference.airbyte.com/reference) with airbyte server api.
+
+To customize an airbyte deployment do see this [link](https://docs.airbyte.com/platform/contributing-to-airbyte/developing-locally) one.
+
+2. With http ``Http`` connection type:
+
+
+3. Some [relevant alternatives](https://airbyte.com/blog/orchestrating-airbyte-api-airbyte-cloud-airflow)
+
+
+Note we are capable to automate custom APIs building along with sources and destinations. See here for [more](https://reference.airbyte.com/reference/createdestinationdefinition).
+
+```
+script/airbyte_relevant_executable.sh
+```
+
+We use ``airflow version 3.0.1`` and some configs have been modified like users creating along with others.
+Users config are now managed by simple_auth_passwords.json file you can find and have a look [here](airflow/config/simple_auth_passwords.json) to see what it is. We are also have interesting [reference](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) about airflow running in Docker.
+
+
+### Airflow [concept](https://airflow.apache.org/docs/apache-airflow/1.10.9/concepts.html)
+
+Fernet code  :
+```
+# poetry add fernet
+python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+```
+
+
+You can download docker-compose.yaml content example to create from scratch your own architecture based on [airflow:3.0.1](https://airflow.apache.org/docs/apache-airflow/3.0.0/docker-compose.yaml)
+
+---
 ## Notes
 
 This project is under development.

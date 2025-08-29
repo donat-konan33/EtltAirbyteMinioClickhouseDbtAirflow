@@ -4,8 +4,8 @@ import os
 import clickhouse_connect # for http connection to ClickHouse
 from typing import Dict, Union
 conn_params = {
-    'hostip': os.environ.get("CLICKHOUSE_HOST_IP", "localhost"),
-    'hostname': os.environ.get("CLICKHOUSE_HOST", "localhost"),
+    'hostip': os.environ.get("CLICKHOUSE_HOST"),
+    'hostname': os.environ.get("CLICKHOUSE_HOST"),
     'port': 8123,  # Default ClickHouse HTTP port), for http connection
     'username': os.environ.get("CLICKHOUSE_USER"),
     'password': os.environ.get("CLICKHOUSE_PASSWORD"),

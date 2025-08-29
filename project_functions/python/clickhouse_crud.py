@@ -16,7 +16,7 @@ def wkb_to_wkt(x):
         return None
 
 # Configuration for connecting to ClickHouse
-def get_clickhouse_client() -> Union[ClickHouseHook, ClickHouseClient]:
+def get_clickhouse_client() -> ClickHouseClient:
     """
     Returns a ClickHouse client configured with the environment variables.
     """
@@ -24,24 +24,15 @@ def get_clickhouse_client() -> Union[ClickHouseHook, ClickHouseClient]:
     logging.getLogger("sqlalchemy.engine").setLevel(logging.WARNING) # LOG FROM SQLALCHEMY
     logging.getLogger("airflow").setLevel(logging.WARNING) # LOG FROM AIRFLOW
 
-    clickhouse_hook = None
     clickhouse_client = None
     try:
-        print("Trying ClickHouseHook from Airflow...")
-        clickhouse_hook = ClickHouseHook()
-        print("Using ClickHouseHook via Airflow.")
-        return clickhouse_hook  # Returns the ClickHouse connection from Airflow
-    except Exception as e:
-        print(f"ClickHouseHook failed, trying fallback ClickHouseClient: {e}")
-        try:
-            print("Trying ClickHouseClient...")
-            clickhouse_client = ClickHouseClient()
-            print("Using ClickHouseClient.")
-            return clickhouse_client  # Returns the ClickHouse client
-        except Exception as ex:
-            print(f"ClickHouseClient also failed: {ex}")
-            raise RuntimeError("Failed to initialize any ClickHouse client.")
-
+        print("Trying ClickHouseClient...")
+        clickhouse_client = ClickHouseClient()
+        print("Using ClickHouseClient.")
+        return clickhouse_client  # Returns the ClickHouse client
+    except Exception as ex:
+        print(f"ClickHouseClient also failed: {ex}")
+        raise RuntimeError("Failed to initialize any ClickHouse client.")
 
 # create table and schema in ClickHouse
 class ClickHouseQueries:
@@ -114,10 +105,12 @@ class ClickHouseQueries:
 
         print(f"Appending data from ClickHouse table {table_name} to table {target_table_name}...")
         query = f"""
-            SELECT * FROM {target_table_name}
-            UNION ALL
+            INSERT INTO {target_table_name}
             SELECT * FROM {table_name}
         """
         expected_query = textwrap.dedent(query).strip()
-        client.get_conn().command(query=expected_query)
-        print(f"Data appended to ClickHouse table {target_table_name} successfully.")
+        try:
+            client.get_conn().command(expected_query)
+            print(f"Data appended to ClickHouse table {target_table_name} successfully.")
+        except Exception as e:
+            print(f"Error appending data to ClickHouse: {e}")
