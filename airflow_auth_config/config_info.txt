@@ -1,0 +1,5 @@
+------------------------
+auth info
+------------------------
+
+This auth_passord file is only useful when working with airflow 3.x.x

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "airbyte-deployment"
+name = "weather-database-apirest"
 version = "0.1.0"
 description = ""
 authors = ["donatien konan <donatien.konan.pro@gmail.com>"]
@@ -20,6 +20,13 @@ apache-airflow-providers-amazon = "9.9.0"
 minio = "^7.2.15" # MinIO Python SDK
 shapely = "2.0.6"
 #airflow-clickhouse-plugin = "1.4.0" need fab ==> auth.manager for airflow
+fastapi = "^0.116.1"
+alembic = "^1.16.5"
+clickhouse-sqlalchemy = "0.2.9"
+sqlalchemy = "1.4.54"
+pydantic = "^2.11.7"
+logfire = "^4.6.0"
+uvicorn = "^0.35.0"
 
 [tool.poetry.group.dev.dependencies]
 ipython = "8.8.0"
