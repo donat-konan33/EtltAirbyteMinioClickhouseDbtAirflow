@@ -53,47 +53,60 @@ def _get_sunshine_data(db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Sunshine data not found")
     return data
 
-@app.get("/solar_geo_data/{date}", tags="weather")
+@app.get("/solar_geo_data", tags="weather")
 def _get_solarenergy_geo_data(date: str, db: Session = Depends(get_db)):
     data = get_solarenergy_geo_data_data(db=db, date=date)
     if not data:
         raise HTTPException(status_code=404, detail="Solar Geo Data not found")
     return data
 
-@app.get("/common_features/{department}", tags="weather")
+@app.get("/common_features", tags="weather")
 def _get_tfptwgp(department: str, db: Session = Depends(get_db)):
     data = get_tfptwgp(db=db, department=department)
     if not data:
         raise HTTPException(status_code=404, detail="Common features Data not found")
     return data
 
-@app.get("/get_region_sunshine_data/{region}", tags="weather")
+@app.get("/get_region_sunshine_data", tags="weather")
 def _get_region_sunshine_data(region: str, db: Session = Depends(get_db)):
     data = get_region_sunshine_data(db=db, region=region)
     if not data:
         raise HTTPException(status_code=404, detail="Region Sunshine data Data not found")
     return data
 
-@app.get("/get_solarenergy_agg_pday/{departement}", tags="weather")
+@app.get("/get_solarenergy_agg_pday", tags="weather")
 def _get_solarenergy_agg_pday(department: str, db: Session = Depends(get_db)):
-    data = get_solarenergy_agg_pday(db=db, region=department)
+    data = get_solarenergy_agg_pday(db=db, department=department)
     if not data:
         raise HTTPException(status_code=404, detail="Daily Solar Aggregating data not found")
     return data
 
-@app.get("/get_entire_region_data/{region}", tags="weather")
+@app.get("/get_entire_region_data", tags="weather")
 def _get_entire_region_data(region: str, db: Session = Depends(get_db)):
     data = get_entire_region_data(db=db, region=region)
     if not data:
         raise HTTPException(status_code=404, detail="Entire Region data not found")
     return data
 
-@app.get("/get_entire_department_data/{department}", tags="weather")
+@app.get("/get_entire_department_data", tags="weather")
 def _get_entire_department_data(department: str, db: Session = Depends(get_db)):
     data = get_entire_department_data(db=db, department=department)
     if not data:
         raise HTTPException(status_code=404, detail="Entire Department data not found")
     return data
 
+@app.get("/get_ml_data", tags="weather")
+def _get_entire_data(db: Session = Depends(get_db)):
+    data = get_ml_data(db=db)
+    if not data:
+        raise HTTPException(status_code=404, detail="Entire data so far not found")
+    return data
+
+@app.get("/get_temp_data", tags="weather")
+def _get_temp_data(department: str, db: Session = Depends(get_db)):
+    data = get_temp_data(db=db, department=department)
+    if not data:
+        raise HTTPException(status_code=404, detail="Entire Department data not found")
+    return data
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8005)

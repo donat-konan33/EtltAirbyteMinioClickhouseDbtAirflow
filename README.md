@@ -1,12 +1,15 @@
 # **Deploy ETLT Infrastructure with Airbyte, Minio, Clickhouse, Dbt and Airflow**
-[![Airbyte](https://img.shields.io/badge/-Airbyte-4F8DFD?style=flat&logo=airbyte&logoColor=white)](https://airbyte.com/)
+[![Airbyte](https://img.shields.io/badge/-Airbyte-4F8DFD?style=flat&logo=airbyte&logoColor=white)](https://airbyte.io/)
 [![MinIO](https://img.shields.io/badge/-MinIO-EF2D5E?style=flat&logo=minio&logoColor=white)](https://min.io/)
 [![ClickHouse](https://img.shields.io/badge/-ClickHouse-FFDD00?style=flat&logo=clickhouse&logoColor=black)](https://clickhouse.com/)
 [![dbt](https://img.shields.io/badge/-dbt-FF694B?style=flat&logo=dbt&logoColor=white)](https://www.getdbt.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=flat&logo=sqlalchemy&logoColor=white)](https://www.sqlalchemy.org/)
 [![Airflow](https://img.shields.io/badge/-Airflow-017CEE?style=flat&logo=apache-airflow&logoColor=white)](https://airflow.apache.org/)
-[![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white)](https://python.org/)
-[![SQL](https://img.shields.io/badge/-SQL-4479A1?style=flat&logo=postgresql&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
+[![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=white)](https://www.docker.com/)
+
 
 
 This project sets up an analytics architecture using Docker containers for data extraction, storage, orchestration, and transformation.
@@ -185,6 +188,54 @@ Refer to each service's documentation for more details.
 It is important to create a local `.env` file with the same contents as `.env.example`.
 
 If you have questions or need clarification about any part of this setup, feel free to reach out for assistance.
+
+
+## Clickhouse table optimization
+
+### **Understanding ClickHouse Engines and Their Semantics**
+
+When working with ClickHouse, it is essential to understand the different table engines and their behavior, as well as how sorting keys affect data storage.
+
+**Common Engines:**
+
+MergeTree → does not guarantee uniqueness of rows.
+
+ReplacingMergeTree → keeps only the latest version of a record based on a defined version column.
+
+CollapsingMergeTree → allows insertion of rows with a sign column (+1 / -1) to represent row states and collapse them accordingly.
+
+ReplicatedCollapsingMergeTree → same as CollapsingMergeTree, but supports replication across multiple nodes.
+
+VersionedCollapsingMergeTree → similar to CollapsingMergeTree, but with a version column to resolve conflicts.
+
+SummingMergeTree → automatically aggregates numeric columns during merges based on the sorting key.
+
+### **Sorting keys in ClickHouse**
+
+ORDER BY tuple() → no indexing on insertion, faster inserts.
+
+ORDER BY (col1, col2, ..., colN) → creates an index on the specified columns, improving query performance but making inserts slightly slower.
+
+### **Important Notes**
+
+The sorting key in ClickHouse behaves somewhat like a primary key in transactional databases, but it does not enforce uniqueness.
+
+In many cases (e.g., appending tweets to a table), data is simply inserted as new rows instead of being updated in place.
+
+We may have to append data into table as for adding tweet, we should put data like that:
+
+```
+tweet_to_record = models.Tweet(**tweet.dict(), owner_id=user_id)
+db.add(tweet_to_record)
+db.commit()
+db.refresh(tweet_to_record)
+
+```
+
+but it is not the case here, we just **query** table for the moment, our api does not allow it.
+
+So What We eventually use looks like : ``db.query(models.Tweet).offset(skip).limit(limit).all()``, Where db is the database connection Session.
+
 
 ## Environment Variables
 

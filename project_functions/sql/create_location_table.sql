@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS raw_depcode (
     dep_name_upper String,
     dep_current_code String,
     dep_status Nullable(String)     -- may be needed to be Nullable(String) here to allow NULL values because of existing likewise NULL values for dep_status
-) ENGINE = MergeTree()
+)
+ENGINE = MergeTree()
 ORDER BY dep_current_code;

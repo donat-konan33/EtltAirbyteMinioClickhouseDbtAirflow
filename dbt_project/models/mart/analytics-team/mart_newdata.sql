@@ -1,6 +1,8 @@
 {{
   config(
-    materialized='table'
+    materialized='table',
+    engine='MergeTree',
+    order_by='(dates, department)'
   )
 }}
 

@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, AsyncConnection # for later use
 
 
 def get_data(db: Session):
-    """Get all data from the table"""
+    """Get daily extracted data from the table"""
     return db.query(mart_newdata).all()
 
 
@@ -172,3 +172,8 @@ def get_entire_region_data(db: Session, region:str):
             .where(archived_data.c.reg_name == region) \
             .group_by(archived_data.c.dates, archived_data.c.reg_name) \
             .order_by(archived_data.c.dates, archived_data.c.reg_name).all()
+
+
+def get_ml_data(db: Session):
+    """get all available data that can be useful for training forecasting model"""
+    return db.query(archived_data).all()
