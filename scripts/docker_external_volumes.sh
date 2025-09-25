@@ -1,3 +1,6 @@
 #!/bin/bash
-# create external volume test-volume
-docker create external volume test-volume
+# create external volumes
+docker create external volume minio-data
+docker create external volume clickhouse-altinity-data
+docker create external volume airflow-metadatabase
+# ...

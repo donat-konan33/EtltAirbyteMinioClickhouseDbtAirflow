@@ -3,7 +3,12 @@
 # airflow 3.0.1
 airflow db migrate
 
-airflow users create -r Admin -u $AIRFLOW_ADMIN_USERNAME -p $AIRFLOW_ADMIN_PASSWORD -e $AIRFLOW_ADMIN_EMAIL -f $AIRFLOW_ADMIN_FIRST_NAME -l $AIRFLOW_ADMIN_LAST_NAME
+airflow users create -r Admin \
+                     -u $AIRFLOW_ADMIN_USERNAME \
+                     -p $AIRFLOW_ADMIN_PASSWORD \
+                     -e $AIRFLOW_ADMIN_EMAIL \
+                     -f $AIRFLOW_ADMIN_FIRST_NAME \
+                     -l $AIRFLOW_ADMIN_LAST_NAME
 
 # no longer needed : ref : https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/auth-manager/simple/index.html
 

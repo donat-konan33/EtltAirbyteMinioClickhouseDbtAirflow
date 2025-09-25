@@ -102,15 +102,15 @@ Airbyte supports S3-compatible storage, and MinIO works seamlessly with Amazon S
 
 It will be shown something like displayed below :
 
-1. Define a source with Api Connector already created
+#### 1. Define sources you need with Api Connector already created.
 
 ![Source](assets/airbyte-source-definition.png)
 
-2. Define a Minio destination (Note you have to add Airbyte into the Minio network as described in the script one [connect_airbyte_to_containers_network](scripts/connect_airbyte_to_containers_network.sh))
+#### 2. Define a Minio destination (Note you have to add Airbyte into the Minio network as described in the script one [connect_airbyte_to_containers_network](scripts/connect_airbyte_to_containers_network.sh))
 
 ![S3 destination config](assets/S3_destination_config.png)
 
-3. Define how to save data to the destination (``Manual Schedule type`` allows to ``Airflow`` to launch a sync to each connection)
+#### 3. Define how to save data to the destination (``Manual Schedule type`` allows to ``Airflow`` to launch a sync to each connection)
 ![Create connection](assets/connection_config.png)
 
 
@@ -118,16 +118,29 @@ If you encounter issues, consult the [Airbyte S3 destination documentation](http
 
 
 ### 2. **Clone the repository**:
+
+Be aware it required to populate ``.env.example`` with environment variables defined into with your own secrets.
+
   ```bash
   git clone https://github.com/donat-konan33/EtltAirbyteMinioClickhouseDbtAirflow.git
   cd EtltAirbyteMinioClickhouseDbtAirflow
   ```
 
 ### 3. **Start the infrastructure**:
+Before starting infra build data for data persistency of each service that need it.
+
+
   ```bash
+  ./scripts/docker_external_volumes.sh && ./scripts/docker_external_networks.sh
   docker compose up -d
-  docker compose -f docker-compose-minio-clickhouse up -d
+  ./scripts/airbyte_connect_to_containers_network.sh
   ```
+
+Then come back to step **1** at airbyte UI and create a destination for minio from.
+
+As a rule, Airbyte has an IP like ``172.x.x.n`` and adding only minio to its network gives minio a new IP equals to ``172.x.x.n+1``.
+Use it to create destination with as the minio endpointID.
+
 
 ### 4. **Access web interfaces**:
   - Airbyte: [http://localhost:8000](http://localhost:8000)
@@ -137,78 +150,57 @@ If you encounter issues, consult the [Airbyte S3 destination documentation](http
 
 ### 5. **Connect to** **Clickhouse** using **DBeaver** to view or checkout the DBT transformations achieved.
 
-Before connecting to Clickhouse with Dbeaver, ``database`` you would reach must have been created, Otherwise it will connect to the ``default db``. You could have need to set `user` and `password`.
+Before connecting to Clickhouse with Dbeaver, ``database`` you would reach must have been created, otherwise it will connect to the ``default db``. You could have need to set `user` and `password`.
 general settings have to be : ``Host:localhost`` and ``port : 8123``
 
 ---
 
-# Airflow Connection and parameters
+### 6. **Airflow Connection and parameters**
 
 To connect to airbyte with airflow it is necessarly to note these informations as explained on airflow reference:
 
 1. With ``Airbyte`` connection type:
-![airflow connection to airbyte](assets/airflow_conn_to_airbyte_config.png)
 
 There is stuff showing how to [get, post or simply interact](https://reference.airbyte.com/reference) with airbyte server api.
 
 To customize an airbyte deployment do see this [link](https://docs.airbyte.com/platform/contributing-to-airbyte/developing-locally) one.
 
 2. With http ``Http`` connection type:
+The dag named ``extract_airbyte_sync_to_minio_dag.py`` you can find at ``dags/extract_airbyte_sync_to_minio_dag.py`` is typically used likely when work with Airbyte cloud environment
 
+We struggled to create both user email and secret with auth enabled and we couldn't launch airbyte jobs from airflow as orchestrator mostly when using ``airbyte connection type``.
+
+So we used ``http Connection type``:
+
+![airflow connection to airbyte](assets/airflow_conn_to_airbyte_config.png)
+
+As we added Airbyte to airflow network we were able to use the name ``airbyte-abctl-control-plane`` as airbyte hostname.
 
 3. Some [relevant alternatives](https://airbyte.com/blog/orchestrating-airbyte-api-airbyte-cloud-airflow)
 
-
 Note we are capable to automate custom APIs building along with sources and destinations. See here for [more](https://reference.airbyte.com/reference/createdestinationdefinition).
 
-```
-script/airbyte_relevant_executable.sh
-```
-
-We use ``airflow version 3.0.1`` and some configs have been modified like users creating along with others.
-Users config are now managed by simple_auth_passwords.json file you can find and have a look [here](airflow/config/simple_auth_passwords.json) to see what it is. We are also have interesting [reference](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) about airflow running in Docker.
-
-
-### Airflow [concept](https://airflow.apache.org/docs/apache-airflow/1.10.9/concepts.html)
-
-Fernet code  :
-```
-# poetry add fernet
-python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
-```
-
-
-You can download docker-compose.yaml content example to create from scratch your own architecture based on [airflow:3.0.1](https://airflow.apache.org/docs/apache-airflow/3.0.0/docker-compose.yaml)
-
 ---
-## Notes
 
-This project is under development.
-Refer to each service's documentation for more details.
-It is important to create a local `.env` file with the same contents as `.env.example`.
-
-If you have questions or need clarification about any part of this setup, feel free to reach out for assistance.
-
-
-## Clickhouse table optimization
+## Useful to know
 
 ### **Understanding ClickHouse Engines and Their Semantics**
 
 When working with ClickHouse, it is essential to understand the different table engines and their behavior, as well as how sorting keys affect data storage.
 
-**Common Engines:**
+**[Common Engines](https://dev.to/hoptical/clickhouse-basic-tutorial-table-engines-30i1):**
 
-MergeTree → does not guarantee uniqueness of rows.
+**MergeTree** → does not guarantee uniqueness of rows.
 
-ReplacingMergeTree → keeps only the latest version of a record based on a defined version column.
+**ReplacingMergeTree** → keeps only the latest version of a record based on a defined version column.
 
-CollapsingMergeTree → allows insertion of rows with a sign column (+1 / -1) to represent row states and collapse them accordingly.
+**CollapsingMergeTree** → allows insertion of rows with a sign column (+1 / -1) to represent row states and collapse them accordingly.
 
-ReplicatedCollapsingMergeTree → same as CollapsingMergeTree, but supports replication across multiple nodes.
+**ReplicatedCollapsingMergeTree** → same as CollapsingMergeTree, but supports replication across multiple nodes.
 
-VersionedCollapsingMergeTree → similar to CollapsingMergeTree, but with a version column to resolve conflicts.
+**VersionedCollapsingMergeTree** → similar to CollapsingMergeTree, but with a version column to resolve conflicts.
 
-SummingMergeTree → automatically aggregates numeric columns during merges based on the sorting key.
+**SummingMergeTree** → automatically aggregates numeric columns during merges based on the sorting key.
 
 ### **Sorting keys in ClickHouse**
 
@@ -222,23 +214,15 @@ The sorting key in ClickHouse behaves somewhat like a primary key in transaction
 
 In many cases (e.g., appending tweets to a table), data is simply inserted as new rows instead of being updated in place.
 
-We may have to append data into table as for adding tweet, we should put data like that:
-
-```
-tweet_to_record = models.Tweet(**tweet.dict(), owner_id=user_id)
-db.add(tweet_to_record)
-db.commit()
-db.refresh(tweet_to_record)
-
-```
-
-but it is not the case here, we just **query** table for the moment, our api does not allow it.
+But it is not the case here, we just **query** table for the moment, our api does not allow it.
 
 So What We eventually use looks like : ``db.query(models.Tweet).offset(skip).limit(limit).all()``, Where db is the database connection Session.
 
 
 ## Environment Variables
 
+It is important to create a local `.env` file with the same contents as `.env.example`.
+If you have questions or need clarification about any part of this setup, feel free to reach out for assistance.
 Here are variables you need for this project by refering to [`.env.example`](.env.example):
 
 | Variable                   | Description                                               |
@@ -270,3 +254,11 @@ Here are variables you need for this project by refering to [`.env.example`](.en
 | **AIRFLOW_ADMIN_FIRST_NAME**| First name of Airflow admin user                         |
 | **AIRFLOW_ADMIN_LAST_NAME** | Last name of Airflow admin user                          |
 ---
+
+---
+## Notes
+
+This project is under development.
+Refer to each service's documentation for more details.
+
+It will leverage airflow version 3.x.x its setup is different to the current one (2.10.3).
