@@ -19,9 +19,7 @@ This project sets up an analytics architecture using Docker containers for data 
 - The data is then loaded (Load) from MinIO into ClickHouse, which is why "Load" appears under ClickHouse.
 - Finally, dbt (Transform) runs SQL models that transform the data directly in ClickHouse to make it ready for analysis.
 
-
-![flowchart](assets/etlt-diagram.png)
-
+![excalidraw flowchart](assets/excali_etlt_diagram.svg)
 ---
 
 ## Prerequisites

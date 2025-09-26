@@ -145,6 +145,24 @@ services:
       networks:
           - minio-clickhouse-airflow
 
+  databaseapi:
+    build:
+      context: .
+      dockerfile: Dockerfile_fastapi
+    container_name: restful_api
+    command: ["poetry", "run", "uvicorn", "weather_api.main:app", "--host", "0.0.0.0", "--port", "8005"]
+    restart: always
+    depends_on:
+      - clickhousedb
+    ports:
+      - "8005:8005"
+    environment:
+      - CLICKHOUSE_DATABASE_URL=$CLICKHOUSE_DATABASE_URL
+    volumes:
+      - ./weather_api:/app/weather_api
+    networks:
+      - minio-clickhouse-airflow
+
 
 networks:
   minio-clickhouse-airflow:

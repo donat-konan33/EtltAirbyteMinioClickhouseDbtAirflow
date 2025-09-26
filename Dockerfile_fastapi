@@ -1,0 +1,22 @@
+FROM python:3.9.20-slim
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+ENV PYTHONUNBUFFERED=1
+ENV APP_HOME=/app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR $APP_HOME
+
+COPY weather_api weather_api
+
+COPY poetry.lock pyproject.toml ./
+
+RUN pip3 install --upgrade --no-cache-dir pip \
+    && pip3 install --no-cache-dir poetry \
+    && poetry install --without airflow,dev --with api
+
+CMD ["poetry", "run", "uvicorn", "weather_api.main:app", "--host", "0.0.0.0", "--port", "8005"]

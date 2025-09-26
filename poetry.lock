@@ -6,7 +6,7 @@ version = "1.9.1"
 description = "A data analysis library that is optimized for humans instead of machines."
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "agate-1.9.1-py2.py3-none-any.whl", hash = "sha256:1cf329510b3dde07c4ad1740b7587c9c679abc3dcd92bb1107eabc10c2e03c50"},
     {file = "agate-1.9.1.tar.gz", hash = "sha256:bc60880c2ee59636a2a80cd8603d63f995be64526abf3cbba12f00767bcd5b3d"},
@@ -30,7 +30,7 @@ version = "2.4.4"
 description = "Happy Eyeballs for asyncio"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "aiohappyeyeballs-2.4.4-py3-none-any.whl", hash = "sha256:a980909d50efcd44795c4afeca523296716d50cd756ddca6af8c65b996e27de8"},
     {file = "aiohappyeyeballs-2.4.4.tar.gz", hash = "sha256:5fdd7d87889c63183afc18ce9271f9b0a7d32c2303e394468dd45d514a757745"},
@@ -42,7 +42,7 @@ version = "3.10.11"
 description = "Async http client/server framework (asyncio)"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "aiohttp-3.10.11-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:5077b1a5f40ffa3ba1f40d537d3bec4383988ee51fbba6b74aa8fb1bc466599e"},
     {file = "aiohttp-3.10.11-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:8d6a14a4d93b5b3c2891fca94fa9d41b2322a68194422bef0dd5ec1e57d7d298"},
@@ -155,7 +155,7 @@ version = "1.3.1"
 description = "aiosignal: a list of registered asynchronous callbacks"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "aiosignal-1.3.1-py3-none-any.whl", hash = "sha256:f8376fb07dd1e86a584e4fcdec80b36b7f81aac666ebc724e2c090300dd83b17"},
     {file = "aiosignal-1.3.1.tar.gz", hash = "sha256:54cd96e15e1649b75d6c87526a6ff0b6c1b0dd3459f43d9ca11d48c339b68cfc"},
@@ -170,7 +170,7 @@ version = "0.52.2"
 description = "Python Client SDK for Airbyte API"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "airbyte-api-0.52.2.tar.gz", hash = "sha256:0abd4570083352cad9c23d1f6f59f288aeecca84d85746018d41de9c531aa852"},
     {file = "airbyte_api-0.52.2-py3-none-any.whl", hash = "sha256:d08ee620e8dc9b85e3f167087225a7867702aa3cf1a06d8b42eb48a48e64382d"},
@@ -201,7 +201,7 @@ version = "1.16.5"
 description = "A database migration tool for SQLAlchemy."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "alembic-1.16.5-py3-none-any.whl", hash = "sha256:e845dfe090c5ffa7b92593ae6687c5cb1a101e91fa53868497dbd79847f9dbe3"},
     {file = "alembic-1.16.5.tar.gz", hash = "sha256:a88bb7f6e513bd4301ecf4c7f2206fe93f9913f9b48dac3b78babde2d6fe765e"},
@@ -222,7 +222,7 @@ version = "0.7.0"
 description = "Reusable constraint types to use with typing.Annotated"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"},
     {file = "annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"},
@@ -234,7 +234,7 @@ version = "4.5.2"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "anyio-4.5.2-py3-none-any.whl", hash = "sha256:c011ee36bc1e8ba40e5a81cb9df91925c218fe9b778554e0b56a21e1b5d4716f"},
     {file = "anyio-4.5.2.tar.gz", hash = "sha256:23009af4ed04ce05991845451e11ef02fc7c5ed29179ac9a420e5ad0ac7ddc5b"},
@@ -257,7 +257,7 @@ version = "2.10.3"
 description = "Programmatically author, schedule and monitor data pipelines"
 optional = false
 python-versions = "<3.13,~=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "apache_airflow-2.10.3-py3-none-any.whl", hash = "sha256:6fb101dab139b3b6d739c04f3e390c8676478f94a9116a298fcc55a0a62e6dd6"},
     {file = "apache_airflow-2.10.3.tar.gz", hash = "sha256:09038892bec9390357837eb7ec482e5052482be57a5b24013a14200745fbe40d"},
@@ -485,7 +485,7 @@ version = "5.2.0"
 description = "Provider package apache-airflow-providers-airbyte for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_airbyte-5.2.0-py3-none-any.whl", hash = "sha256:c7840b3f709c2a7c691cb58e8b5b5f61f77aca519be3e6cca29575162c52829f"},
@@ -503,7 +503,7 @@ version = "5.2.3"
 description = "Provider package apache-airflow-providers-airbyte for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_airbyte-5.2.3-py3-none-any.whl", hash = "sha256:1a6e4b26e69412e50d8aa6ffbabefc7823a4bcbbeec6dba37b7c835524d72eec"},
@@ -521,7 +521,7 @@ version = "9.9.0"
 description = "Provider package apache-airflow-providers-amazon for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "apache_airflow_providers_amazon-9.9.0-py3-none-any.whl", hash = "sha256:2c2b455ff212874773a397278e23820415cec7b6cba31bedf72d606b0c852058"},
     {file = "apache_airflow_providers_amazon-9.9.0.tar.gz", hash = "sha256:4669a4ed154b78feab57ac1a4242bc73b09748bbd9bf387be7d5c3a13c69f25d"},
@@ -569,7 +569,7 @@ version = "1.7.1"
 description = "Provider package apache-airflow-providers-common-compat for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_common_compat-1.7.1-py3-none-any.whl", hash = "sha256:a248a3a2c6dccce47ee0ed9a45e501e661f635ec20e9851ddb7e46ed26e05dd4"},
@@ -589,7 +589,7 @@ version = "1.7.3"
 description = "Provider package apache-airflow-providers-common-compat for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_common_compat-1.7.3-py3-none-any.whl", hash = "sha256:3a6f25a020fe72ebe3bbd02c050f01f39fdd7ed9c40a72f98c2587505f688a8a"},
@@ -609,7 +609,7 @@ version = "1.6.0"
 description = "Provider package apache-airflow-providers-common-io for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_common_io-1.6.0-py3-none-any.whl", hash = "sha256:d7381d306a855df45fafeca57f946d8ec045d5f1befd7731620a0207f47170c5"},
@@ -629,7 +629,7 @@ version = "1.6.2"
 description = "Provider package apache-airflow-providers-common-io for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_common_io-1.6.2-py3-none-any.whl", hash = "sha256:5f2f166048f0da268f1b384c4234334452fec2bd1aed14ef5953f76a240dab87"},
@@ -649,7 +649,7 @@ version = "1.27.2"
 description = "Provider package apache-airflow-providers-common-sql for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_common_sql-1.27.2-py3-none-any.whl", hash = "sha256:69a9f2d9a709394ec2ee3cd7c43dc731519cad19931f2ed48059b19393cd108b"},
@@ -673,7 +673,7 @@ version = "1.27.5"
 description = "Provider package apache-airflow-providers-common-sql for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_common_sql-1.27.5-py3-none-any.whl", hash = "sha256:96d2886836b5d7ee0145c474995e3c37e446e08674c6216df9445c4ec00cea53"},
@@ -697,7 +697,7 @@ version = "1.5.3"
 description = "Provider package apache-airflow-providers-fab for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "apache_airflow_providers_fab-1.5.3-py3-none-any.whl", hash = "sha256:0b1352e16266f40aa1037af316fd3abcc3852ca49b033acac9f9cad60e5f9764"},
     {file = "apache_airflow_providers_fab-1.5.3.tar.gz", hash = "sha256:bb4d879fb9bf9bca7c0f103e1dc9d1fa25efe02e2c4536f4d60c789786fb1f89"},
@@ -721,7 +721,7 @@ version = "3.13.0"
 description = "Provider package apache-airflow-providers-ftp for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_ftp-3.13.0-py3-none-any.whl", hash = "sha256:dffbbe3cf2da0ac6baca776ad2eea1727144d95ee58e7f9b338fe3fed88dff09"},
@@ -741,7 +741,7 @@ version = "3.13.2"
 description = "Provider package apache-airflow-providers-ftp for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_ftp-3.13.2-py3-none-any.whl", hash = "sha256:d75b168931c598c726d7fcafa3f50629ecef4e8376fb4d9a5d1846ad26865a7d"},
@@ -761,7 +761,7 @@ version = "4.13.1"
 description = "Provider package apache-airflow-providers-http for Apache Airflow"
 optional = false
 python-versions = "~=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "apache_airflow_providers_http-4.13.1-py3-none-any.whl", hash = "sha256:fdd51a0f2f5284f78a3fba3cfd39e9b31d6c2d37d0017eb98b408e8d7b3954ca"},
     {file = "apache_airflow_providers_http-4.13.1.tar.gz", hash = "sha256:a32c3db46df25c291d9ea77a34eed0c816d471ab7fa3b52a01fbeefb4c4ebe4b"},
@@ -780,7 +780,7 @@ version = "3.9.0"
 description = "Provider package apache-airflow-providers-imap for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_imap-3.9.0-py3-none-any.whl", hash = "sha256:444856eb73366b2f647e201c8677e9eac55b4242a74144682a9235d10ac00fa6"},
@@ -796,7 +796,7 @@ version = "3.9.2"
 description = "Provider package apache-airflow-providers-imap for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_imap-3.9.2-py3-none-any.whl", hash = "sha256:f6bf1b0bff25116dd7b265c0aa5aabd2ff82733bab5a827fb7c4bc08905cb5e3"},
@@ -812,7 +812,7 @@ version = "6.2.0"
 description = "Provider package apache-airflow-providers-postgres for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_postgres-6.2.0-py3-none-any.whl", hash = "sha256:1eed1ceb112b40b65c219fbf3f862fbd10eb6dfb0e84be10b9f3928cce59edc4"},
@@ -835,7 +835,7 @@ version = "6.2.3"
 description = "Provider package apache-airflow-providers-postgres for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_postgres-6.2.3-py3-none-any.whl", hash = "sha256:41976bd410fb36e11cc857ce65be12a1da7588e5851282d365732a4bdff63aeb"},
@@ -860,7 +860,7 @@ version = "2.1.0"
 description = "Provider package apache-airflow-providers-smtp for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_smtp-2.1.0-py3-none-any.whl", hash = "sha256:c85ca42e642e488d9bb149d9639e4c8c13807bda4224da3d4e6b45a5ba238716"},
@@ -877,7 +877,7 @@ version = "2.2.0"
 description = "Provider package apache-airflow-providers-smtp for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_smtp-2.2.0-py3-none-any.whl", hash = "sha256:660b49c9b028bbd6ecd90c03f03ceb5f3ad9ba291e0e1228362faf11abb946b8"},
@@ -894,7 +894,7 @@ version = "4.1.0"
 description = "Provider package apache-airflow-providers-sqlite for Apache Airflow"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "apache_airflow_providers_sqlite-4.1.0-py3-none-any.whl", hash = "sha256:40a06d77858462c73730a3d456b49d4e3d1e47a62a0ca51dfe671e7a1d807839"},
@@ -911,7 +911,7 @@ version = "4.1.2"
 description = "Provider package apache-airflow-providers-sqlite for Apache Airflow"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "apache_airflow_providers_sqlite-4.1.2-py3-none-any.whl", hash = "sha256:7ee6fd5212218217ae189d280d41713ecd8b5af1d058e26e0ba4a23fa1a76f3b"},
@@ -928,7 +928,7 @@ version = "6.8.2"
 description = "A pluggable API specification generator. Currently supports the OpenAPI Specification (f.k.a. the Swagger specification)."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "apispec-6.8.2-py3-none-any.whl", hash = "sha256:43c52ab6aa7d4056c1dfc6c81310c659b29f4db5858b3b4351819b77d3a1afff"},
     {file = "apispec-6.8.2.tar.gz", hash = "sha256:ce5b69b9fcf0250cb56ba0c1a52a75ff22c2f7c586654e57884399018c519f26"},
@@ -964,7 +964,7 @@ version = "3.5.3"
 description = "Bash tab completion for argparse"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "argcomplete-3.5.3-py3-none-any.whl", hash = "sha256:2ab2c4a215c59fd6caaff41a869480a23e8f6a5f910b266c1808037f4e375b61"},
     {file = "argcomplete-3.5.3.tar.gz", hash = "sha256:c12bf50eded8aebb298c7b7da7a5ff3ee24dffd9f5281867dfe1424b58c55392"},
@@ -979,7 +979,7 @@ version = "23.1.0"
 description = "Argon2 for Python"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "argon2_cffi-23.1.0-py3-none-any.whl", hash = "sha256:c670642b78ba29641818ab2e68bd4e6a78ba53b7eff7b4c3815ae16abf91c7ea"},
     {file = "argon2_cffi-23.1.0.tar.gz", hash = "sha256:879c3e79a2729ce768ebb7d36d4609e3a78a4ca2ec3a9f12286ca057e3d0db08"},
@@ -1000,7 +1000,7 @@ version = "21.2.0"
 description = "Low-level CFFI bindings for Argon2"
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "argon2-cffi-bindings-21.2.0.tar.gz", hash = "sha256:bb89ceffa6c791807d1305ceb77dbfacc5aa499891d2c55661c6459651fc39e3"},
     {file = "argon2_cffi_bindings-21.2.0-cp36-abi3-macosx_10_9_x86_64.whl", hash = "sha256:ccb949252cb2ab3a08c02024acb77cfb179492d5701c7cbdbfd776124d4d2367"},
@@ -1038,7 +1038,7 @@ version = "3.8.1"
 description = "ASGI specs, helper code, and adapters"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "asgiref-3.8.1-py3-none-any.whl", hash = "sha256:3e1e3ecc849832fe52ccf2cb6686b7a55f82bb1d6aee72a58826471390335e47"},
     {file = "asgiref-3.8.1.tar.gz", hash = "sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590"},
@@ -1056,7 +1056,7 @@ version = "1.5.1"
 description = "Fast ASN.1 parser and serializer with definitions for private keys, public keys, certificates, CRL, OCSP, CMS, PKCS#3, PKCS#7, PKCS#8, PKCS#12, PKCS#5, X.509 and TSP"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "asn1crypto-1.5.1-py2.py3-none-any.whl", hash = "sha256:db4e40728b728508912cbb3d44f19ce188f218e9eba635821bb4b68564f8fd67"},
     {file = "asn1crypto-1.5.1.tar.gz", hash = "sha256:13ae38502be632115abf8a24cbe5f4da52e3b5231990aff31123c805306ccb9c"},
@@ -1084,7 +1084,7 @@ version = "5.0.1"
 description = "Timeout context manager for asyncio programs"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version < \"3.11\""
 files = [
     {file = "async_timeout-5.0.1-py3-none-any.whl", hash = "sha256:39e3809566ff85354557ec2398b55e096c8364bacac9405a7a1fa429e77fe76c"},
@@ -1097,7 +1097,7 @@ version = "0.2.4"
 description = "A asyncio driver for ClickHouse with native tcp protocol"
 optional = false
 python-versions = "<4.0,>=3.7"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "asynch-0.2.4-py3-none-any.whl", hash = "sha256:7286a88da4060ecd23a3b4caff6c25e9e6f26561c1b3d61853f2d6d88d57c33d"},
     {file = "asynch-0.2.4.tar.gz", hash = "sha256:15ef9517bb093dfd5a0f1f31cc31e0da84543eead0269345052922cf399d280e"},
@@ -1120,7 +1120,7 @@ version = "0.30.0"
 description = "An asyncio PostgreSQL driver"
 optional = false
 python-versions = ">=3.8.0"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "asyncpg-0.30.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:bfb4dd5ae0699bad2b233672c8fc5ccbd9ad24b89afded02341786887e37927e"},
     {file = "asyncpg-0.30.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:dc1f62c792752a49f88b7e6f774c26077091b44caceb1983509edc18a2222ec0"},
@@ -1187,7 +1187,7 @@ version = "24.3.0"
 description = "Classes Without Boilerplate"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "attrs-24.3.0-py3-none-any.whl", hash = "sha256:ac96cd038792094f438ad1f6ff80837353805ac950cd2aa0e0625ef19850c308"},
     {file = "attrs-24.3.0.tar.gz", hash = "sha256:8f5c07333d543103541ba7be0e2ce16eeee8130cb0b3f9238ab904ce1e85baff"},
@@ -1207,7 +1207,7 @@ version = "2.16.0"
 description = "Internationalization utilities"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "babel-2.16.0-py3-none-any.whl", hash = "sha256:368b5b98b37c06b7daf6696391c3240c938b37767d4584413e8438c5c435fa8b"},
     {file = "babel-2.16.0.tar.gz", hash = "sha256:d1f3554ca26605fe173f3de0c65f750f5a42f924499bf134de6423582298e316"},
@@ -1234,7 +1234,7 @@ version = "4.13.4"
 description = "Screen-scraping library"
 optional = false
 python-versions = ">=3.7.0"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "beautifulsoup4-4.13.4-py3-none-any.whl", hash = "sha256:9bbbb14bfde9d79f38b8cd5f8c7c85f4b8f2523190ebed90e950a8dea4cb1c4b"},
     {file = "beautifulsoup4-4.13.4.tar.gz", hash = "sha256:dbb3c4e1ceae6aefebdaf2423247260cd062430a410e38c66f2baa50a8437195"},
@@ -1257,7 +1257,7 @@ version = "1.9.0"
 description = "Fast, simple object-to-object and broadcast signaling"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "blinker-1.9.0-py3-none-any.whl", hash = "sha256:ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"},
     {file = "blinker-1.9.0.tar.gz", hash = "sha256:b4ce2265a7abece45e7cc896e98dbebe6cead56bcf805a3d23136d145f5445bf"},
@@ -1269,7 +1269,7 @@ version = "1.38.25"
 description = "The AWS SDK for Python"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "boto3-1.38.25-py3-none-any.whl", hash = "sha256:2f2cd517dd31d33ace0eefe567dc903fdf74221513e32f1e9445bdfac7554db7"},
     {file = "boto3-1.38.25.tar.gz", hash = "sha256:85c1556a110896f68de8573a9b4757c81071448dbf6ffc1074941bfc8a43195e"},
@@ -1289,7 +1289,7 @@ version = "1.38.25"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "botocore-1.38.25-py3-none-any.whl", hash = "sha256:5a960bd990a11cdb78865e908a58ed712d87d9b419f55ad21c99d7d21f0d6726"},
     {file = "botocore-1.38.25.tar.gz", hash = "sha256:8c73e97d9662a6c92be33dab66cd1e2b59797154c7ec379ce3bb5d6779d9d78c"},
@@ -1312,7 +1312,7 @@ version = "0.13.0"
 description = "A collection of cache libraries in the same API interface."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "cachelib-0.13.0-py3-none-any.whl", hash = "sha256:8c8019e53b6302967d4e8329a504acf75e7bc46130291d30188a6e4e58162516"},
     {file = "cachelib-0.13.0.tar.gz", hash = "sha256:209d8996e3c57595bee274ff97116d1d73c4980b2fd9a34c7846cd07fd2e1a48"},
@@ -1324,7 +1324,7 @@ version = "2024.12.14"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "certifi-2024.12.14-py3-none-any.whl", hash = "sha256:1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"},
     {file = "certifi-2024.12.14.tar.gz", hash = "sha256:b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db"},
@@ -1336,7 +1336,7 @@ version = "1.17.1"
 description = "Foreign Function Interface for Python calling C code."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "cffi-1.17.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:df8b1c11f177bc2313ec4b2d46baec87a5f3e71fc8b45dab2ee7cae86d9aba14"},
     {file = "cffi-1.17.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:8f2cdc858323644ab277e9bb925ad72ae0e67f69e804f4898c070998d50b1a67"},
@@ -1416,7 +1416,7 @@ version = "3.4.1"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "charset_normalizer-3.4.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:91b36a978b5ae0ee86c394f5a54d6ef44db1de0815eb43de826d41d21e4af3de"},
     {file = "charset_normalizer-3.4.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7461baadb4dc00fd9e0acbe254e3d7d2112e7f92ced2adc96e54ef6501c5f176"},
@@ -1518,7 +1518,7 @@ version = "2.3.3"
 description = "Fast ISO8601 date time parser for Python written in C"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "ciso8601-2.3.3-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:cf67a1d47a52dad19aaffb136de63263910dcab6e50d428f27416733ce81f183"},
     {file = "ciso8601-2.3.3-cp310-cp310-macosx_11_0_universal2.whl", hash = "sha256:67316d2a2d278fad3d569771b032e9bd8484c8aab842e1a2524f6433260cf9ac"},
@@ -1593,7 +1593,7 @@ version = "8.1.8"
 description = "Composable command line interface toolkit"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "click-8.1.8-py3-none-any.whl", hash = "sha256:63c132bbbed01578a06712a2d1f497bb62d9c1c0d329b7903a866228027263b2"},
     {file = "click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"},
@@ -1608,7 +1608,7 @@ version = "20.10.2"
 description = "Click utility functions"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "clickclick-20.10.2-py2.py3-none-any.whl", hash = "sha256:c8f33e6d9ec83f68416dd2136a7950125bd256ec39ccc9a85c6e280a16be2bb5"},
     {file = "clickclick-20.10.2.tar.gz", hash = "sha256:4efb13e62353e34c5eef7ed6582c4920b418d7dedc86d819e22ee089ba01802c"},
@@ -1624,7 +1624,7 @@ version = "0.8.17"
 description = "ClickHouse Database Core Driver for Python, Pandas, and Superset"
 optional = false
 python-versions = "~=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "clickhouse_connect-0.8.17-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:9d962ebdfb0be18685b2b60c0b117d13eb91e05744dcf0778e3ff2f6f5a87e52"},
     {file = "clickhouse_connect-0.8.17-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:41476c523bd5c6c5f656059b48f0f3408c73080c2771e7f811fef58b29c16e42"},
@@ -1721,7 +1721,7 @@ version = "0.2.9"
 description = "Python driver with native interface for ClickHouse"
 optional = false
 python-versions = "<4,>=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "clickhouse-driver-0.2.9.tar.gz", hash = "sha256:050ea4870ead993910b39e7fae965dc1c347b2e8191dcd977cd4b385f9e19f87"},
     {file = "clickhouse_driver-0.2.9-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:6ce04e9d0d0f39561f312d1ac1a8147bc9206e4267e1a23e20e0423ebac95534"},
@@ -1844,7 +1844,7 @@ version = "0.2.9"
 description = "Simple ClickHouse SQLAlchemy Dialect"
 optional = false
 python-versions = "<4,>=3.7"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "clickhouse_sqlalchemy-0.2.9.tar.gz", hash = "sha256:64b1c79edf3f277c229ccdc519e9ab3f7acc28e49dc4919f9dd280ea331728be"},
 ]
@@ -1861,12 +1861,12 @@ version = "0.4.6"
 description = "Cross-platform colored terminal text."
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-markers = {dev = "sys_platform == \"win32\""}
+markers = {api = "platform_system == \"Windows\"", dev = "sys_platform == \"win32\""}
 
 [[package]]
 name = "colorlog"
@@ -1874,7 +1874,7 @@ version = "6.9.0"
 description = "Add colours to the output of Python's logging module."
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "colorlog-6.9.0-py3-none-any.whl", hash = "sha256:5906e71acd67cb07a71e779c47c4bcb45fb8c2993eebe9e5adcd6a6f1b283eff"},
     {file = "colorlog-6.9.0.tar.gz", hash = "sha256:bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2"},
@@ -1892,7 +1892,7 @@ version = "3.2"
 description = "Parser like ConfigParser but for updating configuration files"
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "ConfigUpdater-3.2-py2.py3-none-any.whl", hash = "sha256:0f65a041627d7693840b4dd743581db4c441c97195298a29d075f91b79539df2"},
     {file = "ConfigUpdater-3.2.tar.gz", hash = "sha256:9fdac53831c1b062929bf398b649b87ca30e7f1a735f3fbf482072804106306b"},
@@ -1907,7 +1907,7 @@ version = "2.14.2"
 description = "Connexion - API first applications with OpenAPI/Swagger and Flask"
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "connexion-2.14.2-py2.py3-none-any.whl", hash = "sha256:a73b96a0e07b16979a42cde7c7e26afe8548099e352cf350f80c57185e0e0b36"},
     {file = "connexion-2.14.2.tar.gz", hash = "sha256:dbc06f52ebeebcf045c9904d570f24377e8bbd5a6521caef15a06f634cf85646"},
@@ -2101,7 +2101,7 @@ version = "1.4.5"
 description = "A Python library that converts cron expressions into human readable strings."
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "cron_descriptor-1.4.5-py3-none-any.whl", hash = "sha256:736b3ae9d1a99bc3dbfc5b55b5e6e7c12031e7ba5de716625772f8b02dcd6013"},
     {file = "cron_descriptor-1.4.5.tar.gz", hash = "sha256:f51ce4ffc1d1f2816939add8524f206c376a42c87a5fca3091ce26725b3b1bca"},
@@ -2116,7 +2116,7 @@ version = "6.0.0"
 description = "croniter provides iteration for datetime object with cron like format"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "croniter-6.0.0-py2.py3-none-any.whl", hash = "sha256:2f878c3856f17896979b2a4379ba1f09c83e374931ea15cc835c5dd2eee9b368"},
     {file = "croniter-6.0.0.tar.gz", hash = "sha256:37c504b313956114a983ece2c2b07790b1f1094fe9d81cc94739214748255577"},
@@ -2132,7 +2132,7 @@ version = "43.0.3"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "cryptography-43.0.3-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:bf7a1932ac4176486eab36a19ed4c0492da5d97123f1406cf15e41b05e787d2e"},
     {file = "cryptography-43.0.3-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:63efa177ff54aec6e1c0aefaa1a241232dcd37413835a9b674b6e3f0ae2bfd3e"},
@@ -2198,7 +2198,7 @@ version = "1.3.46"
 description = "Diff and patch tables"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "daff-1.3.46.tar.gz", hash = "sha256:22d0da9fd6a3275b54c926a9c97b180f9258aad65113ea18f3fec52cbadcd818"},
 ]
@@ -2209,7 +2209,7 @@ version = "0.6.7"
 description = "Easily serialize dataclasses to and from JSON."
 optional = false
 python-versions = "<4.0,>=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dataclasses_json-0.6.7-py3-none-any.whl", hash = "sha256:0dbf33f26c8d5305befd61b39d2b3414e8a407bedc2834dea9b8d642666fb40a"},
     {file = "dataclasses_json-0.6.7.tar.gz", hash = "sha256:b6b3e528266ea45b9535223bc53ca645f5208833c29229e847b3f26a1cc55fc0"},
@@ -2225,7 +2225,7 @@ version = "1.16.3"
 description = "The set of adapter protocols and base functionality that supports integration with dbt-core"
 optional = false
 python-versions = ">=3.9.0"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dbt_adapters-1.16.3-py3-none-any.whl", hash = "sha256:234af35140ce42753d093ff056d4cd40a7d2d80c062ed9030891494dff9a18b7"},
     {file = "dbt_adapters-1.16.3.tar.gz", hash = "sha256:d49d3e57befaba36edf009e6fe001d95dd0c902e5aa6678df0812dcd905259ff"},
@@ -2246,7 +2246,7 @@ version = "1.9.2"
 description = "The Clickhouse plugin for dbt (data build tool)"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dbt_clickhouse-1.9.2-py2.py3-none-any.whl", hash = "sha256:5489d83a39e824f0c33f12ad9b7b8eb4b65350d765c0d54f0d7f7f09db54e663"},
     {file = "dbt_clickhouse-1.9.2.tar.gz", hash = "sha256:bcc1e979d28bac39e43f51e561d97268c988cc4b27d1b3af3d42cca92de1fec1"},
@@ -2264,7 +2264,7 @@ version = "1.27.1"
 description = "The shared common utilities that dbt-core and adapter implementations use"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dbt_common-1.27.1-py3-none-any.whl", hash = "sha256:9753e8f79d2d648c7716dd9e07dbbdd518ca3c3d101b6d2ee6e423ea9b6a20b5"},
     {file = "dbt_common-1.27.1.tar.gz", hash = "sha256:1cc5b0579768a03800d90ecd9b5646c9648c970b8f278d85e1760c836007a4db"},
@@ -2296,7 +2296,7 @@ version = "1.10.3"
 description = "With dbt, data analysts and engineers can build analytics the way engineers build applications."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dbt_core-1.10.3-py3-none-any.whl", hash = "sha256:58e75978f51402e0e6a1077aa0ae8bdf991a0fc101030ebbf9c9d29fe4bf86b1"},
     {file = "dbt_core-1.10.3.tar.gz", hash = "sha256:d9cd4bcc2296f10750b1ee649b162e6809f97cf838881e7f5d0e998ce820322e"},
@@ -2332,7 +2332,7 @@ version = "0.5.1"
 description = "A tool to analyze and extract information from Jinja used in dbt projects."
 optional = false
 python-versions = ">=3.6.1"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dbt_extractor-0.5.1-cp38-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:3b91e6106b967d908b34f83929d3f50ee2b498876a1be9c055fe060ed728c556"},
     {file = "dbt_extractor-0.5.1-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:3614ce9f83ae4cd0dc95f77730034a793a1c090a52dcf698ba1c94050afe3a8b"},
@@ -2358,7 +2358,7 @@ version = "1.0.348"
 description = "Public proto bindings for dbt"
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dbt_protos-1.0.348-py3-none-any.whl", hash = "sha256:5d89171b64058170b39a80fc69abbd344170ac637c5dee90e7b3cbd7b1a43fe4"},
     {file = "dbt_protos-1.0.348.tar.gz", hash = "sha256:d8834c685c323b1533c1c7fdb5db5636cffab2f1a58515caba54b3dc13a3578b"},
@@ -2373,7 +2373,7 @@ version = "0.8.5"
 description = "The shared semantic layer definitions that dbt-core and MetricFlow use"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dbt_semantic_interfaces-0.8.5-py3-none-any.whl", hash = "sha256:6c595de97b4fde8fcbd6286c2d811429da05b6c6f2fa172a2af4424f8063d155"},
     {file = "dbt_semantic_interfaces-0.8.5.tar.gz", hash = "sha256:b01e5533a9fdc9503865d3610ccee36b6f7b5c14f9950f628607d3eff10ad466"},
@@ -2408,7 +2408,7 @@ version = "7.0.1"
 description = "Deep Difference and Search of any Python object/data. Recreate objects by adding adding deltas to each other."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "deepdiff-7.0.1-py3-none-any.whl", hash = "sha256:447760081918216aa4fd4ca78a4b6a848b81307b2ea94c810255334b759e1dc3"},
     {file = "deepdiff-7.0.1.tar.gz", hash = "sha256:260c16f052d4badbf60351b4f77e8390bee03a0b516246f6839bc813fb429ddf"},
@@ -2427,7 +2427,7 @@ version = "1.2.15"
 description = "Python @deprecated decorator to deprecate old python classes, functions or methods."
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Deprecated-1.2.15-py2.py3-none-any.whl", hash = "sha256:353bc4a8ac4bfc96800ddab349d89c25dec1079f65fd53acdcc1e0b975b21320"},
     {file = "deprecated-1.2.15.tar.gz", hash = "sha256:683e561a90de76239796e6b6feac66b99030d2dd3fcf61ef996330f14bbb9b0d"},
@@ -2445,7 +2445,7 @@ version = "0.3.9"
 description = "serialize all of Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "dill-0.3.9-py3-none-any.whl", hash = "sha256:468dff3b89520b474c0397703366b7b95eebe6303f108adf9b19da1f702be87a"},
     {file = "dill-0.3.9.tar.gz", hash = "sha256:81aa267dddf68cbfe8029c42ca9ec6a4ab3b22371d1c450abc54422577b4512c"},
@@ -2461,7 +2461,7 @@ version = "2.6.1"
 description = "DNS toolkit"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "dnspython-2.6.1-py3-none-any.whl", hash = "sha256:5ef3b9680161f6fa89daf8ad451b5f1a33b18ae8a1c6778cdf4b43f08c0a6e50"},
     {file = "dnspython-2.6.1.tar.gz", hash = "sha256:e8f0f9c23a7b7cb99ded64e6c3a6f3e701d78f50c55e002b839dea7225cff7cc"},
@@ -2482,7 +2482,7 @@ version = "2.2.0"
 description = "A robust email address syntax and deliverability validation library."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "email_validator-2.2.0-py3-none-any.whl", hash = "sha256:561977c2d73ce3611850a06fa56b414621e0c8faa9d66f2611407d87465da631"},
     {file = "email_validator-2.2.0.tar.gz", hash = "sha256:cb690f344c617a714f22e66ae771445a1ceb46821152df8e165c5f9a364582b7"},
@@ -2498,7 +2498,7 @@ version = "1.2.2"
 description = "Backport of PEP 654 (exception groups)"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 markers = "python_version < \"3.11\""
 files = [
     {file = "exceptiongroup-1.2.2-py3-none-any.whl", hash = "sha256:3111b9d131c238bec2f8f516e123e14ba243563fb135d3fe885990585aa7795b"},
@@ -2514,7 +2514,7 @@ version = "2.2.0"
 description = "Get the currently executing AST node of a frame, and other information"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev"]
+groups = ["api", "dev"]
 files = [
     {file = "executing-2.2.0-py2.py3-none-any.whl", hash = "sha256:11387150cad388d62750327a53d3339fad4888b39a6fe233c3afbb54ecffd3aa"},
     {file = "executing-2.2.0.tar.gz", hash = "sha256:5d108c028108fe2551d1a7b2e8b713341e2cb4fc0aa7dcf966fa4327a5226755"},
@@ -2529,7 +2529,7 @@ version = "0.116.1"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "fastapi-0.116.1-py3-none-any.whl", hash = "sha256:c46ac7c312df840f0c9e220f7964bada936781bc4e2e6eb71f1c4d7553786565"},
     {file = "fastapi-0.116.1.tar.gz", hash = "sha256:ed52cbf946abfd70c5a0dccb24673f0670deeb517a88b3544d03c2a6bf283143"},
@@ -2551,7 +2551,7 @@ version = "2.2.5"
 description = "A simple framework for building complex web applications."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask-2.2.5-py3-none-any.whl", hash = "sha256:58107ed83443e86067e41eff4631b058178191a355886f8e479e347fa1285fdf"},
     {file = "Flask-2.2.5.tar.gz", hash = "sha256:edee9b0a7ff26621bd5a8c10ff484ae28737a2410d99b0bb9a6850c7fb977aa0"},
@@ -2574,7 +2574,7 @@ version = "4.5.3"
 description = "Simple and rapid application development framework, built on top of Flask. includes detailed security, auto CRUD generation for your models, google charts and much more."
 optional = false
 python-versions = "~=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask-AppBuilder-4.5.3.tar.gz", hash = "sha256:2f3f953b8134bed02ed0236ab7e85e6c354b1b3680069d76dfadc017eb05c561"},
     {file = "Flask_AppBuilder-4.5.3-py3-none-any.whl", hash = "sha256:9223db6c43939f8646fc6458d949ea4d5de182e8455bdfb0010bb37359d96ccf"},
@@ -2615,7 +2615,7 @@ version = "2.0.0"
 description = "Adds i18n/l10n support to Flask applications"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask-Babel-2.0.0.tar.gz", hash = "sha256:f9faf45cdb2e1a32ea2ec14403587d4295108f35017a7821a2b1acb8cfd9257d"},
     {file = "Flask_Babel-2.0.0-py3-none-any.whl", hash = "sha256:e6820a052a8d344e178cdd36dd4bb8aea09b4bda3d5f9fa9f008df2c7f2f5468"},
@@ -2636,7 +2636,7 @@ version = "2.3.1"
 description = "Adds caching support to Flask applications."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask_Caching-2.3.1-py3-none-any.whl", hash = "sha256:d3efcf600e5925ea5a2fcb810f13b341ae984f5b52c00e9d9070392f3ca10761"},
     {file = "flask_caching-2.3.1.tar.gz", hash = "sha256:65d7fd1b4eebf810f844de7de6258254b3248296ee429bdcb3f741bcbf7b98c9"},
@@ -2652,7 +2652,7 @@ version = "4.7.1"
 description = "Extended JWT integration with Flask"
 optional = false
 python-versions = "<4,>=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask_JWT_Extended-4.7.1-py2.py3-none-any.whl", hash = "sha256:52f35bf0985354d7fb7b876e2eb0e0b141aaff865a22ff6cc33d9a18aa987978"},
     {file = "flask_jwt_extended-4.7.1.tar.gz", hash = "sha256:8085d6757505b6f3291a2638c84d207e8f0ad0de662d1f46aa2f77e658a0c976"},
@@ -2672,7 +2672,7 @@ version = "3.11.0"
 description = "Rate limiting for flask applications"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "flask_limiter-3.11.0-py3-none-any.whl", hash = "sha256:ae7ef0b3742228df91073d72eab0ce114fe6b00e6201ad9e12aefd53fe597352"},
@@ -2697,7 +2697,7 @@ version = "3.12"
 description = "Rate limiting for flask applications"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "flask_limiter-3.12-py3-none-any.whl", hash = "sha256:b94c9e9584df98209542686947cf647f1ede35ed7e4ab564934a2bb9ed46b143"},
@@ -2722,7 +2722,7 @@ version = "0.6.3"
 description = "User authentication and session management for Flask."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask-Login-0.6.3.tar.gz", hash = "sha256:5e23d14a607ef12806c699590b89d0f0e0d67baeec599d75947bf9c147330333"},
     {file = "Flask_Login-0.6.3-py3-none-any.whl", hash = "sha256:849b25b82a436bf830a054e74214074af59097171562ab10bfa999e6b78aae5d"},
@@ -2738,7 +2738,7 @@ version = "0.5.0"
 description = "Server-side session support for Flask"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask-Session-0.5.0.tar.gz", hash = "sha256:190875e6aebf2953c6803d42379ef3b934bc209ef8ef006f97aecb08f5aaeb86"},
     {file = "flask_session-0.5.0-py3-none-any.whl", hash = "sha256:1619bcbc16f04f64e90f8e0b17145ba5c9700090bb1294e889956c1282d58631"},
@@ -2754,7 +2754,7 @@ version = "2.5.1"
 description = "Adds SQLAlchemy support to your Flask application."
 optional = false
 python-versions = ">= 2.7, != 3.0.*, != 3.1.*, != 3.2.*, != 3.3.*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Flask-SQLAlchemy-2.5.1.tar.gz", hash = "sha256:2bda44b43e7cacb15d4e05ff3cc1f8bc97936cc464623424102bfc2c35e95912"},
     {file = "Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl", hash = "sha256:f12c3d4cc5cc7fdcc148b9527ea05671718c3ea45d50c7e732cceb33f574b390"},
@@ -2770,7 +2770,7 @@ version = "1.2.2"
 description = "Form rendering, validation, and CSRF protection for Flask with WTForms."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "flask_wtf-1.2.2-py3-none-any.whl", hash = "sha256:e93160c5c5b6b571cf99300b6e01b72f9a101027cab1579901f8b10c5daf0b70"},
     {file = "flask_wtf-1.2.2.tar.gz", hash = "sha256:79d2ee1e436cf570bccb7d916533fa18757a2f18c290accffab1b9a0b684666b"},
@@ -2856,7 +2856,7 @@ version = "1.5.0"
 description = "A list-like structure which implements collections.abc.MutableSequence"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "frozenlist-1.5.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:5b6a66c18b5b9dd261ca98dffcb826a525334b2f29e7caa54e182255c5f6a65a"},
     {file = "frozenlist-1.5.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:d1b3eb7b05ea246510b43a7e53ed1653e55c2121019a97e60cad7efb881a97bb"},
@@ -2958,7 +2958,7 @@ version = "2024.10.0"
 description = "File-system specification"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "fsspec-2024.10.0-py3-none-any.whl", hash = "sha256:03b9a6785766a4de40368b88906366755e2819e758b83705c88cd7cb5fe81871"},
     {file = "fsspec-2024.10.0.tar.gz", hash = "sha256:eda2d8a4116d4f2429db8550f2457da57279247dd930bb12f821b58391359493"},
@@ -2998,7 +2998,7 @@ version = "1.1.20250805"
 description = "RE2 Python bindings"
 optional = false
 python-versions = "~=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "google_re2-1.1.20250805-1-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:7d2a7dea1448733184a99516a41f28ffcfc9eda345697a14fd5c6d8144b60841"},
     {file = "google_re2-1.1.20250805-1-cp310-cp310-macosx_13_0_x86_64.whl", hash = "sha256:51b4e3c5e6f3f74193666295385b44e1043e55cf98e4b933fe11a0d7a2457a67"},
@@ -3062,7 +3062,7 @@ version = "1.70.0"
 description = "Common protobufs used in Google APIs"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "googleapis_common_protos-1.70.0-py3-none-any.whl", hash = "sha256:b8bfcca8c25a2bb253e0e0b0adaf8c00773e5e6af6fd92397576680b807e0fd8"},
     {file = "googleapis_common_protos-1.70.0.tar.gz", hash = "sha256:0e1b44e0ea153e6594f9f394fef15193a68aaaea2d843f83e2742717ca753257"},
@@ -3080,7 +3080,7 @@ version = "3.1.1"
 description = "Lightweight in-process concurrent programming"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 markers = "platform_machine == \"aarch64\" or platform_machine == \"ppc64le\" or platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"win32\" or platform_machine == \"WIN32\""
 files = [
     {file = "greenlet-3.1.1-cp310-cp310-macosx_11_0_universal2.whl", hash = "sha256:0bbae94a29c9e5c7e4a2b7f0aae5c17e8e90acbfd3bf6270eeba60c39fce3563"},
@@ -3168,7 +3168,7 @@ version = "1.69.0"
 description = "HTTP/2-based RPC framework"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "grpcio-1.69.0-cp310-cp310-linux_armv7l.whl", hash = "sha256:2060ca95a8db295ae828d0fc1c7f38fb26ccd5edf9aa51a0f44251f5da332e97"},
     {file = "grpcio-1.69.0-cp310-cp310-macosx_12_0_universal2.whl", hash = "sha256:2e52e107261fd8fa8fa457fe44bfadb904ae869d87c1280bf60f93ecd3e79278"},
@@ -3236,7 +3236,7 @@ version = "23.0.0"
 description = "WSGI HTTP Server for UNIX"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "gunicorn-23.0.0-py3-none-any.whl", hash = "sha256:ec400d38950de4dfd418cff8328b2c8faed0edb0d517d3394e457c317908ca4d"},
     {file = "gunicorn-23.0.0.tar.gz", hash = "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec"},
@@ -3258,7 +3258,7 @@ version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
     {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
@@ -3270,7 +3270,7 @@ version = "1.0.7"
 description = "A minimal low-level HTTP client."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "httpcore-1.0.7-py3-none-any.whl", hash = "sha256:a3fff8f43dc260d5bd363d9f9cf1830fa3a458b332856f34282de498ed420edd"},
     {file = "httpcore-1.0.7.tar.gz", hash = "sha256:8551cb62a169ec7162ac7be8d4817d561f60e08eaa485234898414bb5a8a0b4c"},
@@ -3292,7 +3292,7 @@ version = "0.28.1"
 description = "The next generation HTTP client."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"},
     {file = "httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"},
@@ -3317,7 +3317,7 @@ version = "3.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "idna-3.10-py3-none-any.whl", hash = "sha256:946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"},
     {file = "idna-3.10.tar.gz", hash = "sha256:12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"},
@@ -3332,7 +3332,7 @@ version = "8.7.0"
 description = "Read metadata from Python packages"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "importlib_metadata-8.7.0-py3-none-any.whl", hash = "sha256:e5dd1551894c77868a30651cef00984d50e1002d06942a7101d34870c5f02afd"},
     {file = "importlib_metadata-8.7.0.tar.gz", hash = "sha256:d13b81ad223b890aa16c5471f2ac3056cf76c5f10f82d6f9292f0b415f389000"},
@@ -3380,7 +3380,7 @@ version = "0.5.1"
 description = "A port of Ruby on Rails inflector to Python"
 optional = false
 python-versions = ">=3.5"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "inflection-0.5.1-py2.py3-none-any.whl", hash = "sha256:f38b2b640938a4f35ade69ac3d053042959b62a0f1076a5bbaa1b9526605a8a2"},
     {file = "inflection-0.5.1.tar.gz", hash = "sha256:1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"},
@@ -3392,7 +3392,7 @@ version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "iniconfig-2.0.0-py3-none-any.whl", hash = "sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374"},
     {file = "iniconfig-2.0.0.tar.gz", hash = "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"},
@@ -3443,7 +3443,7 @@ version = "0.6.1"
 description = "An ISO 8601 date/time/duration parser and formatter"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "isodate-0.6.1-py2.py3-none-any.whl", hash = "sha256:0751eece944162659049d35f4f549ed815792b38793f07cf73381c1c87cbed96"},
     {file = "isodate-0.6.1.tar.gz", hash = "sha256:48c5881de7e8b0a0d648cb024c8062dc84e7b840ed81e864c7614fd3c127bde9"},
@@ -3458,7 +3458,7 @@ version = "2.2.0"
 description = "Safely pass data to untrusted environments and back."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "itsdangerous-2.2.0-py3-none-any.whl", hash = "sha256:c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef"},
     {file = "itsdangerous-2.2.0.tar.gz", hash = "sha256:e0050c0b7da1eea53ffaf149c0cfbb5c6e2e2b69c4bef22c81fa6eb73e5f6173"},
@@ -3490,7 +3490,7 @@ version = "3.1.6"
 description = "A very fast and expressive template engine."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"},
     {file = "jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"},
@@ -3508,7 +3508,7 @@ version = "1.0.1"
 description = "JSON Matching Expressions"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "jmespath-1.0.1-py3-none-any.whl", hash = "sha256:02e2e4cc71b5bcab88332eebf907519190dd9e6e82107fa7f83b1003a6252980"},
     {file = "jmespath-1.0.1.tar.gz", hash = "sha256:90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"},
@@ -3520,7 +3520,7 @@ version = "1.7.0"
 description = "A final implementation of JSONPath for Python that aims to be standard compliant, including arithmetic and binary comparison operators and providing clear AST for metaprogramming."
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "jsonpath-ng-1.7.0.tar.gz", hash = "sha256:f6f5f7fd4e5ff79c785f1573b394043b39849fb2bb47bcead935d12b00beab3c"},
     {file = "jsonpath_ng-1.7.0-py2-none-any.whl", hash = "sha256:898c93fc173f0c336784a3fa63d7434297544b7198124a68f9a3ef9597b0ae6e"},
@@ -3536,7 +3536,7 @@ version = "1.0.6"
 description = "A more powerful JSONPath implementation in modern python"
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "jsonpath-python-1.0.6.tar.gz", hash = "sha256:dd5be4a72d8a2995c3f583cf82bf3cd1a9544cfdabf2d22595b67aff07349666"},
     {file = "jsonpath_python-1.0.6-py3-none-any.whl", hash = "sha256:1e3b78df579f5efc23565293612decee04214609208a2335884b3ee3f786b575"},
@@ -3548,7 +3548,7 @@ version = "4.23.0"
 description = "An implementation of JSON Schema validation for Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "jsonschema-4.23.0-py3-none-any.whl", hash = "sha256:fbadb6f8b144a8f8cf9f0b89ba94501d143e50411a1278633f56a7acf7fd5566"},
     {file = "jsonschema-4.23.0.tar.gz", hash = "sha256:d71497fef26351a33265337fa77ffeb82423f3ea21283cd9467bb03999266bc4"},
@@ -3570,7 +3570,7 @@ version = "2023.12.1"
 description = "The JSON Schema meta-schemas and vocabularies, exposed as a Registry"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "jsonschema_specifications-2023.12.1-py3-none-any.whl", hash = "sha256:87e4fdf3a94858b8a2ba2778d9ba57d8a9cafca7c7489c46ba0d30a8bc6a9c3c"},
     {file = "jsonschema_specifications-2023.12.1.tar.gz", hash = "sha256:48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"},
@@ -3801,7 +3801,7 @@ version = "1.10.0"
 description = "A fast and thorough lazy object proxy."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "lazy-object-proxy-1.10.0.tar.gz", hash = "sha256:78247b6d45f43a52ef35c25b5581459e85117225408a4128a3daf8bf9648ac69"},
     {file = "lazy_object_proxy-1.10.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:855e068b0358ab916454464a884779c7ffa312b8925c6f7401e952dcf3b89977"},
@@ -3848,7 +3848,7 @@ version = "0.4.0"
 description = "Python charting for 80% of humans."
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "leather-0.4.0-py2.py3-none-any.whl", hash = "sha256:18290bc93749ae39039af5e31e871fcfad74d26c4c3ea28ea4f681f4571b3a2b"},
     {file = "leather-0.4.0.tar.gz", hash = "sha256:f964bec2086f3153a6c16e707f20cb718f811f57af116075f4c0f4805c608b95"},
@@ -3863,7 +3863,7 @@ version = "1.0.8"
 description = "LEB128(Little Endian Base 128)"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "leb128-1.0.8-py3-none-any.whl", hash = "sha256:76cd271e75ea91aa2fbf7783d60cb7d667b62143d544bcee59159ff258bf4523"},
     {file = "leb128-1.0.8.tar.gz", hash = "sha256:3a52dca242f93f87a3d766380a93a3fad53ef4044f03018d21705d3b2d9021ee"},
@@ -3875,7 +3875,7 @@ version = "4.2"
 description = "Rate limiting utilities"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "limits-4.2-py3-none-any.whl", hash = "sha256:e6b66078dfb11b971fc3a2a794c598697bce3d9cf7bff242fa0b413875b86dea"},
@@ -3905,7 +3905,7 @@ version = "5.5.0"
 description = "Rate limiting utilities"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "limits-5.5.0-py3-none-any.whl", hash = "sha256:57217d01ffa5114f7e233d1f5e5bdc6fe60c9b24ade387bf4d5e83c5cf929bae"},
@@ -3935,7 +3935,7 @@ version = "2.0.3"
 description = "Links recognition library with FULL unicode support."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "linkify-it-py-2.0.3.tar.gz", hash = "sha256:68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"},
     {file = "linkify_it_py-2.0.3-py3-none-any.whl", hash = "sha256:6bcbc417b0ac14323382aef5c5192c0075bf8a9d6b41820a2b66371eac6b6d79"},
@@ -3956,7 +3956,7 @@ version = "0.12.2"
 description = "Platform-independent file locking module"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "lockfile-0.12.2-py2.py3-none-any.whl", hash = "sha256:6c3cb24f344923d30b2785d5ad75182c8ea7ac1b6171b08657258ec7429d50fa"},
     {file = "lockfile-0.12.2.tar.gz", hash = "sha256:6aed02de03cba24efabcd600b30540140634fc06cfa603822d508d5361e9f799"},
@@ -3968,7 +3968,7 @@ version = "4.6.0"
 description = "The best Python observability tool! 🪵🔥"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "logfire-4.6.0-py3-none-any.whl", hash = "sha256:d322844db7a2f1935976f2852a07e3753489ecc4e83fa288173b05a453bb1cbf"},
     {file = "logfire-4.6.0.tar.gz", hash = "sha256:974bc8f4efd3aa9df2d0c7b1d53b35dc4612ff5cee2be6c40dd65e5c26eab694"},
@@ -4014,7 +4014,7 @@ version = "5.4.0"
 description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "lxml-5.4.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:e7bc6df34d42322c5289e37e9971d6ed114e3776b45fa879f734bded9d1fea9c"},
     {file = "lxml-5.4.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:6854f8bd8a1536f8a1d9a3655e6354faa6406621cf857dc27b681b69860645c7"},
@@ -4163,7 +4163,7 @@ version = "4.4.4"
 description = "LZ4 Bindings for Python"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "lz4-4.4.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f170abb8416c4efca48e76cac2c86c3185efdf841aecbe5c190121c42828ced0"},
     {file = "lz4-4.4.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:d33a5105cd96ebd32c3e78d7ece6123a9d2fb7c18b84dec61f27837d9e0c496c"},
@@ -4219,7 +4219,7 @@ version = "1.3.8"
 description = "A super-fast templating language that borrows the best ideas from the existing templating languages."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "Mako-1.3.8-py3-none-any.whl", hash = "sha256:42f48953c7eb91332040ff567eb7eea69b22e7a4affbc5ba8e845e8f730f6627"},
     {file = "mako-1.3.8.tar.gz", hash = "sha256:577b97e414580d3e088d47c2dbbe9594aa7a5146ed2875d4dfa9075af2dd3cc8"},
@@ -4239,7 +4239,7 @@ version = "3.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "markdown-it-py-3.0.0.tar.gz", hash = "sha256:e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"},
     {file = "markdown_it_py-3.0.0-py3-none-any.whl", hash = "sha256:355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1"},
@@ -4264,7 +4264,7 @@ version = "2.1.5"
 description = "Safely add untrusted strings to HTML/XML markup."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "MarkupSafe-2.1.5-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:a17a92de5231666cfbe003f0e4b9b3a7ae3afb1ec2845aadc2bacc93ff85febc"},
     {file = "MarkupSafe-2.1.5-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:72b6be590cc35924b02c78ef34b467da4ba07e4e0f0454a2c5907f473fc50ce5"},
@@ -4334,7 +4334,7 @@ version = "3.22.0"
 description = "A lightweight library for converting complex datatypes to and from native Python datatypes."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "marshmallow-3.22.0-py3-none-any.whl", hash = "sha256:71a2dce49ef901c3f97ed296ae5051135fd3febd2bf43afe0ae9a82143a494d9"},
     {file = "marshmallow-3.22.0.tar.gz", hash = "sha256:4972f529104a220bb8637d595aa4c9762afbe7f7a77d82dc58c1615d70c5823e"},
@@ -4354,7 +4354,7 @@ version = "3.2.0"
 description = "marshmallow multiplexing schema"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "marshmallow_oneofschema-3.2.0-py3-none-any.whl", hash = "sha256:19c87e6124ef05e2831e5c631168c909a50a8fe399921b9841b75fef3785be8c"},
     {file = "marshmallow_oneofschema-3.2.0.tar.gz", hash = "sha256:c06c8d9f14d51ffff152d66d85bd5f27d55cff10752a3b1f8c1f948bf5f597a0"},
@@ -4373,7 +4373,7 @@ version = "0.28.2"
 description = "SQLAlchemy integration with the marshmallow (de)serialization library"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "marshmallow-sqlalchemy-0.28.2.tar.gz", hash = "sha256:2ab0f1280c793e5aec81deab3e63ec23688ddfe05e5f38ac960368a1079520a1"},
     {file = "marshmallow_sqlalchemy-0.28.2-py2.py3-none-any.whl", hash = "sha256:c31b3bdf794de1d78c53e1c495502cbb3eeb06ed216869980c71d6159e7e9e66"},
@@ -4396,7 +4396,7 @@ version = "3.14"
 description = "Fast and well tested serialization library"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "mashumaro-3.14-py3-none-any.whl", hash = "sha256:c12a649599a8f7b1a0b35d18f12e678423c3066189f7bc7bd8dd431c5c8132c3"},
     {file = "mashumaro-3.14.tar.gz", hash = "sha256:5ef6f2b963892cbe9a4ceb3441dfbea37f8c3412523f25d42e9b3a7186555f1d"},
@@ -4559,7 +4559,7 @@ version = "0.4.2"
 description = "Collection of plugins for markdown-it-py"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "mdit_py_plugins-0.4.2-py3-none-any.whl", hash = "sha256:0c673c3f889399a33b95e88d2f0d111b4447bdfea7f237dab2d488f459835636"},
@@ -4580,7 +4580,7 @@ version = "0.5.0"
 description = "Collection of plugins for markdown-it-py"
 optional = false
 python-versions = ">=3.10"
-groups = ["main"]
+groups = ["airflow"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "mdit_py_plugins-0.5.0-py3-none-any.whl", hash = "sha256:07a08422fc1936a5d26d146759e9155ea466e842f5ab2f7d2266dd084c8dab1f"},
@@ -4601,7 +4601,7 @@ version = "0.1.2"
 description = "Markdown URL utilities"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
     {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
@@ -4613,7 +4613,7 @@ version = "0.4.7"
 description = "Expand standard functools to methods"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "methodtools-0.4.7-py2.py3-none-any.whl", hash = "sha256:5e188c780b236adc12e75b5f078c5afb419ef99eb648569fc6d7071f053a1f11"},
     {file = "methodtools-0.4.7.tar.gz", hash = "sha256:e213439dd64cfe60213f7015da6efe5dd4003fd89376db3baa09fe13ec2bb0ba"},
@@ -4632,7 +4632,7 @@ version = "7.2.15"
 description = "MinIO Python SDK for Amazon S3 Compatible Cloud Storage"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "minio-7.2.15-py3-none-any.whl", hash = "sha256:c06ef7a43e5d67107067f77b6c07ebdd68733e5aa7eed03076472410ca19d876"},
     {file = "minio-7.2.15.tar.gz", hash = "sha256:5247df5d4dca7bfa4c9b20093acd5ad43e82d8710ceb059d79c6eea970f49f79"},
@@ -4672,7 +4672,7 @@ version = "10.5.0"
 description = "More routines for operating on iterables, beyond itertools"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "more-itertools-10.5.0.tar.gz", hash = "sha256:5482bfef7849c25dc3c6dd53a6173ae4795da2a41a80faea6700d9f5846c5da6"},
     {file = "more_itertools-10.5.0-py3-none-any.whl", hash = "sha256:037b0d3203ce90cca8ab1defbbdac29d5f993fc20131f3664dc8d6acfa872aef"},
@@ -4684,7 +4684,7 @@ version = "1.1.0"
 description = "MessagePack serializer"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "msgpack-1.1.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:7ad442d527a7e358a469faf43fda45aaf4ac3249c8310a82f0ccff9164e5dccd"},
     {file = "msgpack-1.1.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:74bed8f63f8f14d75eec75cf3d04ad581da6b914001b474a5d3cd3372c8cc27d"},
@@ -4758,7 +4758,7 @@ version = "6.1.0"
 description = "multidict implementation"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "multidict-6.1.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3380252550e372e8511d49481bd836264c009adb826b23fefcc5dd3c69692f60"},
     {file = "multidict-6.1.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:99f826cbf970077383d7de805c0681799491cb939c25450b9b5b3ced03ca99f1"},
@@ -4863,7 +4863,7 @@ version = "1.0.0"
 description = "Type system extensions for programs checked with the mypy type checker."
 optional = false
 python-versions = ">=3.5"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "mypy_extensions-1.0.0-py3-none-any.whl", hash = "sha256:4392f6c0eb8a5668a69e23d168ffa70f0be9ccfd32b5cc2d26a34ae5b844552d"},
     {file = "mypy_extensions-1.0.0.tar.gz", hash = "sha256:75dbf8955dc00442a438fc4d0666508a9a97b6bd41aa2f0ffe9d2f2725af0782"},
@@ -4875,7 +4875,7 @@ version = "3.1"
 description = "Python package for creating and manipulating graphs and networks"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "networkx-3.1-py3-none-any.whl", hash = "sha256:4f33f68cb2afcf86f28a45f43efc27a9386b535d567d2127f8f61d51dec58d36"},
     {file = "networkx-3.1.tar.gz", hash = "sha256:de346335408f84de0eada6ff9fafafff9bcda11f0a0dfaa931133debb146ab61"},
@@ -4894,7 +4894,7 @@ version = "1.24.4"
 description = "Fundamental package for array computing in Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "numpy-1.24.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c0bfb52d2169d58c1cdb8cc1f16989101639b34c7d3ce60ed70b19c63eba0b64"},
     {file = "numpy-1.24.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:ed094d4f0c177b1b8e7aa9cba7d6ceed51c0e569a5318ac0ca9a090680a6a1b1"},
@@ -4932,7 +4932,7 @@ version = "1.36.0"
 description = "OpenTelemetry Python API"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "opentelemetry_api-1.36.0-py3-none-any.whl", hash = "sha256:02f20bcacf666e1333b6b1f04e647dc1d5111f86b8e510238fcc56d7762cda8c"},
     {file = "opentelemetry_api-1.36.0.tar.gz", hash = "sha256:9a72572b9c416d004d492cbc6e61962c0501eaf945ece9b5a0f56597d8348aa0"},
@@ -4948,7 +4948,7 @@ version = "1.36.0"
 description = "OpenTelemetry Collector Exporters"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "opentelemetry_exporter_otlp-1.36.0-py3-none-any.whl", hash = "sha256:de93b7c45bcc78296998775d52add7c63729e83ef2cd6560730a6b336d7f6494"},
     {file = "opentelemetry_exporter_otlp-1.36.0.tar.gz", hash = "sha256:72f166ea5a8923ac42889337f903e93af57db8893de200369b07401e98e4e06b"},
@@ -4964,7 +4964,7 @@ version = "1.36.0"
 description = "OpenTelemetry Protobuf encoding"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "opentelemetry_exporter_otlp_proto_common-1.36.0-py3-none-any.whl", hash = "sha256:0fc002a6ed63eac235ada9aa7056e5492e9a71728214a61745f6ad04b923f840"},
     {file = "opentelemetry_exporter_otlp_proto_common-1.36.0.tar.gz", hash = "sha256:6c496ccbcbe26b04653cecadd92f73659b814c6e3579af157d8716e5f9f25cbf"},
@@ -4979,7 +4979,7 @@ version = "1.36.0"
 description = "OpenTelemetry Collector Protobuf over gRPC Exporter"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "opentelemetry_exporter_otlp_proto_grpc-1.36.0-py3-none-any.whl", hash = "sha256:734e841fc6a5d6f30e7be4d8053adb703c70ca80c562ae24e8083a28fadef211"},
     {file = "opentelemetry_exporter_otlp_proto_grpc-1.36.0.tar.gz", hash = "sha256:b281afbf7036b325b3588b5b6c8bb175069e3978d1bd24071f4a59d04c1e5bbf"},
@@ -5000,7 +5000,7 @@ version = "1.36.0"
 description = "OpenTelemetry Collector Protobuf over HTTP Exporter"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "opentelemetry_exporter_otlp_proto_http-1.36.0-py3-none-any.whl", hash = "sha256:3d769f68e2267e7abe4527f70deb6f598f40be3ea34c6adc35789bea94a32902"},
     {file = "opentelemetry_exporter_otlp_proto_http-1.36.0.tar.gz", hash = "sha256:dd3637f72f774b9fc9608ab1ac479f8b44d09b6fb5b2f3df68a24ad1da7d356e"},
@@ -5021,7 +5021,7 @@ version = "0.57b0"
 description = "Instrumentation Tools & Auto Instrumentation for OpenTelemetry Python"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "opentelemetry_instrumentation-0.57b0-py3-none-any.whl", hash = "sha256:9109280f44882e07cec2850db28210b90600ae9110b42824d196de357cbddf7e"},
     {file = "opentelemetry_instrumentation-0.57b0.tar.gz", hash = "sha256:f2a30135ba77cdea2b0e1df272f4163c154e978f57214795d72f40befd4fcf05"},
@@ -5039,7 +5039,7 @@ version = "1.36.0"
 description = "OpenTelemetry Python Proto"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "opentelemetry_proto-1.36.0-py3-none-any.whl", hash = "sha256:151b3bf73a09f94afc658497cf77d45a565606f62ce0c17acb08cd9937ca206e"},
     {file = "opentelemetry_proto-1.36.0.tar.gz", hash = "sha256:0f10b3c72f74c91e0764a5ec88fd8f1c368ea5d9c64639fb455e2854ef87dd2f"},
@@ -5054,7 +5054,7 @@ version = "1.36.0"
 description = "OpenTelemetry Python SDK"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "opentelemetry_sdk-1.36.0-py3-none-any.whl", hash = "sha256:19fe048b42e98c5c1ffe85b569b7073576ad4ce0bcb6e9b4c6a39e890a6c45fb"},
     {file = "opentelemetry_sdk-1.36.0.tar.gz", hash = "sha256:19c8c81599f51b71670661ff7495c905d8fdf6976e41622d5245b791b06fa581"},
@@ -5071,7 +5071,7 @@ version = "0.57b0"
 description = "OpenTelemetry Semantic Conventions"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "opentelemetry_semantic_conventions-0.57b0-py3-none-any.whl", hash = "sha256:757f7e76293294f124c827e514c2a3144f191ef175b069ce8d1211e1e38e9e78"},
     {file = "opentelemetry_semantic_conventions-0.57b0.tar.gz", hash = "sha256:609a4a79c7891b4620d64c7aac6898f872d790d75f22019913a660756f27ff32"},
@@ -5087,7 +5087,7 @@ version = "4.1.0"
 description = "An OrderedSet is a custom MutableSet that remembers its order, so that every"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "ordered-set-4.1.0.tar.gz", hash = "sha256:694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8"},
     {file = "ordered_set-4.1.0-py3-none-any.whl", hash = "sha256:046e1132c71fcf3330438a539928932caf51ddbc582496833e23de611de14562"},
@@ -5102,7 +5102,7 @@ version = "24.2"
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "packaging-24.2-py3-none-any.whl", hash = "sha256:09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"},
     {file = "packaging-24.2.tar.gz", hash = "sha256:c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"},
@@ -5114,7 +5114,7 @@ version = "1.5.3"
 description = "Powerful data structures for data analysis, time series, and statistics"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "pandas-1.5.3-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3749077d86e3a2f0ed51367f30bf5b82e131cc0f14260c4d3e499186fccc4406"},
     {file = "pandas-1.5.3-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:972d8a45395f2a2d26733eb8d0f629b2f90bebe8e8eddbb8829b180c09639572"},
@@ -5163,7 +5163,7 @@ version = "2.6"
 description = "Parse human-readable date/time text."
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "parsedatetime-2.6-py3-none-any.whl", hash = "sha256:cb96edd7016872f58479e35879294258c71437195760746faffedb692aef000b"},
     {file = "parsedatetime-2.6.tar.gz", hash = "sha256:4cb368fbb18a0b7231f4d76119165451c8d2e35951455dfee97c62a87b04d455"},
@@ -5191,7 +5191,7 @@ version = "0.12.1"
 description = "Utility library for gitignore style pattern matching of file paths."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
     {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
@@ -5203,7 +5203,7 @@ version = "3.0.0"
 description = "Python datetimes made easy"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pendulum-3.0.0-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:2cf9e53ef11668e07f73190c805dbdf07a1939c3298b78d5a9203a86775d1bfd"},
     {file = "pendulum-3.0.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:fb551b9b5e6059377889d2d878d940fd0bbb80ae4810543db18e6f77b02c5ef6"},
@@ -5431,7 +5431,7 @@ version = "1.5.0"
 description = "plugin and hook calling mechanisms for python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pluggy-1.5.0-py3-none-any.whl", hash = "sha256:44e1ad92c8ca002de6377e165f3e0f1be63266ab4d554740532335b9d75ea669"},
     {file = "pluggy-1.5.0.tar.gz", hash = "sha256:2cffa88e94fdc978c4c574f15f9e59b7f4201d439195c3715ca9e2486f1d0cf1"},
@@ -5447,7 +5447,7 @@ version = "3.11"
 description = "Python Lex & Yacc"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "ply-3.11-py2.py3-none-any.whl", hash = "sha256:096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce"},
     {file = "ply-3.11.tar.gz", hash = "sha256:00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"},
@@ -5459,7 +5459,7 @@ version = "0.2.1"
 description = "Rison encoder/decoder"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "prison-0.2.1-py2.py3-none-any.whl", hash = "sha256:f90bab63fca497aa0819a852f64fb21a4e181ed9f6114deaa5dc04001a7555c5"},
     {file = "prison-0.2.1.tar.gz", hash = "sha256:e6cd724044afcb1a8a69340cad2f1e3151a5839fd3a8027fd1357571e797c599"},
@@ -5492,7 +5492,7 @@ version = "0.2.0"
 description = "Accelerated property cache"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "propcache-0.2.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:c5869b8fd70b81835a6f187c5fdbe67917a04d7e52b6e7cc4e5fe39d55c39d58"},
     {file = "propcache-0.2.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:952e0d9d07609d9c5be361f33b0d6d650cd2bae393aabb11d9b719364521984b"},
@@ -5600,7 +5600,7 @@ version = "5.29.5"
 description = ""
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "protobuf-5.29.5-cp310-abi3-win32.whl", hash = "sha256:3f1c6468a2cfd102ff4703976138844f78ebd1fb45f49011afc5139e9e283079"},
     {file = "protobuf-5.29.5-cp310-abi3-win_amd64.whl", hash = "sha256:3f76e3a3675b4a4d867b52e4a5f5b78a2ef9565549d4037e06cf7b0942b1d3fc"},
@@ -5621,7 +5621,7 @@ version = "6.1.1"
 description = "Cross-platform lib for process and system monitoring in Python."
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "psutil-6.1.1-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:9ccc4316f24409159897799b83004cb1e24f9819b0dcf9c0b68bdcb6cefee6a8"},
     {file = "psutil-6.1.1-cp27-cp27m-manylinux2010_i686.whl", hash = "sha256:ca9609c77ea3b8481ab005da74ed894035936223422dc591d6772b147421f777"},
@@ -5652,7 +5652,7 @@ version = "2.9.10"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "psycopg2-binary-2.9.10.tar.gz", hash = "sha256:4b3df0e6990aa98acda57d983942eff13d824135fe2250e6522edaa782a06de2"},
     {file = "psycopg2_binary-2.9.10-cp310-cp310-macosx_12_0_x86_64.whl", hash = "sha256:0ea8e3d0ae83564f2fc554955d327fa081d065c8ca5cc6d2abb643e2c9c1200f"},
@@ -5758,7 +5758,7 @@ version = "17.0.0"
 description = "Python library for Apache Arrow"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pyarrow-17.0.0-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:a5c8b238d47e48812ee577ee20c9a2779e6a5904f1708ae240f53ecbee7c9f07"},
     {file = "pyarrow-17.0.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:db023dc4c6cae1015de9e198d41250688383c3f9af8f565370ab2b4cb5f62655"},
@@ -5810,7 +5810,7 @@ version = "3.14.1"
 description = "Python DB API 2.0 (PEP 249) client for Amazon Athena"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pyathena-3.14.1-py3-none-any.whl", hash = "sha256:cdba338da81cc982d9babdbf801631655a5fd4ce9bf4e44a257efa431d891b36"},
     {file = "pyathena-3.14.1.tar.gz", hash = "sha256:ff628261595b52bc2b74809c42ef89886f74be01371506e289fdb0bc4f653993"},
@@ -5835,7 +5835,7 @@ version = "2.22"
 description = "C parser in Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pycparser-2.22-py3-none-any.whl", hash = "sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc"},
     {file = "pycparser-2.22.tar.gz", hash = "sha256:491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"},
@@ -5847,7 +5847,7 @@ version = "3.23.0"
 description = "Cryptographic library for Python"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pycryptodome-3.23.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:a176b79c49af27d7f6c12e4b178b0824626f40a7b9fed08f712291b6d54bf566"},
     {file = "pycryptodome-3.23.0-cp27-cp27m-manylinux2010_i686.whl", hash = "sha256:573a0b3017e06f2cffd27d92ef22e46aa3be87a2d317a5abf7cc0e84e321bd75"},
@@ -5898,7 +5898,7 @@ version = "2.11.7"
 description = "Data validation using Python type hints"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "pydantic-2.11.7-py3-none-any.whl", hash = "sha256:dde5df002701f6de26248661f6835bbe296a47bf73990135c7d07ce741b9623b"},
     {file = "pydantic-2.11.7.tar.gz", hash = "sha256:d989c3c6cb79469287b1569f7447a17848c998458d49ebe294e975b9baf0f0db"},
@@ -5906,6 +5906,7 @@ files = [
 
 [package.dependencies]
 annotated-types = ">=0.6.0"
+email-validator = {version = ">=2.0.0", optional = true, markers = "extra == \"email\""}
 pydantic-core = "2.33.2"
 typing-extensions = ">=4.12.2"
 typing-inspection = ">=0.4.0"
@@ -5920,7 +5921,7 @@ version = "2.33.2"
 description = "Core functionality for Pydantic validation and serialization"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "pydantic_core-2.33.2-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:2b3d326aaef0c0399d9afffeb6367d5e26ddc24d351dbc9c636840ac355dc5d8"},
     {file = "pydantic_core-2.33.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:0e5b2671f05ba48b94cb90ce55d8bdcaaedb8ba00cc5359f6810fc918713983d"},
@@ -6032,7 +6033,7 @@ version = "2.19.1"
 description = "Pygments is a syntax highlighting package written in Python."
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "pygments-2.19.1-py3-none-any.whl", hash = "sha256:9ea1544ad55cecf4b8242fab6dd35a93bbce657034b0611ee383099054ab6d8c"},
     {file = "pygments-2.19.1.tar.gz", hash = "sha256:61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"},
@@ -6047,7 +6048,7 @@ version = "2.10.1"
 description = "JSON Web Token implementation in Python"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "PyJWT-2.10.1-py3-none-any.whl", hash = "sha256:dcdd193e30abefd5debf142f9adfcdd2b58004e644f25406ffaebd50bd98dacb"},
     {file = "pyjwt-2.10.1.tar.gz", hash = "sha256:3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953"},
@@ -6080,7 +6081,7 @@ version = "8.3.4"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pytest-8.3.4-py3-none-any.whl", hash = "sha256:50e16d954148559c9a74109af1eaf0c945ba2d8f30f0a3d3335edde19788b6f6"},
     {file = "pytest-8.3.4.tar.gz", hash = "sha256:965370d062bce11e73868e0335abac31b4d3de0e82f4007408d242b4f8610761"},
@@ -6103,7 +6104,7 @@ version = "3.14.0"
 description = "Thin-wrapper around the mock package for easier use with pytest"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pytest-mock-3.14.0.tar.gz", hash = "sha256:2719255a1efeceadbc056d6bf3df3d1c5015530fb40cf347c0f9afac88410bd0"},
     {file = "pytest_mock-3.14.0-py3-none-any.whl", hash = "sha256:0b72c38033392a5f4621342fe11e9219ac11ec9d375f8e2a0c164539e0d70f6f"},
@@ -6121,7 +6122,7 @@ version = "3.1.2"
 description = "Library to implement a well-behaved Unix daemon process."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "python_daemon-3.1.2-py3-none-any.whl", hash = "sha256:b906833cef63502994ad48e2eab213259ed9bb18d54fa8774dcba2ff7864cec6"},
     {file = "python_daemon-3.1.2.tar.gz", hash = "sha256:f7b04335adc473de877f5117e26d5f1142f4c9f7cd765408f0877757be5afbf4"},
@@ -6143,7 +6144,7 @@ version = "2.9.0.post0"
 description = "Extensions to the standard Python datetime module"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"},
     {file = "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"},
@@ -6158,7 +6159,7 @@ version = "0.16.0"
 description = "Python NVD3 - Chart Library for d3.js"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "python-nvd3-0.16.0.tar.gz", hash = "sha256:0115887289b3f751716ddd05c7b53ac5f05e71201e52496decdac453a50dcf7e"},
 ]
@@ -6173,7 +6174,7 @@ version = "8.0.4"
 description = "A Python slugify application that also handles Unicode"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "python-slugify-8.0.4.tar.gz", hash = "sha256:59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856"},
     {file = "python_slugify-8.0.4-py2.py3-none-any.whl", hash = "sha256:276540b79961052b66b7d116620b36518847f52d5fd9e3a70164fc8c50faa6b8"},
@@ -6191,7 +6192,7 @@ version = "1.1.8"
 description = "Time expression parser"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "pytimeparse-1.1.8-py2.py3-none-any.whl", hash = "sha256:04b7be6cc8bd9f5647a6325444926c3ac34ee6bc7e69da4367ba282f076036bd"},
     {file = "pytimeparse-1.1.8.tar.gz", hash = "sha256:e86136477be924d7e670646a98561957e8ca7308d44841e21f5ddea757556a0a"},
@@ -6203,7 +6204,7 @@ version = "2024.2"
 description = "World timezone definitions, modern and historical"
 optional = false
 python-versions = "*"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "pytz-2024.2-py2.py3-none-any.whl", hash = "sha256:31c7c1817eb7fae7ca4b8c7ee50c72f93aa2dd863de768e1ef4245d426aa0725"},
     {file = "pytz-2024.2.tar.gz", hash = "sha256:2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"},
@@ -6215,7 +6216,7 @@ version = "6.0.2"
 description = "YAML parser and emitter for Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0a9a2848a5b7feac301353437eb7d5957887edbf81d56e903999a75a3d743086"},
     {file = "PyYAML-6.0.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:29717114e51c84ddfba879543fb232a6ed60086602313ca38cce623c1d62cfbf"},
@@ -6278,7 +6279,7 @@ version = "2.1.7"
 description = "Redshift interface library"
 optional = false
 python-versions = ">=3.6"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "redshift_connector-2.1.7-py3-none-any.whl", hash = "sha256:99c0eef62b5c38283275a33056740949ad45a0e1c0d9da7a8f7fe674cf290d8b"},
 ]
@@ -6303,7 +6304,7 @@ version = "0.35.1"
 description = "JSON Referencing + Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "referencing-0.35.1-py3-none-any.whl", hash = "sha256:eda6d3234d62814d1c64e305c1331c9a3a6132da475ab6382eaa997b21ee75de"},
     {file = "referencing-0.35.1.tar.gz", hash = "sha256:25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"},
@@ -6319,7 +6320,7 @@ version = "2.32.3"
 description = "Python HTTP for Humans."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "requests-2.32.3-py3-none-any.whl", hash = "sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6"},
     {file = "requests-2.32.3.tar.gz", hash = "sha256:55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"},
@@ -6341,7 +6342,7 @@ version = "1.0.0"
 description = "A utility belt for advanced users of python-requests"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "requests-toolbelt-1.0.0.tar.gz", hash = "sha256:7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"},
     {file = "requests_toolbelt-1.0.0-py2.py3-none-any.whl", hash = "sha256:cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06"},
@@ -6356,7 +6357,7 @@ version = "0.1.4"
 description = "A pure python RFC3339 validator"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "rfc3339_validator-0.1.4-py2.py3-none-any.whl", hash = "sha256:24f6ec1eda14ef823da9e36ec7113124b39c04d50a4d3d3a3c2859577e7791fa"},
     {file = "rfc3339_validator-0.1.4.tar.gz", hash = "sha256:138a2abdf93304ad60530167e51d2dfb9549521a836871b88d7f4695d0022f6b"},
@@ -6371,7 +6372,7 @@ version = "13.9.4"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 optional = false
 python-versions = ">=3.8.0"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "rich-13.9.4-py3-none-any.whl", hash = "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90"},
     {file = "rich-13.9.4.tar.gz", hash = "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"},
@@ -6391,7 +6392,7 @@ version = "1.6.0"
 description = "Rich help formatters for argparse and optparse"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "rich_argparse-1.6.0-py3-none-any.whl", hash = "sha256:fbe70a1d821b3f2fa8958cddf0cae131870a6e9faa04ab52b409cb1eda809bd7"},
     {file = "rich_argparse-1.6.0.tar.gz", hash = "sha256:092083c30da186f25bcdff8b1d47fdfb571288510fb051e0488a72cc3128de13"},
@@ -6406,7 +6407,7 @@ version = "0.20.1"
 description = "Python bindings to Rust's persistent data structures (rpds)"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "rpds_py-0.20.1-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:a649dfd735fff086e8a9d0503a9f0c7d01b7912a333c7ae77e1515c08c146dad"},
     {file = "rpds_py-0.20.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:f16bc1334853e91ddaaa1217045dd7be166170beec337576818461268a3de67f"},
@@ -6519,7 +6520,7 @@ version = "0.13.0"
 description = "An Amazon S3 Transfer Manager"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "s3transfer-0.13.0-py3-none-any.whl", hash = "sha256:0148ef34d6dd964d0d8cf4311b2b21c474693e57c2e069ec708ce043d2b527be"},
     {file = "s3transfer-0.13.0.tar.gz", hash = "sha256:f5e6db74eb7776a37208001113ea7aa97695368242b364d73e91c981ac522177"},
@@ -6537,7 +6538,7 @@ version = "1.0.21"
 description = "Python library to interact with Amazon SageMaker Unified Studio"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "sagemaker_studio-1.0.21-py3-none-any.whl", hash = "sha256:13ba4a04562fc75a8dbf1c0793779023988b7e23ff52b398df1b5d45d82f6c43"},
     {file = "sagemaker_studio-1.0.21.tar.gz", hash = "sha256:f7d466b98d8fa4f726fcb7cb3149b512ee9e66d7c664b7697cc440b0a4f38403"},
@@ -6672,7 +6673,7 @@ version = "1.4.5"
 description = "An implementation of the SCRAM protocol."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "scramp-1.4.5-py3-none-any.whl", hash = "sha256:50e37c464fc67f37994e35bee4151e3d8f9320e9c204fca83a5d313c121bbbe7"},
     {file = "scramp-1.4.5.tar.gz", hash = "sha256:be3fbe774ca577a7a658117dca014e5d254d158cecae3dd60332dfe33ce6d78e"},
@@ -6709,7 +6710,7 @@ version = "1.3.4"
 description = "A Python module to customize the process title"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "setproctitle-1.3.4-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:0f6661a69c68349172ba7b4d5dd65fec2b0917abc99002425ad78c3e58cf7595"},
     {file = "setproctitle-1.3.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:754bac5e470adac7f7ec2239c485cd0b75f8197ca8a5b86ffb20eb3a3676cc42"},
@@ -6807,7 +6808,7 @@ version = "80.9.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "setuptools-80.9.0-py3-none-any.whl", hash = "sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"},
     {file = "setuptools-80.9.0.tar.gz", hash = "sha256:f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"},
@@ -6828,7 +6829,7 @@ version = "2.0.6"
 description = "Manipulation and analysis of geometric objects"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "shapely-2.0.6-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:29a34e068da2d321e926b5073539fd2a1d4429a2c656bd63f0bd4c8f5b236d0b"},
     {file = "shapely-2.0.6-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:e1c84c3f53144febf6af909d6b581bc05e8785d57e27f35ebaa5c1ab9baba13b"},
@@ -6887,7 +6888,7 @@ version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
     {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
@@ -6899,7 +6900,7 @@ version = "1.3.1"
 description = "Sniff out which async library your code is running under"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"},
     {file = "sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"},
@@ -6911,7 +6912,7 @@ version = "1.1.0"
 description = "Snowplow event tracker for Python. Add analytics to your Python and Django apps, webapps and games"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "snowplow_tracker-1.1.0-py3-none-any.whl", hash = "sha256:24ea32ddac9cca547421bf9ab162f5f33c00711c6ef118ad5f78093cee962224"},
     {file = "snowplow_tracker-1.1.0.tar.gz", hash = "sha256:95d8fdc8bd542fd12a0b9a076852239cbaf0599eda8721deaf5f93f7138fe755"},
@@ -6930,7 +6931,7 @@ version = "2.7"
 description = "A modern CSS selector implementation for Beautiful Soup."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "soupsieve-2.7-py3-none-any.whl", hash = "sha256:6e60cc5c1ffaf1cebcc12e8188320b72071e922c2e897f737cadce79ad5d30c4"},
     {file = "soupsieve-2.7.tar.gz", hash = "sha256:ad282f9b6926286d2ead4750552c8a6142bc4c783fd66b0293547c8fe6ae126a"},
@@ -6942,7 +6943,7 @@ version = "1.4.54"
 description = "Database Abstraction Library"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "SQLAlchemy-1.4.54-cp310-cp310-macosx_12_0_x86_64.whl", hash = "sha256:af00236fe21c4d4f4c227b6ccc19b44c594160cc3ff28d104cdce85855369277"},
     {file = "SQLAlchemy-1.4.54-cp310-cp310-manylinux1_x86_64.manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_5_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1183599e25fa38a1a322294b949da02b4f0da13dbc2688ef9dbe746df573f8a6"},
@@ -7020,7 +7021,7 @@ version = "1.0.2"
 description = "SQLALchemy JSONField implementation for storing dicts at SQL"
 optional = false
 python-versions = ">=3.7.0"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "SQLAlchemy-JSONField-1.0.2.tar.gz", hash = "sha256:dab3abc9d75a1640e7f3d4875564a4199f665d27863da8d5a089e4eaca5e67f2"},
     {file = "SQLAlchemy_JSONField-1.0.2-py3-none-any.whl", hash = "sha256:b2945fa1e60b07d5764a7c73b18da427948b35dd4c07c0e94939001dc2dacf77"},
@@ -7035,7 +7036,7 @@ version = "0.41.2"
 description = "Various utility functions for SQLAlchemy."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "SQLAlchemy-Utils-0.41.2.tar.gz", hash = "sha256:bc599c8c3b3319e53ce6c5c3c471120bd325d0071fb6f38a10e924e3d07b9990"},
     {file = "SQLAlchemy_Utils-0.41.2-py3-none-any.whl", hash = "sha256:85cf3842da2bf060760f955f8467b87983fb2e30f1764fd0e24a48307dc8ec6e"},
@@ -7064,7 +7065,7 @@ version = "0.5.3"
 description = "A non-validating SQL parser."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "sqlparse-0.5.3-py3-none-any.whl", hash = "sha256:cf2196ed3418f3ba5de6af7e82c694a9fbdbfecccdfc72e281548517081f16ca"},
     {file = "sqlparse-0.5.3.tar.gz", hash = "sha256:09f67787f56a0b16ecdbde1bfc7f5d9c3371ca683cfeaa8e6ff60b4807ec9272"},
@@ -7100,7 +7101,7 @@ version = "0.47.3"
 description = "The little ASGI library that shines."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "starlette-0.47.3-py3-none-any.whl", hash = "sha256:89c0778ca62a76b826101e7c709e70680a1699ca7da6b44d38eb0a7e61fe4b51"},
     {file = "starlette-0.47.3.tar.gz", hash = "sha256:6bc94f839cc176c4858894f1f8908f0ab79dfec1a6b8402f6da9be26ebea52e9"},
@@ -7119,7 +7120,7 @@ version = "0.9.0"
 description = "Pretty-print tabular data"
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "tabulate-0.9.0-py3-none-any.whl", hash = "sha256:024ca478df22e9340661486f85298cff5f6dcdba14f3813e8830015b9ed1948f"},
     {file = "tabulate-0.9.0.tar.gz", hash = "sha256:0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"},
@@ -7134,7 +7135,7 @@ version = "9.0.0"
 description = "Retry code until it succeeds"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "tenacity-9.0.0-py3-none-any.whl", hash = "sha256:93de0c98785b27fcf659856aa9f54bfbd399e29969b0621bc7f762bd441b4539"},
     {file = "tenacity-9.0.0.tar.gz", hash = "sha256:807f37ca97d62aa361264d497b0e31e92b8027044942bfa756160d908320d73b"},
@@ -7150,7 +7151,7 @@ version = "3.1.0"
 description = "ANSI color formatting for output in terminal"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "termcolor-3.1.0-py3-none-any.whl", hash = "sha256:591dd26b5c2ce03b9e43f391264626557873ce1d379019786f99b0c2bee140aa"},
     {file = "termcolor-3.1.0.tar.gz", hash = "sha256:6a6dd7fbee581909eeec6a756cff1d7f7c376063b14e4a298dc4980309e55970"},
@@ -7165,7 +7166,7 @@ version = "1.3"
 description = "The most basic Text::Unidecode port"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
     {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
@@ -7177,7 +7178,7 @@ version = "2.2.1"
 description = "A lil' TOML parser"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 markers = "python_version < \"3.11\""
 files = [
     {file = "tomli-2.2.1-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:678e4fa69e4575eb77d103de3df8a895e1591b48e740211bd1067378c69e8249"},
@@ -7236,7 +7237,7 @@ version = "4.12.2"
 description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
@@ -7248,7 +7249,7 @@ version = "0.9.0"
 description = "Runtime inspection utilities for typing module."
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "typing_inspect-0.9.0-py3-none-any.whl", hash = "sha256:9ee6fc59062311ef8547596ab6b955e1b8aa46242d854bfc78f4f6b0eff35f9f"},
     {file = "typing_inspect-0.9.0.tar.gz", hash = "sha256:b23fc42ff6f6ef6954e4852c1fb512cdd18dbea03134f91f856a95ccc9461f78"},
@@ -7264,7 +7265,7 @@ version = "0.4.1"
 description = "Runtime typing introspection tools"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "typing_inspection-0.4.1-py3-none-any.whl", hash = "sha256:389055682238f53b04f7badcb49b989835495a96700ced5dab2d8feae4b26f51"},
     {file = "typing_inspection-0.4.1.tar.gz", hash = "sha256:6ae134cc0203c33377d43188d4064e9b357dba58cff3185f22924610e70a9d28"},
@@ -7279,11 +7280,12 @@ version = "2024.2"
 description = "Provider of IANA time zone data"
 optional = false
 python-versions = ">=2"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "tzdata-2024.2-py2.py3-none-any.whl", hash = "sha256:a48093786cdcde33cad18c2555e8532f34422074448fbc874186f0abd79565cd"},
     {file = "tzdata-2024.2.tar.gz", hash = "sha256:7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc"},
 ]
+markers = {api = "platform_system == \"Windows\""}
 
 [[package]]
 name = "tzlocal"
@@ -7291,7 +7293,7 @@ version = "5.3.1"
 description = "tzinfo object for the local timezone"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "tzlocal-5.3.1-py3-none-any.whl", hash = "sha256:eb1a66c3ef5847adf7a834f1be0800581b683b5608e74f86ecbcef8ab91bb85d"},
     {file = "tzlocal-5.3.1.tar.gz", hash = "sha256:cceffc7edecefea1f595541dbd6e990cb1ea3d19bf01b2809f362a03dd7921fd"},
@@ -7309,7 +7311,7 @@ version = "1.0.3"
 description = "Micro subset of unicode data files for linkify-it-py projects."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "uc-micro-py-1.0.3.tar.gz", hash = "sha256:d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a"},
     {file = "uc_micro_py-1.0.3-py3-none-any.whl", hash = "sha256:db1dffff340817673d7b466ec86114a9dc0e9d4d9b5ba229d9d60e5c12600cd5"},
@@ -7324,7 +7326,7 @@ version = "0.2.6"
 description = "pathlib api extended to use fsspec backends"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "universal_pathlib-0.2.6-py3-none-any.whl", hash = "sha256:700dec2b58ef34b87998513de6d2ae153b22f083197dfafb8544744edabd1b18"},
     {file = "universal_pathlib-0.2.6.tar.gz", hash = "sha256:50817aaeaa9f4163cb1e76f5bdf84207fa05ce728b23fd779479b3462e5430ac"},
@@ -7343,7 +7345,7 @@ version = "1.26.20"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
-groups = ["main"]
+groups = ["airflow", "api"]
 markers = "python_version == \"3.9\""
 files = [
     {file = "urllib3-1.26.20-py2.py3-none-any.whl", hash = "sha256:0ed14ccfbf1c30a9072c7ca157e4319b70d65f623e91e7b32fadb2853431016e"},
@@ -7361,7 +7363,7 @@ version = "2.2.3"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 markers = "python_version >= \"3.10\""
 files = [
     {file = "urllib3-2.2.3-py3-none-any.whl", hash = "sha256:ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac"},
@@ -7380,7 +7382,7 @@ version = "0.35.0"
 description = "The lightning-fast ASGI server."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "uvicorn-0.35.0-py3-none-any.whl", hash = "sha256:197535216b25ff9b785e29a0b79199f55222193d47f820816e7da751e9bc8d4a"},
     {file = "uvicorn-0.35.0.tar.gz", hash = "sha256:bc662f087f7cf2ce11a1d7fd70b90c9f98ef2e2831556dd078d131b96cc94a01"},
@@ -7400,7 +7402,7 @@ version = "3.4.0"
 description = "Python CloudWatch Logging"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "watchtower-3.4.0-py3-none-any.whl", hash = "sha256:5eac65cbf2a7350bb43c3518485230a6135ed7dec7ccb88468828d68ab9fea26"},
     {file = "watchtower-3.4.0.tar.gz", hash = "sha256:7d3c116aff72a73ce8f6fc0addd1d0daa04d3f9d53d87cedca3a5a65a264bf7d"},
@@ -7430,7 +7432,7 @@ version = "2.2.3"
 description = "The comprehensive WSGI web application library."
 optional = false
 python-versions = ">=3.7"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "Werkzeug-2.2.3-py3-none-any.whl", hash = "sha256:56433961bc1f12533306c624f3be5e744389ac61d722175d543e1751285da612"},
     {file = "Werkzeug-2.2.3.tar.gz", hash = "sha256:2e1ccc9417d4da358b9de6f174e3ac094391ea1d4fbef2d667865d819dfd0afe"},
@@ -7448,7 +7450,7 @@ version = "0.4.8"
 description = "'Turn functions and methods into fully controllable objects'"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "wirerope-0.4.8-py2.py3-none-any.whl", hash = "sha256:99e54b9bd9d3a8e18199b87e2c5edf58d7f64e3f7e2f5bb041034025f03a4e68"},
     {file = "wirerope-0.4.8.tar.gz", hash = "sha256:fa172d09eff7534563f315e38712b5fa3b88a1aa3467b539a7510f2e427a7af4"},
@@ -7467,7 +7469,7 @@ version = "1.17.2"
 description = "Module for decorators, wrappers and monkey patching."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow", "api"]
 files = [
     {file = "wrapt-1.17.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:3d57c572081fed831ad2d26fd430d565b76aa277ed1d30ff4d40670b1c0dd984"},
     {file = "wrapt-1.17.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:b5e251054542ae57ac7f3fba5d10bfff615b6c2fb09abeb37d2f1463f841ae22"},
@@ -7556,7 +7558,7 @@ version = "3.2.1"
 description = "Form validation and rendering for Python web development."
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "wtforms-3.2.1-py3-none-any.whl", hash = "sha256:583bad77ba1dd7286463f21e11aa3043ca4869d03575921d1a1698d0715e0fd4"},
     {file = "wtforms-3.2.1.tar.gz", hash = "sha256:df3e6b70f3192e92623128123ec8dca3067df9cfadd43d59681e210cfb8d4682"},
@@ -7574,7 +7576,7 @@ version = "1.15.2"
 description = "Yet another URL library"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "yarl-1.15.2-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:e4ee8b8639070ff246ad3649294336b06db37a94bdea0d09ea491603e0be73b8"},
     {file = "yarl-1.15.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:a7cf963a357c5f00cb55b1955df8bbe68d2f2f65de065160a1c26b85a1e44172"},
@@ -7687,7 +7689,7 @@ version = "3.20.2"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev"]
+groups = ["airflow", "api", "dev"]
 files = [
     {file = "zipp-3.20.2-py3-none-any.whl", hash = "sha256:a817ac80d6cf4b23bf7f2828b7cabf326f15a001bea8b1f9b49631780ba28350"},
     {file = "zipp-3.20.2.tar.gz", hash = "sha256:bc9eb26f4506fda01b81bcde0ca78103b6e62f991b381fec825435c836edbc29"},
@@ -7708,7 +7710,7 @@ version = "0.23.0"
 description = "Zstandard bindings for Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["airflow"]
 files = [
     {file = "zstandard-0.23.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:bf0a05b6059c0528477fba9054d09179beb63744355cab9f38059548fedd46a9"},
     {file = "zstandard-0.23.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:fc9ca1c9718cb3b06634c7c8dec57d24e9438b2aa9a0f02b8bb36bf478538880"},
@@ -7821,7 +7823,7 @@ version = "1.5.7.2"
 description = "ZSTD Bindings for Python"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["api"]
 files = [
     {file = "zstd-1.5.7.2-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:e17104d0e88367a7571dde4286e233126c8551691ceff11f9ae2e3a3ac1bb483"},
     {file = "zstd-1.5.7.2-cp27-cp27m-manylinux1_i686.whl", hash = "sha256:d6ee5dfada4c8fa32f43cc092fcf7d8482da6ad242c22fdf780f7eebd0febcc7"},
@@ -7954,4 +7956,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9,<3.13"
-content-hash = "e107d7738b819e42c3eb46a989a8df5aeb6b5e6a8d8b42683dbf340b9d2538d3"
+content-hash = "6b2c22c3f69bdaf1cec882bf2ddb5d57e511f001f78d49ec388c911ae46dcd8a"
