@@ -172,6 +172,9 @@ So we used ``http Connection type``:
 
 ![airflow connection to airbyte](assets/airflow_conn_to_airbyte_config.png)
 
+You can see an example of Graph of interactions between Airbyte and Airflow applying job to it. Bellow is the Graph one:
+
+![Extraction graph](assets/airbyte_extraction_dag_graph.png)
 As we added Airbyte to airflow network we were able to use the name ``airbyte-abctl-control-plane`` as airbyte hostname.
 
 3. Some [relevant alternatives](https://airbyte.com/blog/orchestrating-airbyte-api-airbyte-cloud-airflow)

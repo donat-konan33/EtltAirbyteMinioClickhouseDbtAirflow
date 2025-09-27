@@ -153,7 +153,7 @@ services:
     command: ["poetry", "run", "uvicorn", "weather_api.main:app", "--host", "0.0.0.0", "--port", "8005"]
     restart: always
     depends_on:
-      - clickhousedb
+      - clickhouse-server
     ports:
       - "8005:8005"
     environment:

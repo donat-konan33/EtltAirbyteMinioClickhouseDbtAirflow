@@ -28,4 +28,4 @@ RUN chmod +x scripts/entrypoint.sh scripts/init_connections.sh
 
 RUN pip3 install --upgrade --no-cache-dir pip \
     && pip3 install poetry \
-    && poetry install --only main
+    && poetry install --with airflow --without dev,api
