@@ -120,8 +120,9 @@ If you encounter issues, consult the [Airbyte S3 destination documentation](http
 Be aware it required to populate ``.env.example`` with environment variables defined into with your own secrets.
 
   ```bash
-  git clone https://github.com/donat-konan33/EtltAirbyteMinioClickhouseDbtAirflow.git
-  cd EtltAirbyteMinioClickhouseDbtAirflow
+  git clone https://github.com/donat-konan33/etl-airbyte-minio-clickhouse-dbt-airflow.git
+  cd etl-airbyte-minio-clickhouse-dbt-airflow
+
   ```
 
 ### 3. **Start the infrastructure**:
